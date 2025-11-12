@@ -78,4 +78,11 @@ public class DialogueEngineManager
             throw new System.Exception("Jeszcze nie zainicjalizowano DialogueEngine!");
         await _client.SaveSettingsAsync(settingsDTO);
     }
+
+    public async Task<string> AskNPCAsync(NPCResponseDTO responseDTO)
+    {
+        if (IsInitialized == false)
+            throw new System.Exception("Jeszcze nie zainicjalizowano DialogueEngine!");
+        return await _client.AskNPCAsync(responseDTO);
+    }
 }

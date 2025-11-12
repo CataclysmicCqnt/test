@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AIClient\AIClient.csproj" />
     <ProjectReference Include="..\DTOModel\DTOModel.csproj" />
   </ItemGroup>
 

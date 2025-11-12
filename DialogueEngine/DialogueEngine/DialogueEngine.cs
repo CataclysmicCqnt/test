@@ -1,4 +1,5 @@
-﻿using DTOModel;
+﻿using AIClient;
+using DTOModel;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,8 @@ namespace DialogueEngine
 {
     public class DialogueEngine
     {
-        private string _databasePath = AppDomain.CurrentDomain.BaseDirectory + "../../../../../Gra_detektywistyczna/Assets/Database";
+        private readonly string _databasePath = AppDomain.CurrentDomain.BaseDirectory + "../../../../../Gra_detektywistyczna/Assets/Database";
+        private readonly AICommunication _aICommunication = new AICommunication();
 
         public string GetGamesToContinue(string[] parameters)
         {
@@ -34,6 +36,24 @@ namespace DialogueEngine
             File.WriteAllText(_databasePath + "/Settings.json", parameters[0]);
 
             return string.Empty;
+        }
+
+        public async Task<string> AskNPC(string[] parameters) 
+        {
+            if (parameters.Length == 0) return string.Empty;
+
+            NPCResponseDTO nPCResponseDTO = JsonConvert.DeserializeObject<NPCResponseDTO>(parameters[0]);
+
+            return await _aICommunication.GenerateNPCResponseAsync(nPCResponseDTO);
+        }
+
+        public async Task<string> GenerateNewScene(string[] parameters)
+        {
+            if (parameters.Length == 0) return string.Empty;
+
+            SceneDTO sceneDTO = JsonConvert.DeserializeObject<SceneDTO>(parameters[0]);
+
+            return await _aICommunication.GenerateNewSceneAsync(sceneDTO);
         }
     }
 }

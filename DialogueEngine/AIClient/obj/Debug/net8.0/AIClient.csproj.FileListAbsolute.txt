@@ -1,0 +1,16 @@
+C:\Projects\wzimLab3\DialogueEngine\AIClient\bin\Debug\net8.0\AIClient.deps.json
+C:\Projects\wzimLab3\DialogueEngine\AIClient\bin\Debug\net8.0\AIClient.dll
+C:\Projects\wzimLab3\DialogueEngine\AIClient\bin\Debug\net8.0\AIClient.pdb
+C:\Projects\wzimLab3\DialogueEngine\AIClient\bin\Debug\net8.0\DTOModel.dll
+C:\Projects\wzimLab3\DialogueEngine\AIClient\bin\Debug\net8.0\DTOModel.pdb
+C:\Projects\wzimLab3\DialogueEngine\AIClient\obj\Debug\net8.0\AIClient.csproj.AssemblyReference.cache
+C:\Projects\wzimLab3\DialogueEngine\AIClient\obj\Debug\net8.0\AIClient.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\wzimLab3\DialogueEngine\AIClient\obj\Debug\net8.0\AIClient.AssemblyInfoInputs.cache
+C:\Projects\wzimLab3\DialogueEngine\AIClient\obj\Debug\net8.0\AIClient.AssemblyInfo.cs
+C:\Projects\wzimLab3\DialogueEngine\AIClient\obj\Debug\net8.0\AIClient.csproj.CoreCompileInputs.cache
+C:\Projects\wzimLab3\DialogueEngine\AIClient\obj\Debug\net8.0\AIClient.sourcelink.json
+C:\Projects\wzimLab3\DialogueEngine\AIClient\obj\Debug\net8.0\AIClient.csproj.Up2Date
+C:\Projects\wzimLab3\DialogueEngine\AIClient\obj\Debug\net8.0\AIClient.dll
+C:\Projects\wzimLab3\DialogueEngine\AIClient\obj\Debug\net8.0\refint\AIClient.dll
+C:\Projects\wzimLab3\DialogueEngine\AIClient\obj\Debug\net8.0\AIClient.pdb
+C:\Projects\wzimLab3\DialogueEngine\AIClient\obj\Debug\net8.0\ref\AIClient.dll

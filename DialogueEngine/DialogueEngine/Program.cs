@@ -1,4 +1,5 @@
-﻿using DialogueEngine;
+﻿using AIClient;
+using DialogueEngine;
 using DTOModel;
 using Newtonsoft.Json;
 using System;
@@ -81,7 +82,25 @@ namespace DialogueEngineApp
 
             object response = method.Invoke(_dialogueEngine, new object[] { methodDTO.ParameterValues });
 
-            return response.ToString();
+            return HandleAsyncMethod(response);
+        }
+
+        private static string HandleAsyncMethod(object response)
+        {
+            if (response is Task task)
+            {
+                task.GetAwaiter().GetResult();
+
+                PropertyInfo? resultProperty = task.GetType().GetProperty("Result");
+                if (resultProperty != null)
+                {
+                    object? result = resultProperty.GetValue(task);
+                    return result?.ToString() ?? string.Empty;
+                }
+                return string.Empty;
+            }
+
+            return response?.ToString() ?? string.Empty;
         }
     }
 }
