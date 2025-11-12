@@ -99,6 +99,29 @@ public class DialogueEngineClient : IDisposable
         return convertedResponse;
     }
 
+    public async Task<SettingsDTO> GetSettingsAsync()
+    {
+        MethodDTO methodDTO = new MethodDTO() { MethodName = "GetSettings" };
+        string serializedMethodDTO = JsonUtility.ToJson(methodDTO);
+
+        string response = await SendCommandAsync(serializedMethodDTO);
+
+        object responseJSON = JsonUtility.FromJson(response, typeof(SettingsDTO));
+        SettingsDTO convertedResponse = responseJSON as SettingsDTO;
+
+        return convertedResponse;
+    }
+
+    public async Task SaveSettingsAsync(SettingsDTO settingsDTO)
+    {
+        string[] parameters = new string[1];
+        parameters[0] = JsonUtility.ToJson(settingsDTO);
+        MethodDTO methodDTO = new MethodDTO() { MethodName = "SaveSettings", ParameterValues = parameters };
+        string serializedMethodDTO = JsonUtility.ToJson(methodDTO);
+
+        await SendCommandAsync(serializedMethodDTO);
+    }
+
     public void Dispose()
     {
         try

@@ -50,7 +50,7 @@ namespace DialogueEngineApp
                         File.AppendAllText(_errorLogPath, ex.Message + '\n');
                     }
 
-                    if (string.IsNullOrWhiteSpace(response) == false)
+                    if (response != null)
                     {
                         await writer.WriteLineAsync(response);
                     }
@@ -79,7 +79,7 @@ namespace DialogueEngineApp
                 File.AppendAllText(_errorLogPath, $"No method called: {methodDTO.MethodName}!\n");
             }
 
-           object response = method.Invoke(_dialogueEngine, null);
+            object response = method.Invoke(_dialogueEngine, new object[] { methodDTO.ParameterValues });
 
             return response.ToString();
         }
