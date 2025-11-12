@@ -5,9 +5,8 @@ using System.Text;
 namespace DTOModel
 {
     [Serializable]
-    public class MethodDTO
+    public class SettingsDTO
     {
-        public string MethodName;
-        public string[] ParameterValues = null;
+        public int Volume;
     }
 }

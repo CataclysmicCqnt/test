@@ -60,8 +60,22 @@ public class DialogueEngineManager
 
     public async Task<GamesToContinueDTO> GetGamesToContinueAsync()
     {
-        if (!IsInitialized)
+        if (IsInitialized == false)
             throw new System.Exception("Jeszcze nie zainicjalizowano DialogueEngine!");
         return await _client.GetGamesToContinueAsync();
+    }
+
+    public async Task<SettingsDTO> GetSettingsAsync()
+    {
+        if (IsInitialized == false)
+            throw new System.Exception("Jeszcze nie zainicjalizowano DialogueEngine!");
+        return await _client.GetSettingsAsync();
+    }
+
+    public async Task SaveSettingsAsync(SettingsDTO settingsDTO)
+    {
+        if (IsInitialized == false)
+            throw new System.Exception("Jeszcze nie zainicjalizowano DialogueEngine!");
+        await _client.SaveSettingsAsync(settingsDTO);
     }
 }
