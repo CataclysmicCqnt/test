@@ -3,3 +3,4 @@ pydantic
 fastapi[standard]
 uvicorn
 python-dotenv
+pyinstaller

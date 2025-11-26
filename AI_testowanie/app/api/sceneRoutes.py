@@ -3,7 +3,7 @@ from fastapi import APIRouter, HTTPException
 
 from app.schema import SceneLoadRequest, SceneLoadResponse
 from app.services.ollamaService import generateStructuredOutput
-from config import settings
+from app.config import settings
 
 try:
 

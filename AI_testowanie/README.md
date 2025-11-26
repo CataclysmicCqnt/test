@@ -70,3 +70,15 @@ Po uruchomieniu skryptu zobaczysz w konsoli menu wyboru trybu:
 | `/npc/chat`    | POST   | Generuje odpowiedź od NPC (mowa, akcja, intencja).         |
 | `/scene/load`  | POST   | Generuje nową scenę (opis, NPC, przedmioty).               |
 | `/health`      | GET    | Sprawdza stan serwera. |
+
+---
+## 📦 Instalacja i Budowanie
+
+### 1️⃣ Instalacja zależności
+```bash
+pip install -r requirements.txt
+```
+### 2️⃣ Kompilacja do pliku .EXE
+```bash
+pyinstaller --noconfirm --oned --name "AI_Server" --hidden-import=uvicorn --add-data "app;app" --add-data "UI_DEV;UI_DEV" runApp.py
+```
