@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from api.npcRoutes import npcRouter
-from api.sceneRoutes import sceneRouter
-from config import settings
+from app.api.npcRoutes import npcRouter
+from app.api.sceneRoutes import sceneRouter
+from app.config import settings
 
 app = FastAPI()
 
