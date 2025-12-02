@@ -122,19 +122,22 @@ public class DialogueEngineClient : IDisposable
         await SendCommandAsync(serializedMethodDTO);
     }
 
-    public async Task<string> AskNPCAsync(NPCResponseDTO responseDTO)
+    public async Task<NPCResponseDTO> AskNPCAsync(NPCRequestDTO requestDTO)
     {
         string[] parameters = new string[1];
-        parameters[0] = JsonUtility.ToJson(responseDTO);
+        parameters[0] = JsonUtility.ToJson(requestDTO);
         MethodDTO methodDTO = new MethodDTO() { MethodName = "AskNPC", ParameterValues = parameters };
         string serializedMethodDTO = JsonUtility.ToJson(methodDTO);
-
         string response = await SendCommandAsync(serializedMethodDTO);
+
+        object responseJSON = JsonUtility.FromJson(response, typeof(NPCResponseDTO));
+        NPCResponseDTO convertedResponse = responseJSON as NPCResponseDTO;
+
+        return convertedResponse;
 
         //object responseJSON = JsonUtility.FromJson(response, typeof(SettingsDTO));
         //SettingsDTO convertedResponse = responseJSON as SettingsDTO;
 
-        return response;
     }
 
     public void Dispose()

@@ -52,9 +52,9 @@ namespace DialogueEngine
         {
             if (parameters.Length == 0) return string.Empty;
 
-            NPCResponseDTO nPCResponseDTO = JsonConvert.DeserializeObject<NPCResponseDTO>(parameters[0]);
+            NPCRequestDTO nPCRequestDTO = JsonConvert.DeserializeObject<NPCRequestDTO>(parameters[0]);
 
-            return await _aICommunication.GenerateNPCResponseAsync(nPCResponseDTO);
+            return await _aICommunication.GenerateNPCResponseAsync(nPCRequestDTO);
         }
 
         public async Task<string> GenerateNewScene(string[] parameters)

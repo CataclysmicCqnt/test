@@ -55,10 +55,12 @@ namespace AIClient
             }
         }
 
-        public async Task<string> GenerateNPCResponseAsync(NPCResponseDTO responseDTO)
+        public async Task<string> GenerateNPCResponseAsync(NPCRequestDTO requestDTO)
         {
-            string json = JsonConvert.SerializeObject(responseDTO);
-            return await StandardPostAsync(json, "/npc/chat");
+            string json = JsonConvert.SerializeObject(requestDTO);
+            var response = await StandardPostAsync(json, "/npc/chat");
+            var npcResponse = JsonConvert.DeserializeObject<NPCResponseDTO>(response);
+            return JsonConvert.SerializeObject(npcResponse);
         }
 
         public async Task<string> GenerateNewSceneAsync(SceneDTO sceneDTO)
