@@ -12,17 +12,32 @@ namespace Assets.MenuScripts
     {
         private async void Awake()
         {
-            NPCResponseDTO npcResponseDTO = new NPCResponseDTO()
+
+            NPCRequestDTO npcRequestDTO = new NPCRequestDTO()
             {
-                NpcName = "John",
-                NpcRole = "Admin",
-                PlayerText = "Hi!",
-                SceneContext = "No context"
+                SceneDescription = "Rozbita gablota w Galerii Apollo. Wokół stoją Joanne, Darmian, Casper i Serena. Chaos po kradzieży",
+                UserText = "Przedstaw się",
+                NPCName = "Joanne Galtier",
             };
-            string response = await DialogueEngineManager.Instance.AskNPCAsync(npcResponseDTO);
-            Debug.Log(response);
+            Debug.Log("New Game Scene Started");
+            NPCResponseDTO response = await DialogueEngineManager.Instance.AskNPCAsync(npcRequestDTO);
+            Dialogue dialogue = new Dialogue("John", response.Speech );
 
-
+            DialogueManager.Instance.EnqueueDialogue(dialogue);
+            DialogueManager.Instance.AskQuestion();
+            DialogueManager.Instance.AskQuestion();
+            npcRequestDTO = new NPCRequestDTO()
+            {
+                SceneDescription = "Rozbita gablota w Galerii Apollo. Wokół stoją Joanne, Darmian, Casper i Serena. Chaos po kradzieży",
+                UserText = "Przedstaw się",
+                NPCName = "Darmian Duchamp",
+            };
+            response = await DialogueEngineManager.Instance.AskNPCAsync(npcRequestDTO);
+            dialogue = new Dialogue("Marek", response.Speech);
+            DialogueManager.Instance.EnqueueDialogue(dialogue);
+            DialogueManager.Instance.AskQuestion();
+            DialogueManager.Instance.AskQuestion();
+            DialogueManager.Instance.PlayDialogue();
         }
 
         public AudioClip sound;
