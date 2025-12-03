@@ -818,8 +818,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -6.2526855, y: 3.572998}
-  m_SizeDelta: {x: 12.5054, y: 7.1459}
+  m_AnchoredPosition: {x: -6.2526855, y: 11.0122}
+  m_SizeDelta: {x: 12.5054, y: -7.7326}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1345162368
 MonoBehaviour:
@@ -955,7 +955,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.5}
+  m_AnchoredPosition: {x: 0, y: -0.5000038}
   m_SizeDelta: {x: -20, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1403399522
@@ -1006,8 +1006,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.3026123, y: -2.1341553}
-  m_SizeDelta: {x: -70.6053, y: -37.7318}
+  m_AnchoredPosition: {x: -0.3026123, y: 36.4146}
+  m_SizeDelta: {x: -70.6053, y: -114.8291}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1456791372
 MonoBehaviour:
@@ -1074,7 +1074,7 @@ MonoBehaviour:
   m_charWidthMaxAdj: 0
   m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
+  m_overflowMode: 4
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 0
@@ -1144,8 +1144,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.31043, y: 1.515}
-  m_SizeDelta: {x: 1664.7, y: 135.33}
+  m_AnchoredPosition: {x: -0.31043, y: 9.6305}
+  m_SizeDelta: {x: 1664.7, y: 119.099}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1513910185
 MonoBehaviour:
@@ -1558,8 +1558,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -716.86, y: 130}
-  m_SizeDelta: {x: -1433.7103, y: -124.396}
+  m_AnchoredPosition: {x: -701.3052, y: 130}
+  m_SizeDelta: {x: -1402.6008, y: -124.396}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1978124117
 MonoBehaviour:
@@ -1692,7 +1692,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Co odpowiesz?
+  m_text: Co powiesz?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
