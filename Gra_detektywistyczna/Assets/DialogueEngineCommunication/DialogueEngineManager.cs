@@ -79,10 +79,10 @@ public class DialogueEngineManager
         await _client.SaveSettingsAsync(settingsDTO);
     }
 
-    public async Task<string> AskNPCAsync(NPCResponseDTO responseDTO)
+    public async Task<NPCResponseDTO> AskNPCAsync(NPCRequestDTO requestDTO)
     {
         if (IsInitialized == false)
             throw new System.Exception("Jeszcze nie zainicjalizowano DialogueEngine!");
-        return await _client.AskNPCAsync(responseDTO);
+        return await _client.AskNPCAsync(requestDTO);
     }
 }

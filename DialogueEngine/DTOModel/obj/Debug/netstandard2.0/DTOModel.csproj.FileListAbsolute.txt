@@ -20,3 +20,14 @@ C:\Users\Piatk\wzimLab3\DialogueEngine\DTOModel\obj\Debug\netstandard2.0\DTOMode
 C:\Users\Piatk\wzimLab3\DialogueEngine\DTOModel\obj\Debug\netstandard2.0\DTOModel.sourcelink.json
 C:\Users\Piatk\wzimLab3\DialogueEngine\DTOModel\obj\Debug\netstandard2.0\DTOModel.dll
 C:\Users\Piatk\wzimLab3\DialogueEngine\DTOModel\obj\Debug\netstandard2.0\DTOModel.pdb
+C:\Users\kris\Desktop\wzimLab3\DialogueEngine\DTOModel\bin\Debug\netstandard2.0\DTOModel.deps.json
+C:\Users\kris\Desktop\wzimLab3\DialogueEngine\DTOModel\bin\Debug\netstandard2.0\DTOModel.dll
+C:\Users\kris\Desktop\wzimLab3\DialogueEngine\DTOModel\bin\Debug\netstandard2.0\DTOModel.pdb
+C:\Users\kris\Desktop\wzimLab3\DialogueEngine\DTOModel\obj\Debug\netstandard2.0\DTOModel.csproj.AssemblyReference.cache
+C:\Users\kris\Desktop\wzimLab3\DialogueEngine\DTOModel\obj\Debug\netstandard2.0\DTOModel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kris\Desktop\wzimLab3\DialogueEngine\DTOModel\obj\Debug\netstandard2.0\DTOModel.AssemblyInfoInputs.cache
+C:\Users\kris\Desktop\wzimLab3\DialogueEngine\DTOModel\obj\Debug\netstandard2.0\DTOModel.AssemblyInfo.cs
+C:\Users\kris\Desktop\wzimLab3\DialogueEngine\DTOModel\obj\Debug\netstandard2.0\DTOModel.csproj.CoreCompileInputs.cache
+C:\Users\kris\Desktop\wzimLab3\DialogueEngine\DTOModel\obj\Debug\netstandard2.0\DTOModel.sourcelink.json
+C:\Users\kris\Desktop\wzimLab3\DialogueEngine\DTOModel\obj\Debug\netstandard2.0\DTOModel.dll
+C:\Users\kris\Desktop\wzimLab3\DialogueEngine\DTOModel\obj\Debug\netstandard2.0\DTOModel.pdb
