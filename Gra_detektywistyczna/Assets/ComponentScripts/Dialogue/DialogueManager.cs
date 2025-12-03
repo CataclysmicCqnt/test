@@ -56,12 +56,12 @@ class DialogueManager : MonoBehaviour
             }
         } 
     }
-    public void AskQuestion()
+    public void AskQuestion(string name)
     {
         Dialogue dialogue = new Dialogue("Ty", sceneContext);
         dialogue.isPlayerPrompt = true;
         EnqueueDialogue(dialogue);
-        EnqueueDialogue(new Dialogue("", ""));
+        EnqueueDialogue(new Dialogue(name, ""));
     }
     public void EnqueueDialogue(Dialogue dialogue)
     {
@@ -89,6 +89,7 @@ class DialogueManager : MonoBehaviour
     public void PromptPlayer()
     {
         HideDialogueText();
+        currentNpcName = dialoguesQueue.Peek().name;
         nameText.text = "Ty";
         EnableUserInput();
         isAwaitingUserInput = true;
@@ -124,7 +125,7 @@ class DialogueManager : MonoBehaviour
     {
         if (isFreeDiscussionEnabled)
         {
-            AskQuestion();
+            AskQuestion(currentNpcName);
             PlayDialogue();
         } 
         else
