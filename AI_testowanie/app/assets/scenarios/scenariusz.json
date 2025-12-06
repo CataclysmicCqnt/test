@@ -1,0 +1,194 @@
+{
+  "scenes": [
+    {
+      "name": "Scena 1 – Biuro Właściciela (Miejsce zbrodni)",
+      "description": "Biuro na tyłach restauracji. Panuje tu nieład świadczący o szamotaninie. Na podłodze leży ciało Majewskiego.",
+      "npcs": [
+        {
+          "name": "Anna 'Ania' Zalewska",
+          "role": "Kelnerka",
+          "description": "Wstrząśnięta odkryciem ciała. Twierdzi, że szef ostatnio ciągle krzyczał."
+        }
+      ],
+      "items": [
+        {
+          "name": "Statuetka 'Złotego Widelca'",
+          "description": "Zakrwawiona nagroda branżowa leżąca obok ciała.",
+          "hints": "Narzędzie zbrodni. Cios zadano w tył głowy."
+        },
+        {
+          "name": "Biurko ofiary",
+          "description": "Stoi na nim otwarta butelka drogiej whisky i dwie szklanki.",
+          "hints": "Ofiara kogoś gościła tuż przed śmiercią."
+        },
+        {
+          "name": "Sejf",
+          "description": "Otwarty i całkowicie pusty sejf w rogu pokoju.",
+          "hints": "Zniknęła gotówka oraz dokumenty."
+        }
+      ]
+    },
+    {
+      "name": "Scena 2 – Sala Restauracyjna (Motywy Finansowe)",
+      "description": "Elegancka, ale pusta sala jadalna. Marek Sokołowski czeka na przesłuchanie.",
+      "npcs": [
+        {
+          "name": "Marek Sokołowski",
+          "role": "Inwestor / Cichy wspólnik",
+          "description": "Przyznaje się do kłótni o pieniądze, ale twierdzi, że wyszedł o 22:00."
+        }
+      ],
+      "items": [
+        {
+          "name": "Zeznanie Marka",
+          "description": "Rozmowa o długach i sprzedaży lokalu.",
+          "hints": "Marek ma alibi na godzinę 22:00, ale nie ukrywa wrogości do ofiary."
+        }
+      ]
+    },
+    {
+      "name": "Scena 3 – Kuchnia (Napięcia Pracownicze)",
+      "description": "Lśniąca stalą kuchnia, teraz zimna i cicha. Kamil nerwowo czyści narzędzia.",
+      "npcs": [
+        {
+          "name": "Kamil Nowak",
+          "role": "Szef kuchni",
+          "description": "Rozczarowany i zdenerwowany. Twierdzi, że wyszedł równo z resztą personelu."
+        }
+      ],
+      "items": [
+        {
+          "name": "Narzędzia kuchenne",
+          "description": "Kamil obsesyjnie czyści noże.",
+          "hints": "Kamil próbuje przekierować podejrzenia na Marka Sokołowskiego."
+        }
+      ]
+    },
+    {
+      "name": "Scena 4 – Tylne Wyjście (Dziura w Alibi)",
+      "description": "Zaułek na tyłach restauracji, miejsce na papierosa dla personelu.",
+      "npcs": [
+        {
+          "name": "Anna 'Ania' Zalewska",
+          "role": "Kelnerka",
+          "description": "Waha się, ale decyduje się wyjawić prawdę o powrocie Kamila."
+        }
+      ],
+      "items": [
+        {
+          "name": "Zeznanie Anny",
+          "description": "Kluczowa informacja o czasie wyjścia personelu.",
+          "hints": "Widziała Kamila wślizgującego się tylnymi drzwiami około 22:30. Jego alibi jest fałszywe."
+        }
+      ]
+    },
+    {
+      "name": "Scena 5 – Biuro (Analiza Dowodów)",
+      "description": "Powrót do biura Majewskiego w celu dokładniejszej analizy brakujących rzeczy.",
+      "npcs": [],
+      "items": [
+        {
+          "name": "Pusty Sejf i Biurko",
+          "description": "Analiza tego, czego brakuje.",
+          "hints": "Zginęła gotówka (rabunek) oraz osobisty notes Majewskiego (motyw osobisty/ukrycie informacji)."
+        }
+      ]
+    },
+    {
+      "name": "Scena 6 – Konfrontacja z Markiem",
+      "description": "Sala restauracyjna. Gracz przyciska Marka w sprawie pustego sejfu.",
+      "npcs": [
+        {
+          "name": "Marek Sokołowski",
+          "role": "Inwestor",
+          "description": "Poci się i przyznaje do powrotu na miejsce zbrodni."
+        }
+      ],
+      "items": [
+        {
+          "name": "Skradzione dokumenty",
+          "description": "Marek przyznaje, że zabrał weksle z otwartego sejfu.",
+          "hints": "Był tam o 23:30, ale twierdzi, że Majewski już nie żył. Wyjaśnia brak dokumentów, ale nie gotówki."
+        }
+      ]
+    },
+    {
+      "name": "Scena 7 – Szatnia Personelu",
+      "description": "Ciasne pomieszczenie z szafkami dla pracowników. Przeszukanie rzeczy osobistych.",
+      "npcs": [],
+      "items": [
+        {
+          "name": "Szafka Kamila",
+          "description": "Ukryte przedmioty pod stertą fartuchów.",
+          "hints": "Wezwania do zapłaty (długi hazardowe) oraz zwinięta w gumkę gotówka (utarg z sejfu). Brak notesu sugeruje, że Kamil go zniszczył."
+        }
+      ]
+    },
+    {
+      "name": "Scena 8 – Finałowa Konfrontacja",
+      "description": "Kuchnia 'Złotego Liścia'. Zebranie wszystkich podejrzanych.",
+      "npcs": [
+        {
+          "name": "Kamil Nowak",
+          "role": "Szef kuchni",
+          "description": "Główny podejrzany, konfrontowany z dowodami finansowymi i fałszywym alibi."
+        },
+        {
+          "name": "Marek Sokołowski",
+          "role": "Inwestor",
+          "description": "Świadek, oczyszczony z zarzutu morderstwa."
+        }
+      ],
+      "items": [
+        {
+          "name": "Zestawienie dowodów",
+          "description": "Finałowe oskarżenie.",
+          "hints": "Długi hazardowe + fałszywe alibi + kradzież gotówki."
+        }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "name": "Zakończenie 1 – Oskarżenie Marka Sokołowskiego (Błędne)",
+      "description": "Gracz uznaje, że Marek zabił Roberta w kłótni o pieniądze. Marek zostaje aresztowany, ale brak dowodów sądowych (brak krwi na ubraniu) i sekcja zwłok go uniewinniają. Odpowiada jedynie za kradzież dokumentów, a morderca ucieka.",
+      "npcs": [
+        {
+          "name": "Marek Sokołowski",
+          "role": "Inwestor",
+          "description": "Niesłusznie oskarżony o morderstwo."
+        }
+      ],
+      "items": []
+    },
+    {
+      "name": "Zakończenie 2 – Oskarżenie Anny Zalewskiej (Błędne)",
+      "description": "Gracz uznaje, że to zbrodnia w afekcie z powodu odtrącenia. Brak twardych dowodów sprawia, że śledztwo utyka w martwym punkcie. Prawdziwy morderca pozostaje na wolności.",
+      "npcs": [
+        {
+          "name": "Anna 'Ania' Zalewska",
+          "role": "Kelnerka",
+          "description": "Niesłusznie oskarżona na podstawie słabego motywu."
+        }
+      ],
+      "items": []
+    },
+    {
+      "name": "Zakończenie 3 – Oskarżenie Kamila Nowaka (Prawidłowe)",
+      "description": "Kamil przyznaje się do winy pod ciężarem dowodów (pieniądze w szafce, alibi obalone przez Annę). Zabił w panice, gdy Majewski chciał wezwać policję z powodu jego kradzieży i długów. Upozorował rabunek.",
+      "npcs": [
+        {
+          "name": "Kamil Nowak",
+          "role": "Szef kuchni",
+          "description": "Morderca. Motyw: długi hazardowe i strach przed więzieniem."
+        },
+        {
+          "name": "Marek Sokołowski",
+          "role": "Inwestor",
+          "description": "Oczyszczony z zarzutu morderstwa, odpowiada za kradzież weksli."
+        }
+      ],
+      "items": []
+    }
+  ]
+}
