@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Piatk\\wzimLab3\\DialogueEngine\\",
+  "WorkspaceRootPath": "C:\\Users\\pelka\\Desktop\\SGGW\\IO\\GraDetektywistyczna\\wzimLab3\\DialogueEngine\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3E0CCF31-6162-4241-94F1-511088747164}|DialogueEngine\\DialogueEngine.csproj|c:\\users\\piatk\\wzimlab3\\dialogueengine\\dialogueengine\\dialogueengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{3E0CCF31-6162-4241-94F1-511088747164}|DialogueEngine\\DialogueEngine.csproj|c:\\users\\pelka\\desktop\\sggw\\io\\gradetektywistyczna\\wzimlab3\\dialogueengine\\dialogueengine\\dialogueengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3E0CCF31-6162-4241-94F1-511088747164}|DialogueEngine\\DialogueEngine.csproj|solutionrelative:dialogueengine\\dialogueengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1FFCA2C1-0FA2-44B5-A273-FD581EE0996D}|DTOModel\\DTOModel.csproj|c:\\users\\piatk\\wzimlab3\\dialogueengine\\dtomodel\\createdgamedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1FFCA2C1-0FA2-44B5-A273-FD581EE0996D}|DTOModel\\DTOModel.csproj|c:\\users\\pelka\\desktop\\sggw\\io\\gradetektywistyczna\\wzimlab3\\dialogueengine\\dtomodel\\createdgamedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1FFCA2C1-0FA2-44B5-A273-FD581EE0996D}|DTOModel\\DTOModel.csproj|solutionrelative:dtomodel\\createdgamedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -24,22 +24,21 @@
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "CreatedGameDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Piatk\\wzimLab3\\DialogueEngine\\DTOModel\\CreatedGameDTO.cs",
+              "DocumentMoniker": "C:\\Users\\pelka\\Desktop\\SGGW\\IO\\GraDetektywistyczna\\wzimLab3\\DialogueEngine\\DTOModel\\CreatedGameDTO.cs",
               "RelativeDocumentMoniker": "DTOModel\\CreatedGameDTO.cs",
-              "ToolTip": "C:\\Users\\Piatk\\wzimLab3\\DialogueEngine\\DTOModel\\CreatedGameDTO.cs",
+              "ToolTip": "C:\\Users\\pelka\\Desktop\\SGGW\\IO\\GraDetektywistyczna\\wzimLab3\\DialogueEngine\\DTOModel\\CreatedGameDTO.cs",
               "RelativeToolTip": "DTOModel\\CreatedGameDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-24T22:16:52.446Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-24T22:16:52.446Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "DialogueEngine.cs",
-              "DocumentMoniker": "C:\\Users\\Piatk\\wzimLab3\\DialogueEngine\\DialogueEngine\\DialogueEngine.cs",
+              "DocumentMoniker": "C:\\Users\\pelka\\Desktop\\SGGW\\IO\\GraDetektywistyczna\\wzimLab3\\DialogueEngine\\DialogueEngine\\DialogueEngine.cs",
               "RelativeDocumentMoniker": "DialogueEngine\\DialogueEngine.cs",
-              "ToolTip": "C:\\Users\\Piatk\\wzimLab3\\DialogueEngine\\DialogueEngine\\DialogueEngine.cs",
+              "ToolTip": "C:\\Users\\pelka\\Desktop\\SGGW\\IO\\GraDetektywistyczna\\wzimLab3\\DialogueEngine\\DialogueEngine\\DialogueEngine.cs",
               "RelativeToolTip": "DialogueEngine\\DialogueEngine.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
