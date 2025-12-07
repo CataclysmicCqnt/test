@@ -22,6 +22,14 @@ npcRouter = APIRouter(prefix="/npc")
 @npcRouter.post("/chat", response_model=NPCChatResponse)
 def chatWithNpc(data: NPCChatRequest):
 
+    if settings.USE_MOCK:
+        print("MOCK MODE: Zwracam stałą odpowiedź NPC.")
+        return {
+            "speech": "Jesteś w trybie testowym, aby zmienić - ustaw w pliku config.py zmienną USE_MOCK na False",
+            "action": "stoi spokojnie",  
+            "intent": "inform"           
+        }
+    
     system_prompt = f"""
       {NPCPERSONA}
 

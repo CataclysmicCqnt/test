@@ -14,10 +14,16 @@ except Exception as e:
 
 sceneRouter = APIRouter(prefix="/scene")
 
-
 @sceneRouter.post("/load", response_model=SceneLoadResponse)
 def load_scene(data: SceneLoadRequest):
     print("Load Scene Called")
+
+    if settings.USE_MOCK:
+        print("MOCK MODE: Zwracam stałą scenę.")
+        return {
+            "extendedDescription": f"To jest MOCKOWY opis rozszerzony dla sceny '{data.name}'. Widzisz tutaj dowód na to, że połączenie z Pythonem działa, mimo braku AI."
+        }
+    
     systemPrompt = f"""
     Jesteś kreatywnym Mistrzem Gry. Twoim zadaniem jest wygenerowanie sceny do gry wideo po polsku.
     Scena musi być zgodna z globalną fabułą.
