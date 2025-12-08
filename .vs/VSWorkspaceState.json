@@ -4,13 +4,13 @@
     "\\DialogueEngine",
     "\\DialogueEngine\\DialogueEngine",
     "\\DialogueEngine\\DialogueEngine\\obj",
-    "\\DialogueEngine\\DialogueEngine\\obj\\Release\\net8.0",
+    "\\DialogueEngine\\DTOModel",
     "\\Gra_detektywistyczna",
     "\\Gra_detektywistyczna\\Assets",
     "\\Gra_detektywistyczna\\Assets\\DialogueEngineCommunication",
     "\\Gra_detektywistyczna\\Assets\\MenuScripts",
     "\\Gra_detektywistyczna\\Packages"
   ],
-  "SelectedNode": "\\DialogueEngine\\DialogueEngine\\DialogueEngine.cs",
+  "SelectedNode": "\\DialogueEngine\\DialogueEngine.sln",
   "PreviewInSolutionExplorer": false
 }

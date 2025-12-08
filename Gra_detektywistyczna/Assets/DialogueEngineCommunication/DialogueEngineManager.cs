@@ -65,6 +65,13 @@ public class DialogueEngineManager
         return await _client.GetGamesToContinueAsync();
     }
 
+    public async Task<SceneScriptDTO> GetSceneAsync(string[] parameters)
+    {
+        if (IsInitialized == false)
+            throw new System.Exception("Jeszcze nie zainicjalizowano DialogueEngine!");
+        return await _client.GetSceneAsync(parameters);
+    }
+
     public async Task<SettingsDTO> GetSettingsAsync()
     {
         if (IsInitialized == false)

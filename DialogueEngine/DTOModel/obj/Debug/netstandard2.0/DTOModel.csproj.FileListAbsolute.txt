@@ -42,3 +42,14 @@ C:\Users\pelka\Desktop\SGGW\IO\GraDetektywistyczna\wzimLab3\DialogueEngine\DTOMo
 C:\Users\pelka\Desktop\SGGW\IO\GraDetektywistyczna\wzimLab3\DialogueEngine\DTOModel\obj\Debug\netstandard2.0\DTOModel.sourcelink.json
 C:\Users\pelka\Desktop\SGGW\IO\GraDetektywistyczna\wzimLab3\DialogueEngine\DTOModel\obj\Debug\netstandard2.0\DTOModel.dll
 C:\Users\pelka\Desktop\SGGW\IO\GraDetektywistyczna\wzimLab3\DialogueEngine\DTOModel\obj\Debug\netstandard2.0\DTOModel.pdb
+C:\Users\admin\wzimLab3\DialogueEngine\DTOModel\bin\Debug\netstandard2.0\DTOModel.deps.json
+C:\Users\admin\wzimLab3\DialogueEngine\DTOModel\bin\Debug\netstandard2.0\DTOModel.dll
+C:\Users\admin\wzimLab3\DialogueEngine\DTOModel\bin\Debug\netstandard2.0\DTOModel.pdb
+C:\Users\admin\wzimLab3\DialogueEngine\DTOModel\obj\Debug\netstandard2.0\DTOModel.csproj.AssemblyReference.cache
+C:\Users\admin\wzimLab3\DialogueEngine\DTOModel\obj\Debug\netstandard2.0\DTOModel.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\admin\wzimLab3\DialogueEngine\DTOModel\obj\Debug\netstandard2.0\DTOModel.AssemblyInfoInputs.cache
+C:\Users\admin\wzimLab3\DialogueEngine\DTOModel\obj\Debug\netstandard2.0\DTOModel.AssemblyInfo.cs
+C:\Users\admin\wzimLab3\DialogueEngine\DTOModel\obj\Debug\netstandard2.0\DTOModel.csproj.CoreCompileInputs.cache
+C:\Users\admin\wzimLab3\DialogueEngine\DTOModel\obj\Debug\netstandard2.0\DTOModel.sourcelink.json
+C:\Users\admin\wzimLab3\DialogueEngine\DTOModel\obj\Debug\netstandard2.0\DTOModel.dll
+C:\Users\admin\wzimLab3\DialogueEngine\DTOModel\obj\Debug\netstandard2.0\DTOModel.pdb

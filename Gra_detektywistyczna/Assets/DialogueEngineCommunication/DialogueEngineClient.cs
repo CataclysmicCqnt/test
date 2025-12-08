@@ -99,6 +99,19 @@ public class DialogueEngineClient : IDisposable
         return convertedResponse;
     }
 
+    public async Task<SceneScriptDTO> GetSceneAsync(string[] parameters)
+    {
+        MethodDTO methodDTO = new MethodDTO() { MethodName = "GetScene", ParameterValues = parameters };
+        string serializedMethodDTO = JsonUtility.ToJson(methodDTO);
+
+        string response = await SendCommandAsync(serializedMethodDTO);
+
+        object responseJSON = JsonUtility.FromJson(response, typeof(SceneScriptDTO));
+        SceneScriptDTO convertedResponse = responseJSON as SceneScriptDTO;
+
+        return convertedResponse;
+    }
+
     public async Task<SettingsDTO> GetSettingsAsync()
     {
         MethodDTO methodDTO = new MethodDTO() { MethodName = "GetSettings" };
