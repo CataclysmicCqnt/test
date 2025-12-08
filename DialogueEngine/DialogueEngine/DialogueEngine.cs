@@ -65,5 +65,26 @@ namespace DialogueEngine
 
             return await _aICommunication.GenerateNewSceneAsync(sceneDTO);
         }
+
+        public string GetScene(string[] parameters)
+        {
+            int sceneNumber = Convert.ToInt32(parameters[1]);
+
+            string scenes = File.ReadAllText(_databasePath + "/" + parameters[0] + ".json");
+            if (scenes == null || scenes == "") return null;
+
+            ScenesScriptDTO scenesDTO = JsonConvert.DeserializeObject<ScenesScriptDTO>(scenes);
+
+            if (scenesDTO == null) return null;
+            if (sceneNumber > scenesDTO.Scenes.Length || sceneNumber <= 0) return null;
+
+            var settings = new JsonSerializerSettings
+            {
+                DateFormatHandling = DateFormatHandling.IsoDateFormat,
+                DateTimeZoneHandling = DateTimeZoneHandling.Utc
+            };
+
+            return JsonConvert.SerializeObject(scenesDTO.Scenes[sceneNumber - 1], settings);
+        }
     }
 }

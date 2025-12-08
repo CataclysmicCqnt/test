@@ -3,9 +3,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using DTOModel;
 using System.Collections.Generic;
+using System;
 
 public class MenuControl : MonoBehaviour
 {
+    public static int CurrentSceneNumber { get; private set; }
+    public static string CurrentScenarioName { get; private set; }
+
     private async void Awake()
     {
         await DialogueEngineManager.InitializeManagerAsync(gameObject);
@@ -29,9 +33,22 @@ public class MenuControl : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void NewGameScene()
+    public async void NewGameScene()
     {
+        string[] parameters = { "scenerio_apollo", "1"};
+
+        CurrentScenarioName = parameters[0];
+        CurrentSceneNumber = int.Parse(parameters[1]);
+        
+        SceneScriptDTO scene = await DialogueEngineManager.Instance.GetSceneAsync(parameters);
         SceneManager.LoadScene("NewGame");
+    }
+
+    public async void NextScene()
+    {
+        string[] parameters = { CurrentScenarioName, (++CurrentSceneNumber).ToString() };
+        SceneScriptDTO scene = await DialogueEngineManager.Instance.GetSceneAsync(parameters);
+        if (scene != null) Debug.Log("Next scene");
     }
 
     public void ContinueGameScene()

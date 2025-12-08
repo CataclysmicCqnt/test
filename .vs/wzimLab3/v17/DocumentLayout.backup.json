@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\Piatk\\wzimLab3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Piatk\\wzimLab3\\DialogueEngine\\DialogueEngine\\DialogueEngine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DialogueEngine\\DialogueEngine\\DialogueEngine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Piatk\\wzimLab3\\Gra_detektywistyczna\\Assets\\MenuScripts\\ContinueGameControl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gra_detektywistyczna\\Assets\\MenuScripts\\ContinueGameControl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -17,6 +13,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Piatk\\wzimLab3\\Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Piatk\\wzimLab3\\DialogueEngine\\DialogueEngine\\DialogueEngine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DialogueEngine\\DialogueEngine\\DialogueEngine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,11 +26,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "DialogueEngineClient.cs",
               "DocumentMoniker": "C:\\Users\\Piatk\\wzimLab3\\Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineClient.cs",
               "RelativeDocumentMoniker": "Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineClient.cs",
@@ -43,7 +43,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "DialogueEngineManager.cs",
               "DocumentMoniker": "C:\\Users\\Piatk\\wzimLab3\\Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineManager.cs",
               "RelativeDocumentMoniker": "Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineManager.cs",
@@ -56,7 +56,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "ContinueGameControl.cs",
               "DocumentMoniker": "C:\\Users\\Piatk\\wzimLab3\\Gra_detektywistyczna\\Assets\\MenuScripts\\ContinueGameControl.cs",
               "RelativeDocumentMoniker": "Gra_detektywistyczna\\Assets\\MenuScripts\\ContinueGameControl.cs",
@@ -69,7 +69,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "DialogueEngine.cs",
               "DocumentMoniker": "C:\\Users\\Piatk\\wzimLab3\\DialogueEngine\\DialogueEngine\\DialogueEngine.cs",
               "RelativeDocumentMoniker": "DialogueEngine\\DialogueEngine\\DialogueEngine.cs",
