@@ -1,4 +1,4 @@
-﻿using DTOModel;
+﻿﻿using DTOModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,32 +43,8 @@ namespace Assets.MenuScripts
             }
         }
 
-        // Pusta metoda pod kliknięcie kafelka
         private void OnGameTileClicked(CreatedGameDTO game)
         {
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //private async void Awake()
-        //{
-        //GamesToContinueDTO gamesToContinue = await DialogueEngineManager.Instance.GetGamesToContinueAsync();
-        //foreach (CreatedGameDTO game in gamesToContinue.GamesToContinue)
-        //{
-        //Debug.Log($"{game.Title}");
-        //}
-        //}
     }
 }

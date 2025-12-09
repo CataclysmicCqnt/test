@@ -1,18 +1,14 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {
+    ".NETFramework,Version=v8.0": {
       "Newtonsoft.Json/13.0.4": {
         "type": "package",
         "compile": {
-          "lib/net6.0/Newtonsoft.Json.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/Newtonsoft.Json.dll": {}
         },
         "runtime": {
-          "lib/net6.0/Newtonsoft.Json.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0/Newtonsoft.Json.dll": {}
         }
       },
       "DTOModel/1.0.0": {
@@ -68,45 +64,39 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net8.0": [
+    ".NETFramework,Version=v8.0": [
       "DTOModel >= 1.0.0",
       "Newtonsoft.Json >= 13.0.4"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\admin\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Komputer\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\AIClient\\AIClient.csproj",
+      "projectUniqueName": "G:\\wzimLab3\\DialogueEngine\\AIClient\\AIClient.csproj",
       "projectName": "AIClient",
-      "projectPath": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\AIClient\\AIClient.csproj",
-      "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\AIClient\\obj\\",
+      "projectPath": "G:\\wzimLab3\\DialogueEngine\\AIClient\\AIClient.csproj",
+      "packagesPath": "C:\\Users\\Komputer\\.nuget\\packages\\",
+      "outputPath": "G:\\wzimLab3\\DialogueEngine\\AIClient\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Komputer\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net8.0"
+        "net80"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net80": {
           "projectReferences": {
-            "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\DTOModel.csproj": {
-              "projectPath": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\DTOModel.csproj"
+            "G:\\wzimLab3\\DialogueEngine\\DTOModel\\DTOModel.csproj": {
+              "projectPath": "G:\\wzimLab3\\DialogueEngine\\DTOModel\\DTOModel.csproj"
             }
           }
         }
@@ -115,40 +105,17 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.300"
+      }
     },
     "frameworks": {
-      "net8.0": {
-        "targetAlias": "net8.0",
+      "net80": {
         "dependencies": {
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.4, )"
           }
         },
-        "imports": [
-          "net461",
-          "net462",
-          "net47",
-          "net471",
-          "net472",
-          "net48",
-          "net481"
-        ],
-        "assetTargetFallback": true,
-        "warn": true,
-        "frameworkReferences": {
-          "Microsoft.NETCore.App": {
-            "privateAssets": "all"
-          }
-        },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "w3NG1MHFpVg=",
+  "dgSpecHash": "vyBjo9lV2bB+ygdcGMOZy3Lp62+cAFYDMRrv4kZ5Ld1mPVro/dHYUQ9mt0XuXAWR5IxAsrN5kDlA+h1xYtmvsQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\DTOModel.csproj",
+  "projectFilePath": "G:\\wzimLab3\\DialogueEngine\\DTOModel\\DTOModel.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\admin\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "C:\\Users\\admin\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
-    "C:\\Users\\admin\\.nuget\\packages\\newtonsoft.json\\13.0.4\\newtonsoft.json.13.0.4.nupkg.sha512"
+    "C:\\Users\\Komputer\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Komputer\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\Komputer\\.nuget\\packages\\newtonsoft.json\\13.0.4\\newtonsoft.json.13.0.4.nupkg.sha512"
   ],
   "logs": []
 }

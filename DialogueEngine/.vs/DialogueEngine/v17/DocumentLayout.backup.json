@@ -38,21 +38,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "NPCDTO.cs",
-              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\NPCDTO.cs",
-              "RelativeDocumentMoniker": "DTOModel\\NPCDTO.cs",
-              "ToolTip": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\NPCDTO.cs",
-              "RelativeToolTip": "DTOModel\\NPCDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T13:31:16.247Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 4,
@@ -63,8 +50,7 @@
               "RelativeToolTip": "DTOModel\\ItemDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T13:31:13.359Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T13:31:13.359Z"
             },
             {
               "$type": "Document",
@@ -76,8 +62,7 @@
               "RelativeToolTip": "DTOModel\\EndingDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T13:31:07.926Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T13:31:07.926Z"
             },
             {
               "$type": "Document",
@@ -89,8 +74,7 @@
               "RelativeToolTip": "DTOModel\\SceneScriptDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T13:31:05.942Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T13:31:05.942Z"
             },
             {
               "$type": "Document",
@@ -102,8 +86,7 @@
               "RelativeToolTip": "DTOModel\\ScenesScriptDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T13:30:23.313Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T13:30:23.313Z"
             },
             {
               "$type": "Document",
@@ -113,10 +96,22 @@
               "RelativeDocumentMoniker": "DialogueEngine\\DialogueEngine.cs",
               "ToolTip": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DialogueEngine\\DialogueEngine.cs",
               "RelativeToolTip": "DialogueEngine\\DialogueEngine.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAcwD8AAABXAAAAAAAAAA==",
+              "ViewState": "AgIAAEQAAAAAAAAAAAA8wFoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-08T12:57:39.16Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NPCDTO.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\NPCDTO.cs",
+              "RelativeDocumentMoniker": "DTOModel\\NPCDTO.cs",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\NPCDTO.cs",
+              "RelativeToolTip": "DTOModel\\NPCDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-08T13:31:16.247Z"
             },
             {
               "$type": "Document",
@@ -128,8 +123,7 @@
               "RelativeToolTip": "DTOModel\\SceneDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-08T13:31:19.604Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-08T13:31:19.604Z"
             }
           ]
         }

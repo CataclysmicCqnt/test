@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
+
 public class DialogueEngineClient : IDisposable
 {
     private readonly string _exePath;
@@ -151,6 +152,21 @@ public class DialogueEngineClient : IDisposable
         //object responseJSON = JsonUtility.FromJson(response, typeof(SettingsDTO));
         //SettingsDTO convertedResponse = responseJSON as SettingsDTO;
 
+    }
+
+    public async Task SaveGameAsync(CreatedGameDTO gameDTO)
+    {
+        string[] parameters = new string[1];
+        parameters[0] = JsonUtility.ToJson(gameDTO);
+        
+        MethodDTO methodDTO = new MethodDTO() 
+        { 
+            MethodName = "SaveGame", 
+            ParameterValues = parameters 
+        };
+        
+        string serializedMethodDTO = JsonUtility.ToJson(methodDTO);
+        await SendCommandAsync(serializedMethodDTO);
     }
 
     public void Dispose()
