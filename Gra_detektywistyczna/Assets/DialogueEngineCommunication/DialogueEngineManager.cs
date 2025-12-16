@@ -38,7 +38,7 @@ public class DialogueEngineManager
     {
         if (_client != null)
         {
-            Debug.Log("Zamkniêcie DialogueEngine!");
+            Debug.Log("Zamkniï¿½cie DialogueEngine!");
             _client.ForceKill();
             _client.Dispose();
         }
@@ -91,5 +91,13 @@ public class DialogueEngineManager
         if (IsInitialized == false)
             throw new System.Exception("Jeszcze nie zainicjalizowano DialogueEngine!");
         return await _client.AskNPCAsync(requestDTO);
+    }
+
+    public async Task SaveGameAsync(CreatedGameDTO gameDTO)
+    {
+        if (IsInitialized == false)
+            throw new System.Exception("Jeszcze nie zainicjalizowano DialogueEngine!");
+        
+        await _client.SaveGameAsync(gameDTO);
     }
 }

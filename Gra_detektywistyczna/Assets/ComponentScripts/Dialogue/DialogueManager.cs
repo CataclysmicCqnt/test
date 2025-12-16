@@ -96,12 +96,14 @@ class DialogueManager : MonoBehaviour
     }
     public async void SendNpcRequest(NPCRequestDTO npcRequestDTO)
     {
+        DialogueContextManager.AddPlayerDialogue("Ty", npcRequestDTO.UserText);
         NPCResponseDTO response =
             await DialogueEngineManager.Instance.AskNPCAsync(npcRequestDTO);
         StopAllCoroutines();
         isAwaitingNPCResponse = false;
         dialoguesQueue.Peek().sentence = response.Speech;
         dialoguesQueue.Peek().name = currentNpcName;
+        DialogueContextManager.AddNPCDialogue(currentNpcName, response.Speech);
         PlayDialogue();
     }
     public void DisplayDialogue(Dialogue dialogue)
@@ -135,7 +137,7 @@ class DialogueManager : MonoBehaviour
     }
     IEnumerator AnimateTypingDots()
     {
-        string baseText = currentNpcName + " myœli";
+        string baseText = currentNpcName + " myï¿½li";
         int dotCount = 0;
 
         while (true)

@@ -86,5 +86,47 @@ namespace DialogueEngine
 
             return JsonConvert.SerializeObject(scenesDTO.Scenes[sceneNumber - 1], settings);
         }
+
+        public string SaveGame(string[] parameters)
+        {
+            try
+            {
+                if (parameters.Length == 0) return "Error: No parameters";
+
+                CreatedGameDTO newGame = JsonConvert.DeserializeObject<CreatedGameDTO>(parameters[0]);
+
+                string gamesJsonPath = _databasePath + "/SavedGames.json";
+                List<CreatedGameDTO> gamesList = new List<CreatedGameDTO>();
+
+                if (File.Exists(gamesJsonPath))
+                {
+                    string gamesJson = File.ReadAllText(gamesJsonPath);
+                    if (!string.IsNullOrEmpty(gamesJson))
+                    {
+                        var existingGames = JsonConvert.DeserializeObject<GamesToContinueDTO>(gamesJson);
+                        if (existingGames != null && existingGames.GamesToContinue != null)
+                        {
+                            gamesList = existingGames.GamesToContinue.ToList();
+                        }
+                    }
+                }
+
+                gamesList.Add(newGame);
+
+                GamesToContinueDTO allGames = new GamesToContinueDTO
+                {
+                    GamesToContinue = gamesList.ToArray()
+                };
+
+                string updatedJson = JsonConvert.SerializeObject(allGames, Formatting.Indented);
+                File.WriteAllText(gamesJsonPath, updatedJson);
+
+                return "Game saved successfully";
+            }
+            catch (Exception ex)
+            {
+                return $"Error: {ex.Message}";
+            }
+        }
     }
 }
