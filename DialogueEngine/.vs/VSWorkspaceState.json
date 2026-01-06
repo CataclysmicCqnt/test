@@ -1,9 +1,7 @@
 {
   "ExpandedNodes": [
     "",
-    "\\DialogueEngine",
-    "\\DTOModel"
+    "\\DialogueEngine"
   ],
-  "SelectedNode": "\\DTOModel\\SceneScriptDTO.cs",
   "PreviewInSolutionExplorer": false
 }

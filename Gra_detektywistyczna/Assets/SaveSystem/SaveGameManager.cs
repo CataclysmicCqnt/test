@@ -26,10 +26,10 @@ public class SaveGameManager : MonoBehaviour
         {
             CreatedGameDTO newGame = new CreatedGameDTO
             {
-                Title = gameTitle,
+                Title = GameSession.CurrentScenarioName,
                 LastSaveDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"),
-                CurrentSceneNumber = GetCurrentSceneNumber(),
-                MaxSceneNumber = 10,
+                CurrentSceneNumber = GameSession.CurrentSceneNumber,
+                MaxSceneNumber = GameSession.MaxSceneNumber,
                 GameHistory = DialogueContextManager.GetFormattedContext()
             };
             
@@ -46,9 +46,6 @@ public class SaveGameManager : MonoBehaviour
             return false;
         }
     }
-    
-    private int GetCurrentSceneNumber()
-    {
-        return MenuControl.CurrentSceneNumber;
-    }
+   
+
 }

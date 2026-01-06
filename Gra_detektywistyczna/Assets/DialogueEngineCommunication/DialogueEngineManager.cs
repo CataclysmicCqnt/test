@@ -100,4 +100,12 @@ public class DialogueEngineManager
         
         await _client.SaveGameAsync(gameDTO);
     }
+
+    public async Task<string> GenerateNewSceneAsync(SceneDTO sceneDTO)
+    {
+        if (IsInitialized == false)
+            throw new System.Exception("Jeszcze nie zainicjalizowano DialogueEngine!");
+
+        return await _client.GenerateNewSceneAsync(sceneDTO);
+    }
 }

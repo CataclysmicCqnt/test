@@ -169,6 +169,23 @@ public class DialogueEngineClient : IDisposable
         await SendCommandAsync(serializedMethodDTO);
     }
 
+    public async Task<string> GenerateNewSceneAsync(SceneDTO sceneDTO)
+    {
+        string[] parameters = new string[1];
+        parameters[0] = JsonUtility.ToJson(sceneDTO);
+
+        MethodDTO methodDTO = new MethodDTO()
+        {
+            MethodName = "GenerateNewScene",
+            ParameterValues = parameters
+        };
+
+        string serializedMethodDTO = JsonUtility.ToJson(methodDTO);
+        string response = await SendCommandAsync(serializedMethodDTO);
+
+        return response;
+    }
+
     public void Dispose()
     {
         try
