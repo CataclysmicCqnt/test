@@ -25,7 +25,7 @@ def chatWithNpc(data: NPCChatRequest):
     if settings.USE_MOCK:
         print("MOCK MODE: Zwracam stałą odpowiedź NPC.")
         return {
-            "speech": "Jesteś w trybie testowym, aby zmienić - ustaw w pliku config.py zmienną USE_MOCK na False",
+            "speech": "Jesteś w trybie testowym",
             "action": "stoi spokojnie",  
             "intent": "inform"           
         }

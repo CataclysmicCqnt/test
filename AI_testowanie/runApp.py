@@ -6,6 +6,7 @@ import threading
 import socket
 import uvicorn
 from app.main import app
+from app.config import settings
 
 IS_TEST_MODE = True
 
@@ -72,10 +73,44 @@ def main():
     import multiprocessing
     multiprocessing.freeze_support()
 
+    # 1. WYŚWIETLENIE MENU
+    print("\n" + "="*50)
+    print("   🕵️  NARRATOR AI - PANEL STARTOWY")
+    print("="*50)
+
+    # --- Pytanie 1: Przeglądarka ---
+    print("\n[1/2] CZY OTWORZYĆ OKNO GRY?")
+    print("   1. TAK - Uruchom grę w przeglądarce")
+    print("   2. NIE - Tylko serwer")
+    wybor_browser = input("   Twój wybór (domyślnie 1): ").strip()
+
+    should_open_browser = True
+    if wybor_browser == "2":
+        should_open_browser = False
+        print("   >> OK, przeglądarka nie zostanie otwarta.")
+    else:
+        print("   >> OK, otwieram grę automatycznie.")
+
+    # --- Pytanie 2: Tryb AI (Mock vs Live) ---
+    print("\n[2/2] JAKI TRYB AI URUCHOMIĆ?")
+    print("   1. MOCK MODE (Bez AI) - Szybki test, stałe odpowiedzi.")
+    print("   2. LIVE AI (Pełne AI) - Generowanie na żywo (wymaga Ollama).")
+    wybor_ai = input("   Twój wybór (domyślnie 1): ").strip()
+
+    if wybor_ai == "2":
+        settings.USE_MOCK = False
+        print("   >> TRYB: LIVE AI 🧠 (Upewnij się, że Ollama działa!)")
+    else:
+        settings.USE_MOCK = True
+        print("   >> TRYB: MOCK 🎭 (Testowe odpowiedzi)")
+
+    print("="*50 + "\n")
+    print("Uruchamiam serwer... (Możesz zminimalizować to okno)")
+
     ollama_proc = start_ollama()
     time.sleep(2)
 
-    if IS_TEST_MODE:
+    if should_open_browser:
         threading.Timer(1.5, open_browser).start()
 
     try:
