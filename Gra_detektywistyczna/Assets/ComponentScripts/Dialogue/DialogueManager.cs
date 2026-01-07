@@ -23,7 +23,26 @@ class DialogueManager : MonoBehaviour
     private Queue<Dialogue> dialoguesQueue;
     public bool isAwaitingUserInput = false;
     public bool isAwaitingNPCResponse = false;
-    
+
+    async void Start()
+    {
+        string history = DialogueContextManager.GetFormattedContext();
+        Debug.Log($"kontekst: {!string.IsNullOrEmpty(history)}");
+
+        sceneContext = "Scenariusz: " + GameSession.CurrentScenarioName;
+
+        if (!string.IsNullOrEmpty(history))
+        {
+            SceneDTO context = new SceneDTO
+            {
+                LocationName = GameSession.CurrentScenarioName,
+                ScenePrompt = "To jest kontynuacja śledztwa. Historia do tej pory: " + history
+            };
+
+            await DialogueEngineManager.Instance.GenerateNewSceneAsync(context);
+        }
+    }
+
     void Awake()
     {
         Instance = this;

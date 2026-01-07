@@ -7,9 +7,6 @@ using System;
 
 public class MenuControl : MonoBehaviour
 {
-    public static int CurrentSceneNumber { get; private set; }
-    public static string CurrentScenarioName { get; private set; }
-
     private async void Awake()
     {
         await DialogueEngineManager.InitializeManagerAsync(gameObject);
@@ -35,10 +32,11 @@ public class MenuControl : MonoBehaviour
 
     public async void NewGameScene()
     {
+        DialogueContextManager.ClearContext();
         string[] parameters = { "scenerio_apollo", "1"};
+        int maxScene = 12;
 
-        CurrentScenarioName = parameters[0];
-        CurrentSceneNumber = int.Parse(parameters[1]);
+        GameSession.StartSession(parameters[0], int.Parse(parameters[1]), maxScene);
         
         SceneScriptDTO scene = await DialogueEngineManager.Instance.GetSceneAsync(parameters);
         SceneManager.LoadScene("NewGame");
@@ -46,9 +44,13 @@ public class MenuControl : MonoBehaviour
 
     public async void NextScene()
     {
-        string[] parameters = { CurrentScenarioName, (++CurrentSceneNumber).ToString() };
+        string[] parameters = { GameSession.CurrentScenarioName, (GameSession.CurrentSceneNumber + 1).ToString() };
         SceneScriptDTO scene = await DialogueEngineManager.Instance.GetSceneAsync(parameters);
-        if (scene != null) Debug.Log("Next scene");
+        if (scene != null)
+        {
+            GameSession.CurrentSceneNumber++;
+            Debug.Log($"Next scene: {GameSession.CurrentSceneNumber}");
+        }
     }
 
     public void ContinueGameScene()

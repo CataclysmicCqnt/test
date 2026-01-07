@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 namespace Assets.MenuScripts
@@ -43,8 +44,23 @@ namespace Assets.MenuScripts
             }
         }
 
-        private void OnGameTileClicked(CreatedGameDTO game)
+        private async Task OnGameTileClicked(CreatedGameDTO game)
         {
+            string scenario = game.Title;
+            int sceneCurrent = game.CurrentSceneNumber;
+            int sceneMax = game.MaxSceneNumber;
+
+            string[] parameters = { scenario, sceneCurrent.ToString()};
+            SceneScriptDTO scene = await DialogueEngineManager.Instance.GetSceneAsync(parameters);
+            if (scene != null) 
+            {
+                DialogueContextManager.SetContext(game.GameHistory);
+                GameSession.StartSession(scenario, sceneCurrent, sceneMax);
+                SceneManager.LoadScene("NewGame");
+
+                Debug.Log($"Game Loaded. Scene {GameSession.CurrentSceneNumber}");
+            }
+            else Debug.Log("Error loading game");
         }
     }
 }
