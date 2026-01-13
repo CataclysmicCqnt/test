@@ -5,6 +5,7 @@ using System.Collections;
 using DTOModel;
 using System.Collections.Generic;
 using TMPro;
+using UnityEngine.EventSystems;
 public
 class DialogueManager : MonoBehaviour
 {
@@ -23,6 +24,8 @@ class DialogueManager : MonoBehaviour
     private Queue<Dialogue> dialoguesQueue;
     public bool isAwaitingUserInput = false;
     public bool isAwaitingNPCResponse = false;
+	
+	private bool isDialogueFullyPrinted = false;
 
     async void Start()
     {
@@ -51,29 +54,59 @@ class DialogueManager : MonoBehaviour
     }
     void Update()
     {
-        if (Keyboard.current.enterKey.wasPressedThisFrame && !isAwaitingNPCResponse)
+        if (Keyboard.current.enterKey.wasPressedThisFrame)
         {
+            if (isAwaitingNPCResponse)
+            {
+                return;
+            }
             if (isAwaitingUserInput)
             {
-                dialoguesHistory.Add(new Dialogue("Ty", inputField.text));
-                NPCRequestDTO npcRequestDTO = new NPCRequestDTO()
-                {
-                    SceneDescription = sceneContext,
-                    UserText = inputField.text,
-                    NPCName = currentNpcName,
-                };
-                SendNpcRequest(npcRequestDTO);
-                isAwaitingUserInput = false;
-                isAwaitingNPCResponse = true;
-                nameText.text = "Narrator";
-                DisableUserInput();
-                ShowLoadingResponse();
-            } 
-            else
+                HandlePlayerInputSubmission();
+            }
+            else if (isDialogueFullyPrinted)
             {
                 PlayDialogue();
             }
-        } 
+        }
+    }
+	private void HandlePlayerInputSubmission()
+    {
+        this.enabled = false;
+        isAwaitingNPCResponse = true;
+
+        isAwaitingUserInput = false;
+        isAwaitingNPCResponse = true;
+
+        string userMessage = inputField.text;
+
+        NPCRequestDTO npcRequestDTO = new NPCRequestDTO()
+        {
+            SceneDescription = sceneContext,
+            UserText = userMessage,
+            NPCName = currentNpcName,
+        };
+
+        dialoguesHistory.Add(new Dialogue("Ty", userMessage));
+        nameText.text = "Narrator";
+
+        DisableUserInput();
+
+        ShowLoadingResponse();
+
+        SendNpcRequest(npcRequestDTO);
+    }
+	public void DisableUserInput()
+    {
+        inputField.text = "";
+        inputField.interactable = false;
+        inputField.DeactivateInputField();
+        inputField.gameObject.SetActive(false);
+
+        if (EventSystem.current != null)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+        }
     }
     public void AskQuestion(string name)
     {
@@ -115,15 +148,39 @@ class DialogueManager : MonoBehaviour
     }
     public async void SendNpcRequest(NPCRequestDTO npcRequestDTO)
     {
+        isAwaitingNPCResponse = true;
+
+        Debug.Log("[AI] Rozpoczynam wysyłanie...");
         DialogueContextManager.AddPlayerDialogue("Ty", npcRequestDTO.UserText);
-        NPCResponseDTO response =
-            await DialogueEngineManager.Instance.AskNPCAsync(npcRequestDTO);
-        StopAllCoroutines();
-        isAwaitingNPCResponse = false;
-        dialoguesQueue.Peek().sentence = response.Speech;
-        dialoguesQueue.Peek().name = currentNpcName;
-        DialogueContextManager.AddNPCDialogue(currentNpcName, response.Speech);
-        PlayDialogue();
+
+        try
+        {
+            await System.Threading.Tasks.Task.Delay(100);
+
+            NPCResponseDTO response = await DialogueEngineManager.Instance.AskNPCAsync(npcRequestDTO);
+
+            Debug.Log("[AI] Przyszła odpowiedź!");
+
+            if (dialoguesQueue.Count > 0)
+            {
+                dialoguesQueue.Peek().sentence = response.Speech;
+                dialoguesQueue.Peek().name = currentNpcName;
+            }
+            DialogueContextManager.AddNPCDialogue(currentNpcName, response.Speech);
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"[AI ERROR] {e.Message}");
+        }
+        finally
+        {
+            Debug.Log("[AI] Koniec operacji - ODBLOKOWUJĘ Enter.");
+            StopAllCoroutines();
+
+            isAwaitingNPCResponse = false;
+            this.enabled = true;
+            PlayDialogue();
+        }
     }
     public void DisplayDialogue(Dialogue dialogue)
     {
@@ -131,6 +188,7 @@ class DialogueManager : MonoBehaviour
         currentNpcName = dialogue.name;
         dialogueText.text = dialogue.sentence;
         nameText.text = dialogue.name;
+		isDialogueFullyPrinted = false;
         StartCoroutine(TypeSentence(dialogue.sentence));
     }
     IEnumerator TypeSentence(string sentence)
@@ -141,6 +199,7 @@ class DialogueManager : MonoBehaviour
             dialogueText.text += letter;
             yield return null;
         }
+		isDialogueFullyPrinted = true;
     }
     void EndDialogue()
     {
@@ -156,7 +215,7 @@ class DialogueManager : MonoBehaviour
     }
     IEnumerator AnimateTypingDots()
     {
-        string baseText = currentNpcName + " my�li";
+        string baseText = currentNpcName + " myśli";
         int dotCount = 0;
 
         while (true)
@@ -192,12 +251,5 @@ class DialogueManager : MonoBehaviour
         inputField.gameObject.SetActive(true);
         inputField.interactable = true;
         inputField.ActivateInputField();
-    }
-    public void DisableUserInput()
-    {
-        inputField.text = "";
-        inputField.gameObject.SetActive(false);
-        inputField.interactable = false;
-        inputField.DeactivateInputField();
     }
 }
