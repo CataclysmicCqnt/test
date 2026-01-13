@@ -1,12 +1,20 @@
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using DTOModel;
 using System.Collections.Generic;
 using System;
 
 public class MenuControl : MonoBehaviour
 {
+    public static MenuControl Instance;
+    public static int CurrentSceneNumber { get; private set; }
+    public static string CurrentScenarioName { get; private set; }
+
+    [Header("UI References")]
+    [SerializeField] private Image backgroundImage;
+    
     private async void Awake()
     {
         await DialogueEngineManager.InitializeManagerAsync(gameObject);
@@ -32,27 +40,49 @@ public class MenuControl : MonoBehaviour
 
     public async void NewGameScene()
     {
-        DialogueContextManager.ClearContext();
         string[] parameters = { "scenerio_apollo", "1"};
-        int maxScene = 12;
+            
+        CurrentScenarioName = parameters[0];
+        CurrentSceneNumber = int.Parse(parameters[1]);
 
-        GameSession.StartSession(parameters[0], int.Parse(parameters[1]), maxScene);
-        
         SceneScriptDTO scene = await DialogueEngineManager.Instance.GetSceneAsync(parameters);
         SceneManager.LoadScene("NewGame");
     }
 
     public async void NextScene()
     {
-        string[] parameters = { GameSession.CurrentScenarioName, (GameSession.CurrentSceneNumber + 1).ToString() };
+        string[] parameters = { CurrentScenarioName, (++CurrentSceneNumber).ToString() };
         SceneScriptDTO scene = await DialogueEngineManager.Instance.GetSceneAsync(parameters);
         if (scene != null)
         {
-            GameSession.CurrentSceneNumber++;
-            Debug.Log($"Next scene: {GameSession.CurrentSceneNumber}");
+            Debug.Log("Nazwa tla to: " + scene.Background);
+
+            // Wywołujemy funkcję zmiany tła
+            SetBackground(scene.Background);
+
+            Debug.Log("Next scene");
+            
         }
     }
+    private void SetBackground(string backgroundName)
+    {
+        // 1. Ładujemy obrazek z folderu Resources
+        Sprite newSprite = Resources.Load<Sprite>(backgroundName);
+        if (backgroundImage == null) 
+{
+    return;
+}
 
+        if (newSprite != null)
+        {
+            // 2. Podmieniamy Source Image w komponencie Image
+            backgroundImage.sprite = newSprite;
+        }
+        else
+        {
+            Debug.LogError($"Nie znaleziono grafiki o nazwie: {backgroundName} w Resources");
+        }
+    }
     public void ContinueGameScene()
     {
         SceneManager.LoadScene("ContinueGame");
