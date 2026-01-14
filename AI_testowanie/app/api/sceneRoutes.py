@@ -1,55 +1,23 @@
 from pathlib import Path
 from fastapi import APIRouter, HTTPException
 
+from app.services.gameState import gameState
 from app.schema import SceneLoadRequest, SceneLoadResponse
-from app.services.ollamaService import generateStructuredOutput
+from app.services.aiService import generateStructuredOutput
 from app.config import settings
 
-try:
-
-    SCENARIO = (settings.PARENT_DIR / "assets" /
-                "scenarioLore.txt").read_text(encoding="utf-8")
-except Exception as e:
-    print(f"Error in Scene Router:\n${e}")
 
 sceneRouter = APIRouter(prefix="/scene")
 
+
 @sceneRouter.post("/load", response_model=SceneLoadResponse)
 def load_scene(data: SceneLoadRequest):
-    print("Load Scene Called")
 
-    if settings.USE_MOCK:
-        print("MOCK MODE: Zwracam stałą scenę.")
-        return {
-            "extendedDescription": f"To jest MOCKOWY opis rozszerzony dla sceny '{data.name}'. Widzisz tutaj dowód na to, że połączenie z Pythonem działa, mimo braku AI."
-        }
-    
-    systemPrompt = f"""
-    Jesteś kreatywnym Mistrzem Gry. Twoim zadaniem jest wygenerowanie sceny do gry wideo po polsku.
-    Scena musi być zgodna z globalną fabułą.
-    
-    GLOBALNA FABUŁA:
-    <lore>
-    {SCENARIO}
-    </lore>
-    """
-
-    userPrompt = f"""
-    Wygeneruj scenę dla lokalizacji: "{data.name}".
-    Gracz właśnie wchodzi.
-    Kontekst sceny: "{data.description}".
-    
-    Wygeneruj porywający opis, 2-3 postacie NPC i 1-2 interaktywne przedmioty.
-    """
-
-    response = generateStructuredOutput(
-        systemPrompt,
-        userPrompt,
-        SceneLoadResponse
+    gameState.setScene(
+        name=data.name,
+        description=data.description,
+        npcs=data.npcs,
+        items=data.items
     )
-
-    print("Тест:", response)
-    if "error" in response:
-        raise HTTPException(status_code=502, detail=response)
-
-    return response
+    # return response
+    return {"description": data.description}

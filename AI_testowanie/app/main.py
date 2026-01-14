@@ -1,3 +1,4 @@
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -5,11 +6,33 @@ from app.api.npcRoutes import npcRouter
 from app.api.sceneRoutes import sceneRouter
 from app.config import settings
 
-app = FastAPI()
+from app.services.aiService import get_llm
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+
+    try:
+
+        model_instance = get_llm()
+        if model_instance:
+            print(" AI Model loaded successfully")
+        else:
+            print("Model instance is None.")
+
+    except Exception as e:
+        print(f"Failed to load AI Model: {e}")
+
+    yield
+
+    print("Shutting down ")
+
+
+app = FastAPI(lifespan=lifespan)
+
 
 app.include_router(npcRouter)
 app.include_router(sceneRouter)
-
 
 app.add_middleware(
     CORSMiddleware,
@@ -22,4 +45,7 @@ app.add_middleware(
 
 @app.get("/health")
 def health():
-    return {"Ok": True, "model": settings.MODEL, "ollama": "local"}
+    return {
+        "status": "online",
+        "model_path": str(settings.MODEL_PATH),
+    }

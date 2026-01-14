@@ -49,3 +49,5 @@ tmp/
 *.exe
 *.dll
 *.pkg
+models/*
+!models/.gitkeep
