@@ -10,9 +10,21 @@ namespace Assets.MenuScripts
 {
     public class NewGameControl : MonoBehaviour
     {
+        public GameObject dialogueHistoryPanel; // przypnij w Inspectorze
+
+        
         private async void Awake()
         {
             Debug.Log("New Game Loaded");
+            if (!CurrentSaveManager.Instance.IsNewGame())
+            {
+                Debug.Log("Gra jest kontynuowana");
+                ShowPanel();
+                CurrentSaveManager.Instance.SetIsNewGame(true);
+                return;
+            }
+            Debug.Log("Gra jest nowa");
+
         }
 
         public AudioClip sound;
@@ -32,7 +44,17 @@ namespace Assets.MenuScripts
             DialogueManager.Instance.AskQuestion("Darmian");
             DialogueManager.Instance.AskQuestion("Darmian");
             DialogueManager.Instance.PlayDialogue();
-            AudioManager.Instance.PlaySFX(sound);
+            
+        }
+
+        public void ShowPanel()
+        {
+            dialogueHistoryPanel.SetActive(true);  // włącz widoczność
+        }
+
+        public void HidePanel()
+        {
+            dialogueHistoryPanel.SetActive(false); // wyłącz widoczność
         }
     }
 }
