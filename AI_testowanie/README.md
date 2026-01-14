@@ -23,8 +23,9 @@ GameAI_Backend/
 
 ### 2. Uruchomienie (z poziomu gry)
 
-- **Port:** `8000`  
+- **Port:** `8000`
 - **Adres:** http://127.0.0.1:8000
+
 ---
 
 ### 3. API
@@ -36,10 +37,10 @@ http://127.0.0.1:8000/docs
 
 #### Endpointy
 
-| Endpoint        | Metoda | Opis |
-|-----------------|--------|------|
-| `/scene/load`   | POST   | Ładuje scenę, NPC i przedmioty. Czyści pamięć AI |
-| `/npc/chat`     | POST   | Wysyła wiadomość gracza i zwraca odpowiedź NPC |
+| Endpoint      | Metoda | Opis                                             |
+| ------------- | ------ | ------------------------------------------------ |
+| `/scene/load` | POST   | Ładuje scenę, NPC i przedmioty. Czyści pamięć AI |
+| `/npc/chat`   | POST   | Wysyła wiadomość gracza i zwraca odpowiedź NPC   |
 
 ---
 
@@ -55,22 +56,29 @@ Dla osób chcących modyfikować serwer lub budować własne wersje `.exe`.
 ---
 
 ### 🚀 Instalacja środowiska
-   ```
-   Modele językowe są już dołączone do repozytorium i znajdują się w folderze `app/models/`.
 
-   Możesz używać modeli dostarczonych domyślnie lub pobrać własny model w formacie **GGUF**.  
-   Jeśli dodasz inny model, trzeba **zaktualizować ścieżkę do pliku** w konfiguracji:
-
-   `app/config.py → MODEL_PATH`
-   ```
-
-
-1. Zainstaluj zależności:
+##### 1. Zainstaluj zależności:
 
 ```bash
 pip install -r requirements.txt
 ```
 
+##### 2. Instalacja modelu (Hugging Face)
+
+Pobierz model z **https://huggingface.co** i umieść pliki w folderze `models/`.
+
+**Rekomendowane warianty:**
+
+- **3B**  
+  `qwen2.5-3b-instruct-q3_k_m.gguf`
+
+- **7B (lepsza jakość odpowiedzi)**  
+    `qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf`
+    `qwen2.5-7b-instruct-q4_k_m-00002-of-00002.gguf`
+    > `W przypadku modeli wieloczęściowych (*7B*) wszystkie pliki muszą znajdować się w tym samym folderze`.
+
+- Jeśli użyjesz innego modelu lub nazwy pliku, zaktualizuj konfigurację:
+    `app/config.py → MODEL_PATH`
 ---
 
 ### ▶️ Uruchomienie lokalne (testy)
@@ -80,7 +88,6 @@ Uruchom serwer bez kompilacji:
 ```bash
 python runServer.py
 ```
-
 
 ---
 
@@ -97,4 +104,5 @@ Projekt zawiera automatyczny skrypt, który:
 ```bash
 python buildGame.py
 ```
+
 ---
