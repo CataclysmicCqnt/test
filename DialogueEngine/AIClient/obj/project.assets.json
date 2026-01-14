@@ -74,23 +74,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\admin\\.nuget\\packages\\": {},
+    "C:\\Users\\marec\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\AIClient\\AIClient.csproj",
+      "projectUniqueName": "C:\\Users\\marec\\Desktop\\New folder\\wzimLab3\\DialogueEngine\\AIClient\\AIClient.csproj",
       "projectName": "AIClient",
-      "projectPath": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\AIClient\\AIClient.csproj",
-      "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\AIClient\\obj\\",
+      "projectPath": "C:\\Users\\marec\\Desktop\\New folder\\wzimLab3\\DialogueEngine\\AIClient\\AIClient.csproj",
+      "packagesPath": "C:\\Users\\marec\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\marec\\Desktop\\New folder\\wzimLab3\\DialogueEngine\\AIClient\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\marec\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -105,8 +105,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\DTOModel.csproj": {
-              "projectPath": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\DTOModel.csproj"
+            "C:\\Users\\marec\\Desktop\\New folder\\wzimLab3\\DialogueEngine\\DTOModel\\DTOModel.csproj": {
+              "projectPath": "C:\\Users\\marec\\Desktop\\New folder\\wzimLab3\\DialogueEngine\\DTOModel\\DTOModel.csproj"
             }
           }
         }
@@ -148,7 +148,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

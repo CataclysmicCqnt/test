@@ -51,6 +51,11 @@ namespace Assets.MenuScripts
             int sceneMax = game.MaxSceneNumber;
 
             string[] parameters = { scenario, sceneCurrent.ToString()};
+
+            CurrentSaveManager.Instance.SetCurrentSave(game);
+            CurrentSaveManager.Instance.SetIsNewGame(false);
+            Debug.Log("IsNewGame ustawione na false");
+
             SceneScriptDTO scene = await DialogueEngineManager.Instance.GetSceneAsync(parameters);
             if (scene != null) 
             {
