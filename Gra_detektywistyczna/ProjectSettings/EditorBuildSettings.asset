@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: cd15a72ba25a6634093645a45c3db211
   - enabled: 1
-    path: Assets/Scenes/NewGame.unity
+    path: Assets/Scenes/EndGameSummary.unity
     guid: f813276b90220b943a0bd9856406d6b2
   - enabled: 1
     path: Assets/Scenes/ContinueGame.unity
@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Settings.unity
     guid: d1497d85543612a4b8c68171e8881ce0
+  - enabled: 1
+    path: Assets/Scenes/NewGame.unity
+    guid: 9b5280325bc7ca24c83607e1be788873
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
