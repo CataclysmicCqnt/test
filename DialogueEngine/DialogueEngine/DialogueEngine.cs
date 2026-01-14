@@ -11,13 +11,21 @@ using System.Threading.Tasks;
 
 namespace DialogueEngine
 {
+    /// <summary>
+    /// Silnik dialogowy odpowiedzialny za obsługę gry, komunikację z AI oraz zarządzanie zapisanymi grami i ustawieniami.
+    /// </summary>
     public class DialogueEngine
     {
         private readonly string _databasePath = AppDomain.CurrentDomain.BaseDirectory + "../../../../../Gra_detektywistyczna/Assets/Database";
         private readonly AICommunication _aICommunication = new AICommunication();
 
+        /// <summary>
+        /// Pobiera listę gier, które można kontynuować.
+        /// </summary>
+        /// <param name="parameters">Nie używane w tej metodzie.</param>
+        /// <returns>JSON zawierający listę zapisanych gier.</returns>
         public string GetGamesToContinue(string[] parameters)
-        {  
+        {
             string games = File.ReadAllText(_databasePath + "/SavedGames.json");
 
             if (games == null || games == "")
@@ -33,12 +41,22 @@ namespace DialogueEngine
             return JsonConvert.SerializeObject(gameDTOs, settings);
         }
 
+        /// <summary>
+        /// Pobiera aktualne ustawienia gry.
+        /// </summary>
+        /// <param name="parameters">Nie używane w tej metodzie.</param>
+        /// <returns>JSON z ustawieniami gry.</returns>
         public string GetSettings(string[] parameters)
         {
             string options = File.ReadAllText(_databasePath + "/Settings.json");
             return options;
         }
 
+        /// <summary>
+        /// Zapisuje ustawienia gry.
+        /// </summary>
+        /// <param name="parameters">Tablica, w której pierwszy element zawiera JSON z ustawieniami.</param>
+        /// <returns>Pusty string w przypadku sukcesu.</returns>
         public string SaveSettings(string[] parameters)
         {
             if (parameters.Length == 0) return string.Empty;
@@ -48,7 +66,12 @@ namespace DialogueEngine
             return string.Empty;
         }
 
-        public async Task<string> AskNPC(string[] parameters) 
+        /// <summary>
+        /// Wysyła zapytanie do NPC i zwraca jego odpowiedź z backendu AI.
+        /// </summary>
+        /// <param name="parameters">Tablica, w której pierwszy element zawiera JSON z NPCRequestDTO.</param>
+        /// <returns>Odpowiedź NPC w formacie JSON.</returns>
+        public async Task<string> AskNPC(string[] parameters)
         {
             if (parameters.Length == 0) return string.Empty;
 
@@ -57,6 +80,11 @@ namespace DialogueEngine
             return await _aICommunication.GenerateNPCResponseAsync(nPCRequestDTO);
         }
 
+        /// <summary>
+        /// Generuje nową scenę przy użyciu backendu AI.
+        /// </summary>
+        /// <param name="parameters">Tablica, w której pierwszy element zawiera JSON z SceneDTO.</param>
+        /// <returns>JSON z wygenerowaną sceną.</returns>
         public async Task<string> GenerateNewScene(string[] parameters)
         {
             if (parameters.Length == 0) return string.Empty;
@@ -66,6 +94,11 @@ namespace DialogueEngine
             return await _aICommunication.GenerateNewSceneAsync(sceneDTO);
         }
 
+        /// <summary>
+        /// Pobiera konkretną scenę z zapisanych plików scenariusza.
+        /// </summary>
+        /// <param name="parameters">Tablica, gdzie pierwszy element to nazwa pliku scenariusza, a drugi numer sceny.</param>
+        /// <returns>JSON reprezentujący wybraną scenę lub null, jeśli nie istnieje.</returns>
         public string GetScene(string[] parameters)
         {
             int sceneNumber = Convert.ToInt32(parameters[1]);
@@ -87,6 +120,11 @@ namespace DialogueEngine
             return JsonConvert.SerializeObject(scenesDTO.Scenes[sceneNumber - 1], settings);
         }
 
+        /// <summary>
+        /// Zapisuje stan gry do pliku zapisów.
+        /// </summary>
+        /// <param name="parameters">Tablica, w której pierwszy element zawiera JSON z CreatedGameDTO.</param>
+        /// <returns>Komunikat o sukcesie lub błędzie.</returns>
         public string SaveGame(string[] parameters)
         {
             try
