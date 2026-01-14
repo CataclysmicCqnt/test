@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.16.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>DialogueEngine: Dokumentacja klasy DialogueEngine.DialogueEngine</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">DialogueEngine
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano za pomocą Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('class_dialogue_engine_1_1_dialogue_engine.html','','class_dialogue_engine_1_1_dialogue_engine-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Wczytywanie...</div>
+<div class="SRStatus" id="Searching">Szukanie...</div>
+<div class="SRStatus" id="NoMatches">Brak dopasowań</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Dokumentacja klasy DialogueEngine.DialogueEngine</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Silnik dialogowy odpowiedzialny za obsługę gry, komunikację z AI oraz zarządzanie zapisanymi grami i ustawieniami.  
+ <a href="#details">Więcej...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Metody publiczne</h2></td></tr>
+<tr class="memitem:a53dac001008d95e10a96e263332861a6" id="r_a53dac001008d95e10a96e263332861a6"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#a53dac001008d95e10a96e263332861a6">GetGamesToContinue</a> (string[] parameters)</td></tr>
+<tr class="memdesc:a53dac001008d95e10a96e263332861a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pobiera listę gier, które można kontynuować.  <br /></td></tr>
+<tr class="memitem:a307edf45c2ce5b9ebea7ce9679719a9c" id="r_a307edf45c2ce5b9ebea7ce9679719a9c"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#a307edf45c2ce5b9ebea7ce9679719a9c">GetSettings</a> (string[] parameters)</td></tr>
+<tr class="memdesc:a307edf45c2ce5b9ebea7ce9679719a9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pobiera aktualne ustawienia gry.  <br /></td></tr>
+<tr class="memitem:a734cfd1d7eb03c91741d4532cf03c509" id="r_a734cfd1d7eb03c91741d4532cf03c509"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#a734cfd1d7eb03c91741d4532cf03c509">SaveSettings</a> (string[] parameters)</td></tr>
+<tr class="memdesc:a734cfd1d7eb03c91741d4532cf03c509"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zapisuje ustawienia gry.  <br /></td></tr>
+<tr class="memitem:a8c130382d3625ae99eb3ad8b12feed2d" id="r_a8c130382d3625ae99eb3ad8b12feed2d"><td class="memItemLeft">async Task&lt; string &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a8c130382d3625ae99eb3ad8b12feed2d">AskNPC</a> (string[] parameters)</td></tr>
+<tr class="memdesc:a8c130382d3625ae99eb3ad8b12feed2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wysyła zapytanie do NPC i zwraca jego odpowiedź z backendu AI.  <br /></td></tr>
+<tr class="memitem:ace33ebf9003ae2de3170374ee4744f7a" id="r_ace33ebf9003ae2de3170374ee4744f7a"><td class="memItemLeft">async Task&lt; string &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ace33ebf9003ae2de3170374ee4744f7a">GenerateNewScene</a> (string[] parameters)</td></tr>
+<tr class="memdesc:ace33ebf9003ae2de3170374ee4744f7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generuje nową scenę przy użyciu backendu AI.  <br /></td></tr>
+<tr class="memitem:a289805484a2204a0e8d76c40e0cfbc4a" id="r_a289805484a2204a0e8d76c40e0cfbc4a"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#a289805484a2204a0e8d76c40e0cfbc4a">GetScene</a> (string[] parameters)</td></tr>
+<tr class="memdesc:a289805484a2204a0e8d76c40e0cfbc4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pobiera konkretną scenę z zapisanych plików scenariusza.  <br /></td></tr>
+<tr class="memitem:afae86c7b394d632ec1e93718d403c0cd" id="r_afae86c7b394d632ec1e93718d403c0cd"><td class="memItemLeft">string&#160;</td><td class="memItemRight"><a class="el" href="#afae86c7b394d632ec1e93718d403c0cd">SaveGame</a> (string[] parameters)</td></tr>
+<tr class="memdesc:afae86c7b394d632ec1e93718d403c0cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zapisuje stan gry do pliku zapisów.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p>Silnik dialogowy odpowiedzialny za obsługę gry, komunikację z AI oraz zarządzanie zapisanymi grami i ustawieniami. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Dokumentacja funkcji składowych</h2>
+<a id="a8c130382d3625ae99eb3ad8b12feed2d" name="a8c130382d3625ae99eb3ad8b12feed2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c130382d3625ae99eb3ad8b12feed2d">&#9670;&#160;</a></span>AskNPC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; string &gt; DialogueEngine.DialogueEngine.AskNPC </td>
+          <td>(</td>
+          <td class="paramtype">string[]</td>          <td class="paramname"><span class="paramname"><em>parameters</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wysyła zapytanie do NPC i zwraca jego odpowiedź z backendu AI. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parameters</td><td>Tablica, w której pierwszy element zawiera JSON z <a class="el" href="class_d_t_o_model_1_1_n_p_c_request_d_t_o.html" title="DTO reprezentujący zapytanie do NPC w grze.">NPCRequestDTO</a>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>Odpowiedź NPC w formacie JSON.</dd></dl>
+
+</div>
+</div>
+<a id="ace33ebf9003ae2de3170374ee4744f7a" name="ace33ebf9003ae2de3170374ee4744f7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace33ebf9003ae2de3170374ee4744f7a">&#9670;&#160;</a></span>GenerateNewScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">async Task&lt; string &gt; DialogueEngine.DialogueEngine.GenerateNewScene </td>
+          <td>(</td>
+          <td class="paramtype">string[]</td>          <td class="paramname"><span class="paramname"><em>parameters</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generuje nową scenę przy użyciu backendu AI. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parameters</td><td>Tablica, w której pierwszy element zawiera JSON z <a class="el" href="class_d_t_o_model_1_1_scene_d_t_o.html" title="DTO reprezentujący scenę w grze.">SceneDTO</a>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>JSON z wygenerowaną sceną.</dd></dl>
+
+</div>
+</div>
+<a id="a53dac001008d95e10a96e263332861a6" name="a53dac001008d95e10a96e263332861a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53dac001008d95e10a96e263332861a6">&#9670;&#160;</a></span>GetGamesToContinue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string DialogueEngine.DialogueEngine.GetGamesToContinue </td>
+          <td>(</td>
+          <td class="paramtype">string[]</td>          <td class="paramname"><span class="paramname"><em>parameters</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pobiera listę gier, które można kontynuować. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parameters</td><td>Nie używane w tej metodzie.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>JSON zawierający listę zapisanych gier.</dd></dl>
+
+</div>
+</div>
+<a id="a289805484a2204a0e8d76c40e0cfbc4a" name="a289805484a2204a0e8d76c40e0cfbc4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a289805484a2204a0e8d76c40e0cfbc4a">&#9670;&#160;</a></span>GetScene()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string DialogueEngine.DialogueEngine.GetScene </td>
+          <td>(</td>
+          <td class="paramtype">string[]</td>          <td class="paramname"><span class="paramname"><em>parameters</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pobiera konkretną scenę z zapisanych plików scenariusza. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parameters</td><td>Tablica, gdzie pierwszy element to nazwa pliku scenariusza, a drugi numer sceny.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>JSON reprezentujący wybraną scenę lub null, jeśli nie istnieje.</dd></dl>
+
+</div>
+</div>
+<a id="a307edf45c2ce5b9ebea7ce9679719a9c" name="a307edf45c2ce5b9ebea7ce9679719a9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a307edf45c2ce5b9ebea7ce9679719a9c">&#9670;&#160;</a></span>GetSettings()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string DialogueEngine.DialogueEngine.GetSettings </td>
+          <td>(</td>
+          <td class="paramtype">string[]</td>          <td class="paramname"><span class="paramname"><em>parameters</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pobiera aktualne ustawienia gry. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parameters</td><td>Nie używane w tej metodzie.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>JSON z ustawieniami gry.</dd></dl>
+
+</div>
+</div>
+<a id="afae86c7b394d632ec1e93718d403c0cd" name="afae86c7b394d632ec1e93718d403c0cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afae86c7b394d632ec1e93718d403c0cd">&#9670;&#160;</a></span>SaveGame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string DialogueEngine.DialogueEngine.SaveGame </td>
+          <td>(</td>
+          <td class="paramtype">string[]</td>          <td class="paramname"><span class="paramname"><em>parameters</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Zapisuje stan gry do pliku zapisów. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parameters</td><td>Tablica, w której pierwszy element zawiera JSON z <a class="el" href="class_d_t_o_model_1_1_created_game_d_t_o.html" title="DTO reprezentujący utworzoną grę.">CreatedGameDTO</a>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>Komunikat o sukcesie lub błędzie.</dd></dl>
+
+</div>
+</div>
+<a id="a734cfd1d7eb03c91741d4532cf03c509" name="a734cfd1d7eb03c91741d4532cf03c509"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a734cfd1d7eb03c91741d4532cf03c509">&#9670;&#160;</a></span>SaveSettings()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string DialogueEngine.DialogueEngine.SaveSettings </td>
+          <td>(</td>
+          <td class="paramtype">string[]</td>          <td class="paramname"><span class="paramname"><em>parameters</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Zapisuje ustawienia gry. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parameters</td><td>Tablica, w której pierwszy element zawiera JSON z ustawieniami.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>Pusty string w przypadku sukcesu.</dd></dl>
+
+</div>
+</div>
+<hr/>Dokumentacja dla tej klasy została wygenerowana z pliku:<ul>
+<li>DialogueEngine/DialogueEngine/<b>DialogueEngine.cs</b></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="namespace_dialogue_engine.html">DialogueEngine</a></li><li class="navelem"><a href="class_dialogue_engine_1_1_dialogue_engine.html">DialogueEngine</a></li>
+    <li class="footer">Wygenerowano za pomocą <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+  </ul>
+</div>
+</body>
+</html>
