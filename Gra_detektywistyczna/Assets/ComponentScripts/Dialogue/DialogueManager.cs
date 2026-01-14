@@ -5,6 +5,7 @@ using System.Collections;
 using DTOModel;
 using System.Collections.Generic;
 using TMPro;
+using System.Threading.Tasks;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -205,16 +206,6 @@ public class DialogueManager : MonoBehaviour
         {
             isAwaitingNPCResponse = false;
             StopAllCoroutines();
-            EndDialogue();
-            return;
-        }
-
-        NPCResponseDTO response = await DialogueEngineManager.Instance.AskNPCAsync(npcRequestDTO);
-        StopAllCoroutines();
-        isAwaitingNPCResponse = false;
-
-        if (dialoguesQueue == null || dialoguesQueue.Count == 0)
-        {
             EndDialogue();
             return;
         }
