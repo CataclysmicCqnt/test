@@ -28,6 +28,8 @@ namespace Assets.MenuScripts
            
             var sortedGames = gamesToContinue.GamesToContinue.OrderByDescending(g => g.LastSaveDate).ToList();  
 
+            sortedGames = sortedGames.Take(4).ToList();
+
             foreach (CreatedGameDTO game in sortedGames)
             {
                 GameObject tile = Instantiate(gameTilePrefab, gamesContainer);
