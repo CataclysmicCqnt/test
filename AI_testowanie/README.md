@@ -1,71 +1,57 @@
 # 🧠 Gra Detektywistyczna — API z LLM NPC
 
----
-
-## ⚙️ Wymagania i konfiguracja Ollama
-
-Projekt wymaga zainstalowanego Ollama oraz modelu **gpt-oss:20b**.
-
-### 🔹 Instalacja Ollama:
-
-Pobierz i zainstaluj Ollama zgodnie z instrukcjami: https://ollama.com
-
-### 🔹 Pobranie modelu GPT:
-
-```bash
-ollama pull gpt-oss:20b
-```
-
-### 🔧 Stwórz model gry:
-
-Projekt wymaga specjalnie przygotowanego modelu, który zawiera systemowe instrukcje używane przez NPC.  
-Definicja modelu znajduje się w pliku **`Modelfile`** w katalogu głównym projektu.
-
-```bash
-ollama create game-npc-model -f Modelfile
-```
-
-<!-- ### 🔹 Uruchomienie serwera Ollama:
-Przed uruchomieniem aplikacji FastAPI, należy oddzielnie uruchomić serwer Ollama:
-```bash
-ollama serve
-```
-Upewnij się, że serwer działa pod adresem domyślnym `http://127.0.0.1:11434`.
-
-### ✅ Weryfikacja:
-Upewnij się, że serwer Ollama działa poprawnie:
-```bash
-ollama list
-```
-Powinieneś zobaczyć na liście model `game-npc-model:latest`. -->
+System wspomagania Mistrza Gry oparty na Sztucznej Inteligencji (Ollama + Python FastAPI).
 
 ---
 
-## 🛻 Uruchomienie aplikacji
+## 🚀 SZYBKI START (Dla Zespołu)
 
-### 1️⃣ Zainstaluj zależności Python:
+Dla wygody przygotowaliśmy automatyczny starter. Nie musisz wpisywać komend ręcznie.
 
-```bash
-pip install -r requirements.txt
-```
+### 1. Uruchomienie
+1. Wejdź do folderu z grą.
+2. Kliknij dwukrotnie plik **`START_GAME.bat`**.
+3. W czarnym oknie wybierz jedną z opcji:
+    * **1. PIERWSZE URUCHOMIENIE** – Wybierz tylko za pierwszym razem na nowym komputerze. Skrypt sam pobierze biblioteki Python i zainstaluje model.
+    * **2. START** – Wybierz, jeśli masz już wszystko zainstalowane i chcesz po prostu grać.
 
-### 2️⃣ Uruchom aplikację:
+### 2. Menu w konsoli
+Po uruchomieniu program zapyta Cię o konfigurację sesji:
 
-W katalogu głównym uruchom główny skrypt:
+**Pytanie 1: Czy otworzyć okno gry?**
+* **TAK (1)** – Gra otworzy się sama w domyślnej przeglądarce.
+* **NIE (2)** – Uruchomi się tylko serwer w tle (przydatne przy testach lub ręcznym otwieraniu).
 
-```bash
-python runApp.py
-```
+**Pytanie 2: Jaki tryb AI?**
+* **MOCK MODE (1)** – **Bez AI.** Gra działa błyskawicznie, postacie odpowiadają gotowymi tekstami testowymi. Nie wymaga mocnego komputera ani włączonej Ollamy.
+* **LIVE AI (2)** – **Pełne AI.** Gra łączy się z Ollamą. Postacie generują odpowiedzi na żywo. Wymaga włączonej Ollamy i modelu `gpt-oss:20b`.
 
-### 3️⃣ Wybierz tryb pracy:
+---
 
-Po uruchomieniu skryptu zobaczysz w konsoli menu wyboru trybu:
+## 👨‍💻 STREFA DEVELOPERA (Informacje Techniczne)
 
-- **1) Test Mode (Dla Testowania):**
-  - Nie otwiera przeglądarki automatycznie
-- **2) Production Mode (Zalecany do gry):**
+Poniższe sekcje są przydatne przy ręcznej konfiguracji, debugowaniu lub budowaniu pliku .exe.
 
-  - Automatycznie otwiera przeglądarkę
+### 🔧 Ręczna instalacja i uruchomienie
+Jeśli nie chcesz używać `START_GAME.bat`, wykonaj te kroki w terminalu:
+
+1. **Instalacja zależności:**
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. **Pobranie i stworzenie modelu (wymagane tylko raz):**
+
+   ```bash
+   ollama pull gpt-oss:20b
+   ollama create game-npc-model -f Modelfile
+   ```
+
+3. **Uruchomienie serwera:**
+   ```bash
+   python runApp.py
+   ```
 
 ---
 
@@ -78,14 +64,6 @@ Po uruchomieniu skryptu zobaczysz w konsoli menu wyboru trybu:
 | `/health`     | GET    | Sprawdza stan serwera.                             |
 
 ---
-
-## 📦 Instalacja i Budowanie
-
-### 1️⃣ Instalacja zależności
-
-```bash
-pip install -r requirements.txt
-```
 
 ### 2️⃣ Kompilacja do pliku .EXE
 

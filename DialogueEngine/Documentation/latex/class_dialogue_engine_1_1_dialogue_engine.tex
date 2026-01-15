@@ -1,0 +1,163 @@
+\doxysection{Dokumentacja klasy Dialogue\+Engine.\+Dialogue\+Engine}
+\hypertarget{class_dialogue_engine_1_1_dialogue_engine}{}\label{class_dialogue_engine_1_1_dialogue_engine}\index{DialogueEngine.DialogueEngine@{DialogueEngine.DialogueEngine}}
+
+
+Silnik dialogowy odpowiedzialny za obsługę gry, komunikację z AI oraz zarządzanie zapisanymi grami i ustawieniami.  
+
+
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+string \doxymbox{\hyperlink{class_dialogue_engine_1_1_dialogue_engine_a53dac001008d95e10a96e263332861a6}{Get\+Games\+To\+Continue}} (string\+[$\,$]\+ parameters)
+\begin{DoxyCompactList}\small\item\em Pobiera listę gier, które można kontynuować. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_dialogue_engine_1_1_dialogue_engine_a307edf45c2ce5b9ebea7ce9679719a9c}{Get\+Settings}} (string\+[$\,$]\+ parameters)
+\begin{DoxyCompactList}\small\item\em Pobiera aktualne ustawienia gry. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_dialogue_engine_1_1_dialogue_engine_a734cfd1d7eb03c91741d4532cf03c509}{Save\+Settings}} (string\+[$\,$]\+ parameters)
+\begin{DoxyCompactList}\small\item\em Zapisuje ustawienia gry. \end{DoxyCompactList}\item 
+async Task$<$ string $>$ \doxymbox{\hyperlink{class_dialogue_engine_1_1_dialogue_engine_a8c130382d3625ae99eb3ad8b12feed2d}{Ask\+NPC}} (string\+[$\,$]\+ parameters)
+\begin{DoxyCompactList}\small\item\em Wysyła zapytanie do NPC i zwraca jego odpowiedź z backendu AI. \end{DoxyCompactList}\item 
+async Task$<$ string $>$ \doxymbox{\hyperlink{class_dialogue_engine_1_1_dialogue_engine_ace33ebf9003ae2de3170374ee4744f7a}{Generate\+New\+Scene}} (string\+[$\,$]\+ parameters)
+\begin{DoxyCompactList}\small\item\em Generuje nową scenę przy użyciu backendu AI. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_dialogue_engine_1_1_dialogue_engine_a289805484a2204a0e8d76c40e0cfbc4a}{Get\+Scene}} (string\+[$\,$]\+ parameters)
+\begin{DoxyCompactList}\small\item\em Pobiera konkretną scenę z zapisanych plików scenariusza. \end{DoxyCompactList}\item 
+string \doxymbox{\hyperlink{class_dialogue_engine_1_1_dialogue_engine_afae86c7b394d632ec1e93718d403c0cd}{Save\+Game}} (string\+[$\,$]\+ parameters)
+\begin{DoxyCompactList}\small\item\em Zapisuje stan gry do pliku zapisów. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Silnik dialogowy odpowiedzialny za obsługę gry, komunikację z AI oraz zarządzanie zapisanymi grami i ustawieniami. 
+
+\label{doc-func-members}
+\Hypertarget{class_dialogue_engine_1_1_dialogue_engine_doc-func-members}
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{class_dialogue_engine_1_1_dialogue_engine_a8c130382d3625ae99eb3ad8b12feed2d}\index{DialogueEngine.DialogueEngine@{DialogueEngine.DialogueEngine}!AskNPC@{AskNPC}}
+\index{AskNPC@{AskNPC}!DialogueEngine.DialogueEngine@{DialogueEngine.DialogueEngine}}
+\doxysubsubsection{\texorpdfstring{AskNPC()}{AskNPC()}}
+{\footnotesize\ttfamily \label{class_dialogue_engine_1_1_dialogue_engine_a8c130382d3625ae99eb3ad8b12feed2d} 
+async Task$<$ string $>$ Dialogue\+Engine.\+Dialogue\+Engine.\+Ask\+NPC (\begin{DoxyParamCaption}\item[{string\+[$\,$]\+}]{parameters}{}\end{DoxyParamCaption})}
+
+
+
+Wysyła zapytanie do NPC i zwraca jego odpowiedź z backendu AI. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em parameters} & Tablica, w której pierwszy element zawiera JSON z \doxylink{class_d_t_o_model_1_1_n_p_c_request_d_t_o}{NPCRequest\+DTO}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+Odpowiedź NPC w formacie JSON.
+\end{DoxyReturn}
+\Hypertarget{class_dialogue_engine_1_1_dialogue_engine_ace33ebf9003ae2de3170374ee4744f7a}\index{DialogueEngine.DialogueEngine@{DialogueEngine.DialogueEngine}!GenerateNewScene@{GenerateNewScene}}
+\index{GenerateNewScene@{GenerateNewScene}!DialogueEngine.DialogueEngine@{DialogueEngine.DialogueEngine}}
+\doxysubsubsection{\texorpdfstring{GenerateNewScene()}{GenerateNewScene()}}
+{\footnotesize\ttfamily \label{class_dialogue_engine_1_1_dialogue_engine_ace33ebf9003ae2de3170374ee4744f7a} 
+async Task$<$ string $>$ Dialogue\+Engine.\+Dialogue\+Engine.\+Generate\+New\+Scene (\begin{DoxyParamCaption}\item[{string\+[$\,$]\+}]{parameters}{}\end{DoxyParamCaption})}
+
+
+
+Generuje nową scenę przy użyciu backendu AI. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em parameters} & Tablica, w której pierwszy element zawiera JSON z \doxylink{class_d_t_o_model_1_1_scene_d_t_o}{Scene\+DTO}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+JSON z wygenerowaną sceną.
+\end{DoxyReturn}
+\Hypertarget{class_dialogue_engine_1_1_dialogue_engine_a53dac001008d95e10a96e263332861a6}\index{DialogueEngine.DialogueEngine@{DialogueEngine.DialogueEngine}!GetGamesToContinue@{GetGamesToContinue}}
+\index{GetGamesToContinue@{GetGamesToContinue}!DialogueEngine.DialogueEngine@{DialogueEngine.DialogueEngine}}
+\doxysubsubsection{\texorpdfstring{GetGamesToContinue()}{GetGamesToContinue()}}
+{\footnotesize\ttfamily \label{class_dialogue_engine_1_1_dialogue_engine_a53dac001008d95e10a96e263332861a6} 
+string Dialogue\+Engine.\+Dialogue\+Engine.\+Get\+Games\+To\+Continue (\begin{DoxyParamCaption}\item[{string\+[$\,$]\+}]{parameters}{}\end{DoxyParamCaption})}
+
+
+
+Pobiera listę gier, które można kontynuować. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em parameters} & Nie używane w tej metodzie.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+JSON zawierający listę zapisanych gier.
+\end{DoxyReturn}
+\Hypertarget{class_dialogue_engine_1_1_dialogue_engine_a289805484a2204a0e8d76c40e0cfbc4a}\index{DialogueEngine.DialogueEngine@{DialogueEngine.DialogueEngine}!GetScene@{GetScene}}
+\index{GetScene@{GetScene}!DialogueEngine.DialogueEngine@{DialogueEngine.DialogueEngine}}
+\doxysubsubsection{\texorpdfstring{GetScene()}{GetScene()}}
+{\footnotesize\ttfamily \label{class_dialogue_engine_1_1_dialogue_engine_a289805484a2204a0e8d76c40e0cfbc4a} 
+string Dialogue\+Engine.\+Dialogue\+Engine.\+Get\+Scene (\begin{DoxyParamCaption}\item[{string\+[$\,$]\+}]{parameters}{}\end{DoxyParamCaption})}
+
+
+
+Pobiera konkretną scenę z zapisanych plików scenariusza. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em parameters} & Tablica, gdzie pierwszy element to nazwa pliku scenariusza, a drugi numer sceny.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+JSON reprezentujący wybraną scenę lub null, jeśli nie istnieje.
+\end{DoxyReturn}
+\Hypertarget{class_dialogue_engine_1_1_dialogue_engine_a307edf45c2ce5b9ebea7ce9679719a9c}\index{DialogueEngine.DialogueEngine@{DialogueEngine.DialogueEngine}!GetSettings@{GetSettings}}
+\index{GetSettings@{GetSettings}!DialogueEngine.DialogueEngine@{DialogueEngine.DialogueEngine}}
+\doxysubsubsection{\texorpdfstring{GetSettings()}{GetSettings()}}
+{\footnotesize\ttfamily \label{class_dialogue_engine_1_1_dialogue_engine_a307edf45c2ce5b9ebea7ce9679719a9c} 
+string Dialogue\+Engine.\+Dialogue\+Engine.\+Get\+Settings (\begin{DoxyParamCaption}\item[{string\+[$\,$]\+}]{parameters}{}\end{DoxyParamCaption})}
+
+
+
+Pobiera aktualne ustawienia gry. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em parameters} & Nie używane w tej metodzie.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+JSON z ustawieniami gry.
+\end{DoxyReturn}
+\Hypertarget{class_dialogue_engine_1_1_dialogue_engine_afae86c7b394d632ec1e93718d403c0cd}\index{DialogueEngine.DialogueEngine@{DialogueEngine.DialogueEngine}!SaveGame@{SaveGame}}
+\index{SaveGame@{SaveGame}!DialogueEngine.DialogueEngine@{DialogueEngine.DialogueEngine}}
+\doxysubsubsection{\texorpdfstring{SaveGame()}{SaveGame()}}
+{\footnotesize\ttfamily \label{class_dialogue_engine_1_1_dialogue_engine_afae86c7b394d632ec1e93718d403c0cd} 
+string Dialogue\+Engine.\+Dialogue\+Engine.\+Save\+Game (\begin{DoxyParamCaption}\item[{string\+[$\,$]\+}]{parameters}{}\end{DoxyParamCaption})}
+
+
+
+Zapisuje stan gry do pliku zapisów. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em parameters} & Tablica, w której pierwszy element zawiera JSON z \doxylink{class_d_t_o_model_1_1_created_game_d_t_o}{Created\+Game\+DTO}.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+Komunikat o sukcesie lub błędzie.
+\end{DoxyReturn}
+\Hypertarget{class_dialogue_engine_1_1_dialogue_engine_a734cfd1d7eb03c91741d4532cf03c509}\index{DialogueEngine.DialogueEngine@{DialogueEngine.DialogueEngine}!SaveSettings@{SaveSettings}}
+\index{SaveSettings@{SaveSettings}!DialogueEngine.DialogueEngine@{DialogueEngine.DialogueEngine}}
+\doxysubsubsection{\texorpdfstring{SaveSettings()}{SaveSettings()}}
+{\footnotesize\ttfamily \label{class_dialogue_engine_1_1_dialogue_engine_a734cfd1d7eb03c91741d4532cf03c509} 
+string Dialogue\+Engine.\+Dialogue\+Engine.\+Save\+Settings (\begin{DoxyParamCaption}\item[{string\+[$\,$]\+}]{parameters}{}\end{DoxyParamCaption})}
+
+
+
+Zapisuje ustawienia gry. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em parameters} & Tablica, w której pierwszy element zawiera JSON z ustawieniami.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+Pusty string w przypadku sukcesu.
+\end{DoxyReturn}
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku:\+\begin{DoxyCompactItemize}
+\item 
+Dialogue\+Engine/\+\+Dialogue\+Engine/\+Dialogue\+Engine.\+cs\end{DoxyCompactItemize}

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using System.Collections;
 
 public class AudioManager : MonoBehaviour
 {
@@ -56,5 +57,14 @@ public class AudioManager : MonoBehaviour
         {
             sfxSource.PlayOneShot(clip, GetSFXVolume());
         }
+    }
+    public void PlayDelayed(AudioClip clip, float delay)
+    {
+        StartCoroutine(PlayDelayedRoutine(clip, delay));
+    }
+    IEnumerator PlayDelayedRoutine(AudioClip clip, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        PlaySFX(clip);
     }
 }

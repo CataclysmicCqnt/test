@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 namespace Assets.MenuScripts
@@ -29,6 +30,8 @@ namespace Assets.MenuScripts
 
             sortedGames = sortedGames.Take(4).ToList();  
 
+            sortedGames = sortedGames.Take(4).ToList();
+
             foreach (CreatedGameDTO game in sortedGames)
             {
                 GameObject tile = Instantiate(gameTilePrefab, gamesContainer);
@@ -45,8 +48,28 @@ namespace Assets.MenuScripts
             }
         }
 
-        private void OnGameTileClicked(CreatedGameDTO game)
+        private async Task OnGameTileClicked(CreatedGameDTO game)
         {
+            string scenario = game.Title;
+            int sceneCurrent = game.CurrentSceneNumber;
+            int sceneMax = game.MaxSceneNumber;
+
+            string[] parameters = { scenario, sceneCurrent.ToString()};
+
+            CurrentSaveManager.Instance.SetCurrentSave(game);
+            CurrentSaveManager.Instance.SetIsNewGame(false);
+            Debug.Log("IsNewGame ustawione na false");
+
+            SceneScriptDTO scene = await DialogueEngineManager.Instance.GetSceneAsync(parameters);
+            if (scene != null) 
+            {
+                DialogueContextManager.SetContext(game.GameHistory);
+                GameSession.StartSession(scenario, sceneCurrent, sceneMax);
+                SceneManager.LoadScene("NewGame");
+
+                Debug.Log($"Game Loaded. Scene {GameSession.CurrentSceneNumber}");
+            }
+            else Debug.Log("Error loading game");
         }
     }
 }

@@ -1,0 +1,75 @@
+\doxysection{Dokumentacja klasy AIClient.\+AICommunication}
+\hypertarget{class_a_i_client_1_1_a_i_communication}{}\label{class_a_i_client_1_1_a_i_communication}\index{AIClient.AICommunication@{AIClient.AICommunication}}
+
+
+Klasa odpowiedzialna za komunikację z lokalnym serwerem AI. Umożliwia uruchamianie serwera, sprawdzanie jego stanu oraz wysyłanie żądań POST do generowania odpowiedzi NPC i ładowania scen.  
+
+
+Diagram dziedziczenia dla AIClient.\+AICommunication\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_a_i_client_1_1_a_i_communication}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Metody publiczne}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_a_i_client_1_1_a_i_communication_a1ca32813f0fc617cf1453aeb5be31c94}\label{class_a_i_client_1_1_a_i_communication_a1ca32813f0fc617cf1453aeb5be31c94} 
+{\bfseries AICommunication} ()
+\begin{DoxyCompactList}\small\item\em Konstruktor klasy. Uruchamia serwer Pythona i inicjalizuje klienta HTTP. \end{DoxyCompactList}\item 
+async Task$<$ string $>$ \doxymbox{\hyperlink{class_a_i_client_1_1_a_i_communication_a4cc15ca4a840dc6e51aff5c6132bceb8}{Generate\+NPCResponse\+Async}} (\doxymbox{\hyperlink{class_d_t_o_model_1_1_n_p_c_request_d_t_o}{NPCRequest\+DTO}} request\+DTO)
+\begin{DoxyCompactList}\small\item\em Generuje odpowiedź NPC na podstawie przesłanego obiektu \doxylink{class_d_t_o_model_1_1_n_p_c_request_d_t_o}{NPCRequest\+DTO}. \end{DoxyCompactList}\item 
+async Task$<$ string $>$ \doxymbox{\hyperlink{class_a_i_client_1_1_a_i_communication_ad99d0e4e01df11b02c442907c2674ce5}{Generate\+New\+Scene\+Async}} (\doxymbox{\hyperlink{class_d_t_o_model_1_1_scene_d_t_o}{Scene\+DTO}} scene\+DTO)
+\begin{DoxyCompactList}\small\item\em Generuje nową scenę na serwerze AI na podstawie przesłanego obiektu \doxylink{class_d_t_o_model_1_1_scene_d_t_o}{Scene\+DTO}. \end{DoxyCompactList}\item 
+\Hypertarget{class_a_i_client_1_1_a_i_communication_a33a97e554f9c042bbcf761930d41ad5a}\label{class_a_i_client_1_1_a_i_communication_a33a97e554f9c042bbcf761930d41ad5a} 
+void {\bfseries Dispose} ()
+\begin{DoxyCompactList}\small\item\em Metoda wywoływana przy zwalnianiu zasobów. Ma zakończyć serwer Pythona i posprzątać zasoby. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Opis szczegółowy}
+Klasa odpowiedzialna za komunikację z lokalnym serwerem AI. Umożliwia uruchamianie serwera, sprawdzanie jego stanu oraz wysyłanie żądań POST do generowania odpowiedzi NPC i ładowania scen. 
+
+\label{doc-func-members}
+\Hypertarget{class_a_i_client_1_1_a_i_communication_doc-func-members}
+\doxysubsection{Dokumentacja funkcji składowych}
+\Hypertarget{class_a_i_client_1_1_a_i_communication_ad99d0e4e01df11b02c442907c2674ce5}\index{AIClient.AICommunication@{AIClient.AICommunication}!GenerateNewSceneAsync@{GenerateNewSceneAsync}}
+\index{GenerateNewSceneAsync@{GenerateNewSceneAsync}!AIClient.AICommunication@{AIClient.AICommunication}}
+\doxysubsubsection{\texorpdfstring{GenerateNewSceneAsync()}{GenerateNewSceneAsync()}}
+{\footnotesize\ttfamily \label{class_a_i_client_1_1_a_i_communication_ad99d0e4e01df11b02c442907c2674ce5} 
+async Task$<$ string $>$ AIClient.\+AICommunication.\+Generate\+New\+Scene\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_d_t_o_model_1_1_scene_d_t_o}{Scene\+DTO}}}]{scene\+DTO}{}\end{DoxyParamCaption})}
+
+
+
+Generuje nową scenę na serwerze AI na podstawie przesłanego obiektu \doxylink{class_d_t_o_model_1_1_scene_d_t_o}{Scene\+DTO}. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em scene\+DTO} & Obiekt DTO z danymi sceny.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+Odpowiedź serwera w formacie JSON lub null jeśli serwer nie działa.
+\end{DoxyReturn}
+\Hypertarget{class_a_i_client_1_1_a_i_communication_a4cc15ca4a840dc6e51aff5c6132bceb8}\index{AIClient.AICommunication@{AIClient.AICommunication}!GenerateNPCResponseAsync@{GenerateNPCResponseAsync}}
+\index{GenerateNPCResponseAsync@{GenerateNPCResponseAsync}!AIClient.AICommunication@{AIClient.AICommunication}}
+\doxysubsubsection{\texorpdfstring{GenerateNPCResponseAsync()}{GenerateNPCResponseAsync()}}
+{\footnotesize\ttfamily \label{class_a_i_client_1_1_a_i_communication_a4cc15ca4a840dc6e51aff5c6132bceb8} 
+async Task$<$ string $>$ AIClient.\+AICommunication.\+Generate\+NPCResponse\+Async (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{class_d_t_o_model_1_1_n_p_c_request_d_t_o}{NPCRequest\+DTO}}}]{request\+DTO}{}\end{DoxyParamCaption})}
+
+
+
+Generuje odpowiedź NPC na podstawie przesłanego obiektu \doxylink{class_d_t_o_model_1_1_n_p_c_request_d_t_o}{NPCRequest\+DTO}. 
+
+
+\begin{DoxyParams}{Parametry}
+{\em request\+DTO} & Obiekt DTO z danymi zapytania do NPC.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Zwraca}
+Odpowiedź NPC w formacie JSON lub null jeśli serwer nie działa.
+\end{DoxyReturn}
+
+
+Dokumentacja dla tej klasy została wygenerowana z pliku:\+\begin{DoxyCompactItemize}
+\item 
+Dialogue\+Engine/\+\+AIClient/\+AICommunication.\+cs\end{DoxyCompactItemize}

@@ -47,4 +47,10 @@ public class DialogueContextManager : MonoBehaviour
     {
         return GameContext.ToString();
     }
+
+    public static void SetContext(string loadedHistory)
+    {
+        GameContext.Clear();
+        GameContext.Append(loadedHistory);
+    }
 }

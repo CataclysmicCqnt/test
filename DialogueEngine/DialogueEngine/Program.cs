@@ -9,12 +9,19 @@ using File = System.IO.File;
 
 namespace DialogueEngineApp
 {
+    /// <summary>
+    /// Główny program uruchamiający Named Pipe do komunikacji z DialogueEngine.
+    /// </summary>
     internal class Program
     {
         private const string PIPENAME = "DialogueEnginePipe";
         private static readonly string _errorLogPath = AppDomain.CurrentDomain.BaseDirectory + "/error_log.txt";
         private static readonly DialogueEngine.DialogueEngine _dialogueEngine = new DialogueEngine.DialogueEngine();
 
+        /// <summary>
+        /// Główna metoda aplikacji, uruchamia Named Pipe i nasłuchuje poleceń.
+        /// </summary>
+        /// <param name="args">Argumenty wiersza poleceń (nieużywane).</param>
         public static async Task Main(string[] args)
         {
             while (true)
@@ -59,13 +66,18 @@ namespace DialogueEngineApp
             }
         }
 
+        /// <summary>
+        /// Przetwarza otrzymane polecenie w formacie JSON i wywołuje odpowiednią metodę DialogueEngine.
+        /// </summary>
+        /// <param name="json">JSON reprezentujący MethodDTO z nazwą metody i parametrami.</param>
+        /// <returns>Wynik wywołania metody jako string.</returns>
         private static string HandleCommand(string json)
         {
             if (string.IsNullOrWhiteSpace(json) == true)
             {
                 File.AppendAllText(_errorLogPath, "Empty method JSON!\n");
             }
-           
+
             MethodDTO methodDTO = JsonConvert.DeserializeObject<MethodDTO>(json);
 
             if (methodDTO == null)
@@ -85,6 +97,11 @@ namespace DialogueEngineApp
             return HandleAsyncMethod(response);
         }
 
+        /// <summary>
+        /// Obsługuje odpowiedzi z metod asynchronicznych, zwracając wynik jako string.
+        /// </summary>
+        /// <param name="response">Obiekt zwrócony przez wywołaną metodę.</param>
+        /// <returns>Wynik metody jako string, pusty string jeśli brak wyniku.</returns>
         private static string HandleAsyncMethod(object response)
         {
             if (response is Task task)

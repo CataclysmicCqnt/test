@@ -5,10 +5,13 @@ using System.Collections;
 using DTOModel;
 using System.Collections.Generic;
 using TMPro;
-public
-class DialogueManager : MonoBehaviour
+using System.Threading.Tasks;
+
+public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance { get; private set; }
+    [Header("UI References")]
+    [SerializeField] private Image NpcImage;
 
     public string sceneContext;
     public string currentNpcName;
@@ -23,6 +26,32 @@ class DialogueManager : MonoBehaviour
     private Queue<Dialogue> dialoguesQueue;
     public bool isAwaitingUserInput = false;
     public bool isAwaitingNPCResponse = false;
+
+    async void Start()
+    {
+        string history = DialogueContextManager.GetFormattedContext();
+        Debug.Log($"kontekst: {!string.IsNullOrEmpty(history)}");
+
+        sceneContext = "Scenariusz: " + GameSession.CurrentScenarioName;
+
+        if (!string.IsNullOrEmpty(history))
+        {
+            if (DialogueEngineManager.Instance == null || !DialogueEngineManager.IsInitialized)
+            {
+                Debug.LogWarning("DialogueEngine nie jest jeszcze zainicjalizowany. Pomijam GenerateNewSceneAsync na starcie.");
+                return;
+            }
+
+            SceneDTO context = new SceneDTO
+            {
+                LocationName = GameSession.CurrentScenarioName,
+                ScenePrompt = "To jest kontynuacja śledztwa. Historia do tej pory: " + history
+            };
+
+            await DialogueEngineManager.Instance.GenerateNewSceneAsync(context);
+        }
+    }
+
     
     void Awake()
     {
@@ -30,43 +59,54 @@ class DialogueManager : MonoBehaviour
         dialoguesQueue = new Queue<Dialogue>();
         dialoguesHistory = new List<Dialogue>();
     }
+
     void Update()
     {
         if (Keyboard.current.enterKey.wasPressedThisFrame && !isAwaitingNPCResponse)
         {
             if (isAwaitingUserInput)
             {
-                dialoguesHistory.Add(new Dialogue("Ty", inputField.text));
+                var userText = inputField != null ? inputField.text : string.Empty;
+
+                dialoguesHistory.Add(new Dialogue("Ty", userText));
+
                 NPCRequestDTO npcRequestDTO = new NPCRequestDTO()
                 {
                     SceneDescription = sceneContext,
-                    UserText = inputField.text,
+                    UserText = userText,
                     NPCName = currentNpcName,
                 };
-                SendNpcRequest(npcRequestDTO);
+
                 isAwaitingUserInput = false;
                 isAwaitingNPCResponse = true;
-                nameText.text = "Narrator";
+
+                if (nameText != null) nameText.text = "Narrator";
                 DisableUserInput();
                 ShowLoadingResponse();
-            } 
+
+                SendNpcRequest(npcRequestDTO);
+            }
             else
             {
                 PlayDialogue();
             }
-        } 
+        }
     }
+
     public void AskQuestion(string name)
     {
+        
         Dialogue dialogue = new Dialogue("Ty", sceneContext);
         dialogue.isPlayerPrompt = true;
         EnqueueDialogue(dialogue);
         EnqueueDialogue(new Dialogue(name, ""));
     }
+
     public void EnqueueDialogue(Dialogue dialogue)
     {
         dialoguesQueue.Enqueue(dialogue);
     }
+
     public void PlayDialogue()
     {
         ShowDialogue();
@@ -79,33 +119,105 @@ class DialogueManager : MonoBehaviour
         Dialogue dialog = dialoguesQueue.Dequeue();
         if (dialog.isPlayerPrompt)
         {
-            PromptPlayer();
+            PromptPlayerAsync();
         }
         else
         {
             DisplayDialogue(dialog);
         }
     }
-    public void PromptPlayer()
+    public async Task PromptPlayerAsync()
     {
         HideDialogueText();
+
+        if (dialoguesQueue == null || dialoguesQueue.Count == 0)
+        {
+            EndDialogue();
+            return;
+        }
+
         currentNpcName = dialoguesQueue.Peek().name;
+
+        //zmienianie sprite npc (nie wiem czy w dobrym miejscu najwyzej poprawie)
+        
+        string[] parameters = { MenuControl.CurrentScenarioName,MenuControl.CurrentSceneNumber.ToString()};
+        SceneScriptDTO scene = await DialogueEngineManager.Instance.GetSceneAsync(parameters);
+        foreach (NPCDTO npc in scene.Npcs)
+        {
+            if (currentNpcName == npc.name.Split(' ')[0])
+            {
+                Sprite newSprite = Resources.Load<Sprite>(currentNpcName);
+                NpcImage.sprite = newSprite;
+                if (NpcImage.color.a == 0f)
+                {
+                    NpcImage.color = Color.white;
+                }
+            }
+        }
         nameText.text = "Ty";
         EnableUserInput();
         isAwaitingUserInput = true;
     }
+
     public async void SendNpcRequest(NPCRequestDTO npcRequestDTO)
     {
+        if (npcRequestDTO == null)
+        {
+            isAwaitingNPCResponse = false;
+            StopAllCoroutines();
+            EndDialogue();
+            return;
+        }
+
+        if (DialogueEngineManager.Instance == null || !DialogueEngineManager.IsInitialized)
+        {
+            isAwaitingNPCResponse = false;
+            StopAllCoroutines();
+            EndDialogue();
+            return;
+        }
+
+        if (dialoguesQueue == null || dialoguesQueue.Count == 0)
+        {
+            isAwaitingNPCResponse = false;
+            StopAllCoroutines();
+            EndDialogue();
+            return;
+        }
+
         DialogueContextManager.AddPlayerDialogue("Ty", npcRequestDTO.UserText);
-        NPCResponseDTO response =
-            await DialogueEngineManager.Instance.AskNPCAsync(npcRequestDTO);
-        StopAllCoroutines();
-        isAwaitingNPCResponse = false;
+
+        NPCResponseDTO response = null;
+
+        try
+        {
+            response = await DialogueEngineManager.Instance.AskNPCAsync(npcRequestDTO);
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogException(ex);
+            isAwaitingNPCResponse = false;
+            StopAllCoroutines();
+            EndDialogue();
+            return;
+        }
+
+        if (response == null || string.IsNullOrEmpty(response.Speech))
+        {
+            isAwaitingNPCResponse = false;
+            StopAllCoroutines();
+            EndDialogue();
+            return;
+        }
+
         dialoguesQueue.Peek().sentence = response.Speech;
         dialoguesQueue.Peek().name = currentNpcName;
+
         DialogueContextManager.AddNPCDialogue(currentNpcName, response.Speech);
+
         PlayDialogue();
     }
+
     public void DisplayDialogue(Dialogue dialogue)
     {
         dialoguesHistory.Add(dialogue);
@@ -114,6 +226,7 @@ class DialogueManager : MonoBehaviour
         nameText.text = dialogue.name;
         StartCoroutine(TypeSentence(dialogue.sentence));
     }
+
     IEnumerator TypeSentence(string sentence)
     {
         dialogueText.text = "";
@@ -123,21 +236,23 @@ class DialogueManager : MonoBehaviour
             yield return null;
         }
     }
+
     void EndDialogue()
     {
         if (isFreeDiscussionEnabled)
         {
             AskQuestion(currentNpcName);
             PlayDialogue();
-        } 
+        }
         else
         {
             HideDialogue();
         }
     }
+
     IEnumerator AnimateTypingDots()
     {
-        string baseText = currentNpcName + " my�li";
+        string baseText = currentNpcName + " myśli";
         int dotCount = 0;
 
         while (true)
@@ -147,35 +262,50 @@ class DialogueManager : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
     }
+
     public void ShowLoadingResponse()
     {
         ShowDialogue();
         StartCoroutine(AnimateTypingDots());
     }
+
     public void ShowDialogue()
     {
-        dialoguePanel.SetActive(true);
+        if (dialoguePanel != null)
+            dialoguePanel.SetActive(true);
     }
+
     public void HideDialogueText()
     {
-        dialogueText.text = "";
+        if (dialogueText != null)
+            dialogueText.text = "";
     }
+
     public void HideDialogue()
     {
-        dialoguePanel.SetActive(false);
+        if (dialoguePanel != null)
+            dialoguePanel.SetActive(false);
     }
+
     public void Reset()
     {
-        dialoguePanel.SetActive(false);
+        if (dialoguePanel != null)
+            dialoguePanel.SetActive(false);
     }
+
     public void EnableUserInput()
     {
+        if (inputField == null) return;
+
         inputField.gameObject.SetActive(true);
         inputField.interactable = true;
         inputField.ActivateInputField();
     }
+
     public void DisableUserInput()
     {
+        if (inputField == null) return;
+
         inputField.text = "";
         inputField.gameObject.SetActive(false);
         inputField.interactable = false;

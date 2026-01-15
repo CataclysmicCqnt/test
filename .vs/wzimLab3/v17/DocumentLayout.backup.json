@@ -1,22 +1,134 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Piatk\\wzimLab3\\",
+  "WorkspaceRootPath": "C:\\Users\\admin\\wzimLab3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Piatk\\wzimLab3\\Gra_detektywistyczna\\Assets\\MenuScripts\\ContinueGameControl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\MenuScripts\\ContinueGameControl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gra_detektywistyczna\\Assets\\MenuScripts\\ContinueGameControl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Piatk\\wzimLab3\\Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineClient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineClient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\SaveSystem\\SaveGameManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gra_detektywistyczna\\Assets\\SaveSystem\\SaveGameManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Piatk\\wzimLab3\\Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\SaveSystem\\GameSession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gra_detektywistyczna\\Assets\\SaveSystem\\GameSession.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DialogueEngine\\DialogueEngine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DialogueEngine\\DialogueEngine\\DialogueEngine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\DialogueEngine\\AIClient\\AICommunication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DialogueEngine\\AIClient\\AICommunication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Piatk\\wzimLab3\\DialogueEngine\\DialogueEngine\\DialogueEngine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DialogueEngine\\DialogueEngine\\DialogueEngine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineClient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineClient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\MenuScripts\\MenuControl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gra_detektywistyczna\\Assets\\MenuScripts\\MenuControl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\CreatedGameDTO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DialogueEngine\\DTOModel\\CreatedGameDTO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\SceneDTO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DialogueEngine\\DTOModel\\SceneDTO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\ComponentScripts\\Dialogue\\DialogueManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gra_detektywistyczna\\Assets\\ComponentScripts\\Dialogue\\DialogueManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\SaveSystem\\DialogueContextManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gra_detektywistyczna\\Assets\\SaveSystem\\DialogueContextManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\Database\\SavedGames.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gra_detektywistyczna\\Assets\\Database\\SavedGames.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\ComponentScripts\\Dialogue\\DialogueBox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gra_detektywistyczna\\Assets\\ComponentScripts\\Dialogue\\DialogueBox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\ComponentScripts\\Dialogue\\InputBox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gra_detektywistyczna\\Assets\\ComponentScripts\\Dialogue\\InputBox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\ComponentScripts\\Dialogue\\Dialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gra_detektywistyczna\\Assets\\ComponentScripts\\Dialogue\\Dialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\MenuScripts\\ButtonSFX.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gra_detektywistyczna\\Assets\\MenuScripts\\ButtonSFX.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\NPCRequestDTO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DialogueEngine\\DTOModel\\NPCRequestDTO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\NPCResponseDTO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DialogueEngine\\DTOModel\\NPCResponseDTO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\SaveSystem\\SaveGameButton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gra_detektywistyczna\\Assets\\SaveSystem\\SaveGameButton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\Database\\scenerio_apollo.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gra_detektywistyczna\\Assets\\Database\\scenerio_apollo.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\SceneScriptDTO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DialogueEngine\\DTOModel\\SceneScriptDTO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\ScenesScriptDTO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DialogueEngine\\DTOModel\\ScenesScriptDTO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\MenuScripts\\NewGameControl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gra_detektywistyczna\\Assets\\MenuScripts\\NewGameControl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\DTOModel.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DialogueEngine\\DTOModel\\DTOModel.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\MenuScripts\\SettingsPanelManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gra_detektywistyczna\\Assets\\MenuScripts\\SettingsPanelManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\MenuScripts\\SettingsControl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gra_detektywistyczna\\Assets\\MenuScripts\\SettingsControl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\EndingDTO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DialogueEngine\\DTOModel\\EndingDTO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\GamesToContinueDTO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DialogueEngine\\DTOModel\\GamesToContinueDTO.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\Database\\Settings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gra_detektywistyczna\\Assets\\Database\\Settings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DialogueEngine\\obj\\project.assets.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:DialogueEngine\\DialogueEngine\\obj\\project.assets.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\MenuScripts\\AudioManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Gra_detektywistyczna\\Assets\\MenuScripts\\AudioManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -25,60 +137,411 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "DockedWidth": 107,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "DialogueEngineClient.cs",
-              "DocumentMoniker": "C:\\Users\\Piatk\\wzimLab3\\Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineClient.cs",
-              "RelativeDocumentMoniker": "Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineClient.cs",
-              "ToolTip": "C:\\Users\\Piatk\\wzimLab3\\Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineClient.cs",
-              "RelativeToolTip": "Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineClient.cs",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAAAF4AAAAbAAAAAAAAAA==",
+              "Title": "SaveGameManager.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\SaveSystem\\SaveGameManager.cs",
+              "RelativeDocumentMoniker": "Gra_detektywistyczna\\Assets\\SaveSystem\\SaveGameManager.cs",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\SaveSystem\\SaveGameManager.cs",
+              "RelativeToolTip": "Gra_detektywistyczna\\Assets\\SaveSystem\\SaveGameManager.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB0AAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T10:41:25.54Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "DialogueEngineManager.cs",
-              "DocumentMoniker": "C:\\Users\\Piatk\\wzimLab3\\Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineManager.cs",
-              "RelativeDocumentMoniker": "Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineManager.cs",
-              "ToolTip": "C:\\Users\\Piatk\\wzimLab3\\Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineManager.cs",
-              "RelativeToolTip": "Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineManager.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAAEAAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T10:41:24.285Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ContinueGameControl.cs",
-              "DocumentMoniker": "C:\\Users\\Piatk\\wzimLab3\\Gra_detektywistyczna\\Assets\\MenuScripts\\ContinueGameControl.cs",
-              "RelativeDocumentMoniker": "Gra_detektywistyczna\\Assets\\MenuScripts\\ContinueGameControl.cs",
-              "ToolTip": "C:\\Users\\Piatk\\wzimLab3\\Gra_detektywistyczna\\Assets\\MenuScripts\\ContinueGameControl.cs",
-              "RelativeToolTip": "Gra_detektywistyczna\\Assets\\MenuScripts\\ContinueGameControl.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAABUAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-18T08:51:52.33Z",
+              "WhenOpened": "2026-01-05T14:40:27.99Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "DialogueEngine.cs",
-              "DocumentMoniker": "C:\\Users\\Piatk\\wzimLab3\\DialogueEngine\\DialogueEngine\\DialogueEngine.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DialogueEngine\\DialogueEngine.cs",
               "RelativeDocumentMoniker": "DialogueEngine\\DialogueEngine\\DialogueEngine.cs",
-              "ToolTip": "C:\\Users\\Piatk\\wzimLab3\\DialogueEngine\\DialogueEngine\\DialogueEngine.cs",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DialogueEngine\\DialogueEngine.cs",
               "RelativeToolTip": "DialogueEngine\\DialogueEngine\\DialogueEngine.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAwBwAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAADgAAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-18T08:46:14.628Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GameSession.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\SaveSystem\\GameSession.cs",
+              "RelativeDocumentMoniker": "Gra_detektywistyczna\\Assets\\SaveSystem\\GameSession.cs",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\SaveSystem\\GameSession.cs",
+              "RelativeToolTip": "Gra_detektywistyczna\\Assets\\SaveSystem\\GameSession.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T15:34:24.641Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AICommunication.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\AIClient\\AICommunication.cs",
+              "RelativeDocumentMoniker": "DialogueEngine\\AIClient\\AICommunication.cs",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\AIClient\\AICommunication.cs",
+              "RelativeToolTip": "DialogueEngine\\AIClient\\AICommunication.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAD0AAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T14:38:01.781Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DialogueEngineManager.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineManager.cs",
+              "RelativeDocumentMoniker": "Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineManager.cs",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineManager.cs",
+              "RelativeToolTip": "Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineManager.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAGYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T10:41:24.285Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DialogueEngineClient.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineClient.cs",
+              "RelativeDocumentMoniker": "Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineClient.cs",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineClient.cs",
+              "RelativeToolTip": "Gra_detektywistyczna\\Assets\\DialogueEngineCommunication\\DialogueEngineClient.cs",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAcwLUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T10:41:25.54Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MenuControl.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\MenuScripts\\MenuControl.cs",
+              "RelativeDocumentMoniker": "Gra_detektywistyczna\\Assets\\MenuScripts\\MenuControl.cs",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\MenuScripts\\MenuControl.cs",
+              "RelativeToolTip": "Gra_detektywistyczna\\Assets\\MenuScripts\\MenuControl.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACMAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-08T09:23:07.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SceneDTO.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\SceneDTO.cs",
+              "RelativeDocumentMoniker": "DialogueEngine\\DTOModel\\SceneDTO.cs",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\SceneDTO.cs",
+              "RelativeToolTip": "DialogueEngine\\DTOModel\\SceneDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-08T09:57:54.203Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DialogueContextManager.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\SaveSystem\\DialogueContextManager.cs",
+              "RelativeDocumentMoniker": "Gra_detektywistyczna\\Assets\\SaveSystem\\DialogueContextManager.cs",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\SaveSystem\\DialogueContextManager.cs",
+              "RelativeToolTip": "Gra_detektywistyczna\\Assets\\SaveSystem\\DialogueContextManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T14:40:18.231Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "InputBox.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\ComponentScripts\\Dialogue\\InputBox.cs",
+              "RelativeDocumentMoniker": "Gra_detektywistyczna\\Assets\\ComponentScripts\\Dialogue\\InputBox.cs",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\ComponentScripts\\Dialogue\\InputBox.cs",
+              "RelativeToolTip": "Gra_detektywistyczna\\Assets\\ComponentScripts\\Dialogue\\InputBox.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T20:43:09.504Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ButtonSFX.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\MenuScripts\\ButtonSFX.cs",
+              "RelativeDocumentMoniker": "Gra_detektywistyczna\\Assets\\MenuScripts\\ButtonSFX.cs",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\MenuScripts\\ButtonSFX.cs",
+              "RelativeToolTip": "Gra_detektywistyczna\\Assets\\MenuScripts\\ButtonSFX.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T20:55:23.381Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "NPCRequestDTO.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\NPCRequestDTO.cs",
+              "RelativeDocumentMoniker": "DialogueEngine\\DTOModel\\NPCRequestDTO.cs",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\NPCRequestDTO.cs",
+              "RelativeToolTip": "DialogueEngine\\DTOModel\\NPCRequestDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T19:59:07.469Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "NPCResponseDTO.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\NPCResponseDTO.cs",
+              "RelativeDocumentMoniker": "DialogueEngine\\DTOModel\\NPCResponseDTO.cs",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\NPCResponseDTO.cs",
+              "RelativeToolTip": "DialogueEngine\\DTOModel\\NPCResponseDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T19:59:18.77Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "SaveGameButton.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\SaveSystem\\SaveGameButton.cs",
+              "RelativeDocumentMoniker": "Gra_detektywistyczna\\Assets\\SaveSystem\\SaveGameButton.cs",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\SaveSystem\\SaveGameButton.cs",
+              "RelativeToolTip": "Gra_detektywistyczna\\Assets\\SaveSystem\\SaveGameButton.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T14:40:19.478Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "SceneScriptDTO.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\SceneScriptDTO.cs",
+              "RelativeDocumentMoniker": "DialogueEngine\\DTOModel\\SceneScriptDTO.cs",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\SceneScriptDTO.cs",
+              "RelativeToolTip": "DialogueEngine\\DTOModel\\SceneScriptDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-08T09:57:58.249Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ScenesScriptDTO.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\ScenesScriptDTO.cs",
+              "RelativeDocumentMoniker": "DialogueEngine\\DTOModel\\ScenesScriptDTO.cs",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\ScenesScriptDTO.cs",
+              "RelativeToolTip": "DialogueEngine\\DTOModel\\ScenesScriptDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T14:56:20.093Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "NewGameControl.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\MenuScripts\\NewGameControl.cs",
+              "RelativeDocumentMoniker": "Gra_detektywistyczna\\Assets\\MenuScripts\\NewGameControl.cs",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\MenuScripts\\NewGameControl.cs",
+              "RelativeToolTip": "Gra_detektywistyczna\\Assets\\MenuScripts\\NewGameControl.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-08T09:43:28.416Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "SettingsPanelManager.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\MenuScripts\\SettingsPanelManager.cs",
+              "RelativeDocumentMoniker": "Gra_detektywistyczna\\Assets\\MenuScripts\\SettingsPanelManager.cs",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\MenuScripts\\SettingsPanelManager.cs",
+              "RelativeToolTip": "Gra_detektywistyczna\\Assets\\MenuScripts\\SettingsPanelManager.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T14:39:54.232Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "SettingsControl.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\MenuScripts\\SettingsControl.cs",
+              "RelativeDocumentMoniker": "Gra_detektywistyczna\\Assets\\MenuScripts\\SettingsControl.cs",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\MenuScripts\\SettingsControl.cs",
+              "RelativeToolTip": "Gra_detektywistyczna\\Assets\\MenuScripts\\SettingsControl.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T14:39:47.155Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "project.assets.json",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DialogueEngine\\obj\\project.assets.json",
+              "RelativeDocumentMoniker": "DialogueEngine\\DialogueEngine\\obj\\project.assets.json",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DialogueEngine\\obj\\project.assets.json",
+              "RelativeToolTip": "DialogueEngine\\DialogueEngine\\obj\\project.assets.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-01-04T19:02:12.172Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "AudioManager.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\MenuScripts\\AudioManager.cs",
+              "RelativeDocumentMoniker": "Gra_detektywistyczna\\Assets\\MenuScripts\\AudioManager.cs",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\MenuScripts\\AudioManager.cs",
+              "RelativeToolTip": "Gra_detektywistyczna\\Assets\\MenuScripts\\AudioManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-08T09:43:23.164Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 293,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "DialogueManager.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\ComponentScripts\\Dialogue\\DialogueManager.cs",
+              "RelativeDocumentMoniker": "Gra_detektywistyczna\\Assets\\ComponentScripts\\Dialogue\\DialogueManager.cs",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\ComponentScripts\\Dialogue\\DialogueManager.cs",
+              "RelativeToolTip": "Gra_detektywistyczna\\Assets\\ComponentScripts\\Dialogue\\DialogueManager.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAwwCsAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T20:38:06.115Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ContinueGameControl.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\MenuScripts\\ContinueGameControl.cs",
+              "RelativeDocumentMoniker": "Gra_detektywistyczna\\Assets\\MenuScripts\\ContinueGameControl.cs",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\MenuScripts\\ContinueGameControl.cs",
+              "RelativeToolTip": "Gra_detektywistyczna\\Assets\\MenuScripts\\ContinueGameControl.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAcwDUAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-18T08:51:52.33Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "SavedGames.json",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\Database\\SavedGames.json",
+              "RelativeDocumentMoniker": "Gra_detektywistyczna\\Assets\\Database\\SavedGames.json",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\Database\\SavedGames.json",
+              "RelativeToolTip": "Gra_detektywistyczna\\Assets\\Database\\SavedGames.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-01-05T13:43:52.485Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Dialogue.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\ComponentScripts\\Dialogue\\Dialogue.cs",
+              "RelativeDocumentMoniker": "Gra_detektywistyczna\\Assets\\ComponentScripts\\Dialogue\\Dialogue.cs",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\ComponentScripts\\Dialogue\\Dialogue.cs",
+              "RelativeToolTip": "Gra_detektywistyczna\\Assets\\ComponentScripts\\Dialogue\\Dialogue.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T20:42:48.923Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "scenerio_apollo.json",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\Database\\scenerio_apollo.json",
+              "RelativeDocumentMoniker": "Gra_detektywistyczna\\Assets\\Database\\scenerio_apollo.json",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\Database\\scenerio_apollo.json",
+              "RelativeToolTip": "Gra_detektywistyczna\\Assets\\Database\\scenerio_apollo.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-01-05T13:44:44.399Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CreatedGameDTO.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\CreatedGameDTO.cs",
+              "RelativeDocumentMoniker": "DialogueEngine\\DTOModel\\CreatedGameDTO.cs",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\CreatedGameDTO.cs",
+              "RelativeToolTip": "DialogueEngine\\DTOModel\\CreatedGameDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-04T18:37:33.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "DialogueBox.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\ComponentScripts\\Dialogue\\DialogueBox.cs",
+              "RelativeDocumentMoniker": "Gra_detektywistyczna\\Assets\\ComponentScripts\\Dialogue\\DialogueBox.cs",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\ComponentScripts\\Dialogue\\DialogueBox.cs",
+              "RelativeToolTip": "Gra_detektywistyczna\\Assets\\ComponentScripts\\Dialogue\\DialogueBox.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T20:42:55.456Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "DTOModel.csproj",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\DTOModel.csproj",
+              "RelativeDocumentMoniker": "DialogueEngine\\DTOModel\\DTOModel.csproj",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\DTOModel.csproj",
+              "RelativeToolTip": "DialogueEngine\\DTOModel\\DTOModel.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-01-05T14:19:39.79Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "EndingDTO.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\EndingDTO.cs",
+              "RelativeDocumentMoniker": "DialogueEngine\\DTOModel\\EndingDTO.cs",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\EndingDTO.cs",
+              "RelativeToolTip": "DialogueEngine\\DTOModel\\EndingDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-05T14:19:44.895Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "GamesToContinueDTO.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\GamesToContinueDTO.cs",
+              "RelativeDocumentMoniker": "DialogueEngine\\DTOModel\\GamesToContinueDTO.cs",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\DialogueEngine\\DTOModel\\GamesToContinueDTO.cs",
+              "RelativeToolTip": "DialogueEngine\\DTOModel\\GamesToContinueDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-04T18:37:21.812Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "Settings.json",
+              "DocumentMoniker": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\Database\\Settings.json",
+              "RelativeDocumentMoniker": "Gra_detektywistyczna\\Assets\\Database\\Settings.json",
+              "ToolTip": "C:\\Users\\admin\\wzimLab3\\Gra_detektywistyczna\\Assets\\Database\\Settings.json",
+              "RelativeToolTip": "Gra_detektywistyczna\\Assets\\Database\\Settings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-01-05T13:44:41.167Z"
             }
           ]
         }

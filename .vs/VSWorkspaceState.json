@@ -2,15 +2,16 @@
   "ExpandedNodes": [
     "",
     "\\DialogueEngine",
-    "\\DialogueEngine\\DialogueEngine",
-    "\\DialogueEngine\\DialogueEngine\\obj",
     "\\DialogueEngine\\DTOModel",
     "\\Gra_detektywistyczna",
     "\\Gra_detektywistyczna\\Assets",
+    "\\Gra_detektywistyczna\\Assets\\ComponentScripts",
+    "\\Gra_detektywistyczna\\Assets\\ComponentScripts\\Dialogue",
+    "\\Gra_detektywistyczna\\Assets\\Database",
     "\\Gra_detektywistyczna\\Assets\\DialogueEngineCommunication",
     "\\Gra_detektywistyczna\\Assets\\MenuScripts",
-    "\\Gra_detektywistyczna\\Packages"
+    "\\Gra_detektywistyczna\\Assets\\SaveSystem"
   ],
-  "SelectedNode": "\\DialogueEngine\\DialogueEngine.sln",
+  "SelectedNode": "\\Gra_detektywistyczna\\Assets\\Database\\SavedGames.json",
   "PreviewInSolutionExplorer": false
 }
