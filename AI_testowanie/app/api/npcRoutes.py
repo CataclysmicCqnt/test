@@ -1,20 +1,11 @@
 from pathlib import Path
 from fastapi import APIRouter, HTTPException
 
+from app.services.gameState import gameState
 from app.schema import NPCChatRequest, NPCChatResponse
-from app.services.ollamaService import generateStructuredOutput
+from app.services.aiService import generateStructuredOutput
 from app.config import settings
 
-
-try:
-
-    SCENARIO = (settings.PARENT_DIR / "assets" /
-                "scenarioLore.txt").read_text(encoding="utf-8")
-    NPCPERSONA = (settings.PARENT_DIR / "assets" /
-                  "npcPersona.txt").read_text(encoding="utf-8")
-except Exception as e:
-    print(f"Error in npc Router:\n${e}")
-    raise HTTPException(status_code=502, detail=e)
 
 npcRouter = APIRouter(prefix="/npc")
 
@@ -22,41 +13,77 @@ npcRouter = APIRouter(prefix="/npc")
 @npcRouter.post("/chat", response_model=NPCChatResponse)
 def chatWithNpc(data: NPCChatRequest):
 
-    if settings.USE_MOCK:
-        print("MOCK MODE: Zwracam stałą odpowiedź NPC.")
-        return {
-            "speech": "Jesteś w trybie testowym",
-            "action": "stoi spokojnie",  
-            "intent": "inform"           
-        }
+    if not gameState.isSceneLoaded():
+        raise HTTPException(
+            status_code=400,
+            detail="Błąd: Scena nie została załadowana. Użyj /scene/load."
+        )
+    transcript = gameState.getSceneTranscript()
+    gameState.addMessage(speaker="Player", text=data.userText)
+
+    current_npc_desc = ""
+    other_people_list = ""
+    found_npc = False
+
+    for npc in gameState.currentNpcs:
+        if npc.name == data.npcName:
+            current_npc_desc = f"Rola: {npc.role}. Opis: {npc.description}"
+            found_npc = True
+        else:
+            other_people_list += f"- {npc.name} ({npc.role})\n"
+
+    if not found_npc:
+        print(f"[WARNING] NPC '{data.npcName}' nie znaleziono w scenie!")
+        current_npc_desc = "Rola: Nieznana. Opis: Brak danych."
+
+    if not other_people_list:
+        other_people_list = "Nikogo innego tu nie ma."
+
+    items_list = ""
+    for item in gameState.currentItems:
+        items_list += f"- {item.name}: {item.description} (Wiedza/Wskazówka: {item.hints})\n"
+
+    if not items_list:
+        items_list = "Brak przedmiotów."
+
+    systemPrompt = f"""
+   Jesteś postacią w grze detektywistycznej.
+    Twoje imię: {data.npcName}
+    Twoje dane: {current_npc_desc}
     
-    system_prompt = f"""
-      {NPCPERSONA}
+    KIM JEST TWÓJ ROZMÓWCA:
+    Rozmawiasz z Detektywem, który prowadzi śledztwo w sprawie zbrodni.
+    Traktuj go odpowiednio do swojej roli (np. jeśli jesteś podejrzany - bądź ostrożny, jeśli świadek - pomocny).
+    
+    Lokalizacja: {gameState.currentSceneDescription}
+    
+    Kto jest obok:
+    {other_people_list}
+    
+    Widoczne przedmioty (i twoje myśli o nich):
+    {items_list}
 
-      GLOBALNA FABUŁA:
-      <lore>
-      {SCENARIO}
-      </lore>
-
-      BIEŻĄCA SCENA:
-      <scene>
-      {data.sceneDescription}
-      </scene>
-
-      TWOJA POSTAĆ:
-      Imię: {data.npcName}
+    Historia rozmowy:
+    {transcript}
+   ZASADY (BARDZO WAŻNE):
+    1. Jesteś żywym człowiekiem w tej sytuacji, a nie bazą danych. Możesz improwizować drobne szczegóły (np. nastrój, odczucia), aby budować klimat, o ile nie przeczy to faktom.
+    2. NIGDY nie tłumacz się ze swojej roli (nie pisz zdań typu "To jest zgodne z moją rolą" ani "Jako AI"). Po prostu graj.
+    3. Korzystaj z sekcji "OTOCZENIE". Jeśli Detektyw pyta "kto tu jest?", musisz wymienić osoby z listy powyżej.
+    4. Jeśli gracz pyta o przedmiot, użyj "Wskazówki" (Hints) z opisu, aby subtelnie naprowadzić Detektywa.
+    5. Mów krótko, naturalnie i tylko po polsku bez innych jenzykow.
+    6. Zwracaj WYŁĄCZNIE czysty JSON (klucz "speech").
     """
 
-    user_prompt = f"Gracz mówi do Ciebie: \"{data.userText}\""
+    userPrompt = f"Gracz pyta: \"{data.userText}\". Odpowiedz jako {data.npcName}."
 
     response = generateStructuredOutput(
-        system_prompt,
-        user_prompt,
+        systemPrompt,
+        userPrompt,
         NPCChatResponse
     )
-    print("Тест:", response)
 
     if "error" in response:
         raise HTTPException(status_code=502, detail=response)
 
+    gameState.addMessage(speaker=data.npcName, text=response['speech'])
     return response
