@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using DTOModel;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 
 public class MenuControl : MonoBehaviour
 {
@@ -40,36 +41,62 @@ public class MenuControl : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-    public async void NewGameScene()
+   public async void NewGameScene()
+{
+    string scenarioName = GetRandomScenarioFromFolder();
+    
+    Debug.Log($"Używam scenariusza: {scenarioName}");
+    
+    string[] parameters = { scenarioName, "1" };
+    CurrentScenarioName = scenarioName;
+    CurrentSceneNumber = 1;
+
+    SceneScriptDTO scene = await DialogueEngineManager.Instance.GetSceneAsync(parameters);
+
+    if (scene != null)
     {
-        string[] parameters = { "scenerio_apollo", "1" };
-
-        CurrentScenarioName = parameters[0];
-        CurrentSceneNumber = int.Parse(parameters[1]);
-
-
-        SceneScriptDTO scene = await DialogueEngineManager.Instance.GetSceneAsync(parameters);
-
-        if (scene != null)
+        MenuControl.CollectedCharacters.Clear();
+        
+        foreach (var character in scene.Npcs)
         {
-
-            MenuControl.CollectedCharacters.Clear();
-
-
-            foreach (var character in scene.Npcs)
+            if (!MenuControl.CollectedCharacters.ContainsKey(character.name))
             {
-                if (!MenuControl.CollectedCharacters.ContainsKey(character.name))
-                {
-                    MenuControl.CollectedCharacters.Add(character.name, character.protrait);
-                    Debug.Log($"Dodano do słownika: {character.name} ze ścieżką {character.protrait}");
-                }
+                MenuControl.CollectedCharacters.Add(character.name, character.protrait);
             }
-
-
-            SceneManager.LoadScene("NewGame");
         }
-
+        
+        SceneManager.LoadScene("NewGame");
     }
+    else
+    {
+        Debug.LogError($"Nie można załadować scenariusza: {scenarioName}");
+        SceneManager.LoadScene("MainMenu");
+    }
+}
+
+private string GetRandomScenarioFromFolder()
+{
+    string databasePath = Application.dataPath + "/Database/";
+    
+    if (!System.IO.Directory.Exists(databasePath))
+    {
+        Debug.LogError("Brak folderu Database!");
+        return "scenerio_apollo";
+    }
+    
+    var files = System.IO.Directory.GetFiles(databasePath, "*.json")
+        .Select(f => System.IO.Path.GetFileNameWithoutExtension(f))
+        .Where(f => f != "Settings" && f != "SavedGames")
+        .ToList();
+    
+    if (files.Count == 0)
+    {
+        return "scenerio_apollo";
+    }
+    
+    System.Random random = new System.Random();
+    return files[random.Next(0, files.Count)];
+}
 
     public async void NextScene()
     {
