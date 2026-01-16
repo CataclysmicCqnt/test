@@ -87,3 +87,30 @@ def chatWithNpc(data: NPCChatRequest):
 
     gameState.addMessage(speaker=data.npcName, text=response['speech'])
     return response
+
+
+@npcRouter.post("/summary", response_model=NPCChatResponse)
+def getGameSummary():
+
+    transcript = gameState.getSceneTranscript()
+
+    if not transcript:
+        return {"speech": "Nie podjęto żadnych znaczących działań, które można by ocenić."}
+
+    system_prompt = """
+    Jesteś sędzią i narratorem gry detektywistycznej. 
+    Przeanalizuj historię śledztwa i wydaj krótki, surowy, ale sprawiedliwy werdykt (maksymalnie 3 zdania).
+    Oceń logikę gracza, jego podejście do świadków i czy udało mu się odkryć prawdę.
+    Twoja odpowiedź musi być w formacie JSON: {"speech": "treść werdyktu"}.
+    Używaj języka polskiego.
+    """
+
+    user_prompt = f"Oto historia śledztwa:\n{transcript}\n\nWydaj ostateczny werdykt na temat działań Detektywa."
+
+    response = generateStructuredOutput(
+        system_prompt,
+        user_prompt,
+        NPCChatResponse
+    )
+
+    return response
