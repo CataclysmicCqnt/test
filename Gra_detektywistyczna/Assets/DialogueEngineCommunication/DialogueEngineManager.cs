@@ -108,4 +108,11 @@ public class DialogueEngineManager
 
         return await _client.GenerateNewSceneAsync(sceneDTO);
     }
+
+    public async Task<string> GetRandomScenarioAsync()
+    {
+        if (IsInitialized == false)
+            throw new System.Exception("Jeszcze nie zainicjalizowano DialogueEngine!");
+        return await _client.GetRandomScenarioAsync();
+    }
 }

@@ -166,5 +166,61 @@ namespace DialogueEngine
                 return $"Error: {ex.Message}";
             }
         }
+        /// <summary>
+        /// Losuje scenariusz z dostępnych plików scenariusza.
+        /// </summary>
+        /// <param name="parameters">Nie używane w tej metodzie.</param>
+        /// <returns>Nazwę wylosowanego scenariusza.</returns>
+        public string GetRandomScenario(string[] parameters)
+        {
+            try
+            {
+                string databasePath = _databasePath;
+
+                if (!Directory.Exists(databasePath))
+                {
+                    Console.WriteLine($"Database path does not exist: {databasePath}");
+                    return "scenerio_apollo"; // Domyślny scenariusz
+                }
+
+                var scenarioFiles = Directory.GetFiles(databasePath, "*.json")
+                    .Select(Path.GetFileNameWithoutExtension)
+                    .Where(name => !name.Equals("Settings", StringComparison.OrdinalIgnoreCase)
+                                && !name.Equals("SavedGames", StringComparison.OrdinalIgnoreCase))
+                    .ToArray();
+
+                Console.WriteLine($"Found {scenarioFiles.Length} scenario files: {string.Join(", ", scenarioFiles)}");
+
+                if (scenarioFiles.Length == 0)
+                {
+                    Console.WriteLine("No scenario files found, using default");
+                    return "scenerio_apollo";
+                }
+
+                Random random = new Random();
+                int randomIndex = random.Next(0, scenarioFiles.Length);
+                string selectedScenario = scenarioFiles[randomIndex];
+
+                Console.WriteLine($"Randomly selected scenario: {selectedScenario}");
+
+                string scenarioPath = Path.Combine(databasePath, selectedScenario + ".json");
+                string jsonContent = File.ReadAllText(scenarioPath);
+                var scenesDTO = JsonConvert.DeserializeObject<ScenesScriptDTO>(jsonContent);
+
+                if (scenesDTO == null || scenesDTO.Scenes == null || scenesDTO.Scenes.Length == 0)
+                {
+                    Console.WriteLine($"Scenario {selectedScenario} is empty or invalid, using default");
+                    return "scenerio_apollo";
+                }
+
+                return selectedScenario;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error getting random scenario: {ex.Message}");
+                Console.WriteLine($"StackTrace: {ex.StackTrace}");
+                return "scenerio_apollo";
+            }
+        }
     }
 }

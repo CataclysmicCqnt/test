@@ -209,4 +209,13 @@ public class DialogueEngineClient : IDisposable
         }
         catch { }
     }
+
+    public async Task<string> GetRandomScenarioAsync()
+    {
+        MethodDTO methodDTO = new MethodDTO() { MethodName = "GetRandomScenario" };
+        string serializedMethodDTO = JsonUtility.ToJson(methodDTO);
+
+        string response = await SendCommandAsync(serializedMethodDTO);
+        return response;
+    }
 }

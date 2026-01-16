@@ -26,7 +26,11 @@ namespace Assets.MenuScripts
 
             GamesToContinueDTO gamesToContinue = await DialogueEngineManager.Instance.GetGamesToContinueAsync();         
            
-            var sortedGames = gamesToContinue.GamesToContinue.OrderByDescending(g => g.LastSaveDate).ToList();  
+            var sortedGames = gamesToContinue.GamesToContinue.OrderByDescending(g => g.LastSaveDate).ToList();
+
+            sortedGames = sortedGames.Take(4).ToList();  
+
+            sortedGames = sortedGames.Take(4).ToList();
 
             foreach (CreatedGameDTO game in sortedGames)
             {
