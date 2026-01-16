@@ -541,9 +541,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 544993791}
-        m_TargetAssemblyTypeName: MenuControl, Assembly-CSharp
-        m_MethodName: NextScene
+      - m_Target: {fileID: 1784639044}
+        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
+        m_MethodName: LoadNewScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2455,8 +2455,6 @@ MonoBehaviour:
   dialoguePanel: {fileID: 1533930109}
   inputField: {fileID: 1513910185}
   dialoguesHistory: []
-  isAwaitingUserInput: 0
-  isAwaitingNPCResponse: 0
 --- !u!4 &1784639045
 Transform:
   m_ObjectHideFlags: 0
@@ -3226,14 +3224,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1325400761777795832, guid: 5282a8115a0519a40af84a48bcf3029c, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

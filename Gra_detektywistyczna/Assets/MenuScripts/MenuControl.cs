@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 
+
 public class MenuControl : MonoBehaviour
 {
     public static Dictionary<string, string> CollectedCharacters = new Dictionary<string, string>();
@@ -21,6 +22,8 @@ public class MenuControl : MonoBehaviour
     private async void Awake()
     {
         await DialogueEngineManager.InitializeManagerAsync(gameObject);
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     private async void OnApplicationQuit()
@@ -41,64 +44,63 @@ public class MenuControl : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
-   public async void NewGameScene()
-{
-    string scenarioName = GetRandomScenarioFromFolder();
-    
-    Debug.Log($"Używam scenariusza: {scenarioName}");
-    
-    string[] parameters = { scenarioName, "1" };
-    CurrentScenarioName = scenarioName;
-    CurrentSceneNumber = 1;
-
-    SceneScriptDTO scene = await DialogueEngineManager.Instance.GetSceneAsync(parameters);
-
-    if (scene != null)
+    public async void NewGameScene()
     {
-        MenuControl.CollectedCharacters.Clear();
-        
-        foreach (var character in scene.Npcs)
+        string scenarioName = GetRandomScenarioFromFolder();
+
+        Debug.Log($"Używam scenariusza: {scenarioName}");
+
+        string[] parameters = { scenarioName, "1" };
+        CurrentScenarioName = scenarioName;
+        CurrentSceneNumber = 1;
+
+        SceneScriptDTO scene = await DialogueEngineManager.Instance.GetSceneAsync(parameters);
+
+        if (scene != null)
         {
-            if (!MenuControl.CollectedCharacters.ContainsKey(character.name))
+            MenuControl.CollectedCharacters.Clear();
+            foreach (var character in scene.Npcs)
             {
-                MenuControl.CollectedCharacters.Add(character.name, character.protrait);
+                if (!MenuControl.CollectedCharacters.ContainsKey(character.name))
+                {
+                    MenuControl.CollectedCharacters.Add(character.name, character.protrait);
+                }
             }
+
+            SceneManager.LoadScene("NewGame");
         }
-        
-        SceneManager.LoadScene("NewGame");
+        else
+        {
+            Debug.LogError($"Nie można załadować scenariusza: {scenarioName}");
+            SceneManager.LoadScene("MainMenu");
+        }
     }
-    else
-    {
-        Debug.LogError($"Nie można załadować scenariusza: {scenarioName}");
-        SceneManager.LoadScene("MainMenu");
-    }
-}
 
-private string GetRandomScenarioFromFolder()
-{
-    string databasePath = Application.dataPath + "/Database/";
-    
-    if (!System.IO.Directory.Exists(databasePath))
+    private string GetRandomScenarioFromFolder()
     {
-        Debug.LogError("Brak folderu Database!");
-        return "scenerio_apollo";
-    }
-    
-    var files = System.IO.Directory.GetFiles(databasePath, "*.json")
-        .Select(f => System.IO.Path.GetFileNameWithoutExtension(f))
-        .Where(f => f != "Settings" && f != "SavedGames")
-        .ToList();
-    
-    if (files.Count == 0)
-    {
-        return "scenerio_apollo";
-    }
-    
-    System.Random random = new System.Random();
-    return files[random.Next(0, files.Count)];
-}
+        string databasePath = Application.dataPath + "/Database/";
 
-    public async void NextScene()
+        if (!System.IO.Directory.Exists(databasePath))
+        {
+            Debug.LogError("Brak folderu Database!");
+            return "scenerio_apollo";
+        }
+
+        var files = System.IO.Directory.GetFiles(databasePath, "*.json")
+            .Select(f => System.IO.Path.GetFileNameWithoutExtension(f))
+            .Where(f => f != "Settings" && f != "SavedGames")
+            .ToList();
+
+        if (files.Count == 0)
+        {
+            return "scenerio_apollo";
+        }
+
+        System.Random random = new System.Random();
+        return files[random.Next(0, files.Count)];
+    }
+
+    public async Task NextScene()
     {
         string[] parameters = { CurrentScenarioName, (++CurrentSceneNumber).ToString() };
         SceneScriptDTO scene = await DialogueEngineManager.Instance.GetSceneAsync(parameters);
