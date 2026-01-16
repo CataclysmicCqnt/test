@@ -37,11 +37,11 @@ http://127.0.0.1:8000/docs
 
 #### Endpointy
 
-| Endpoint      | Metoda | Opis                                             |
-| ------------- | ------ | ------------------------------------------------ |
-| `/scene/load` | POST   | Ładuje scenę, NPC i przedmioty. Czyści pamięć AI |
-| `/npc/chat`   | POST   | Wysyła wiadomość gracza i zwraca odpowiedź NPC   |
-
+| Endpoint    | Metoda | Opis                                                               |
+| ------------| ------ | -------------------------------------------------------------------|
+| /scene/load | POST   | Ładuje scenę, NPC i przedmioty. Czyści pamięć AI                   |
+| /npc/chat   | POST   | Wysyła wiadomość gracza i zwraca odpowiedź NPC                     |
+| /npc/summary| POST   | Generuje krótki werdykt końcowy na podstawie historii całej sesji  |
 ---
 
 ## 👨‍💻 STREFA DEVELOPERA (Rozwój kodu Python)
@@ -106,3 +106,4 @@ python buildGame.py
 ```
 
 ---
+
