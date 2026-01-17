@@ -192,6 +192,7 @@ public class DialogueManager : MonoBehaviour
 
         currentNpcName = dialoguesQueue.Peek().name;
         if (currentNpcName != "Narrator") LoadNpcTexture(currentNpcName);
+        Debug.Log(currentNpcName);
         nameText.text = "Ty";
         EnableUserInput();
         isAwaitingUserInput = true;

@@ -6,13 +6,13 @@
       "description": "Rozbita gablota w Galerii Apollo. Wokół stoją Joanne, Darmian, Casper i Serena. Chaos po kradzieży.",
       "npcs": [ 
         {
-          "name": "Joanne Galtier",
+          "name": "Joanne",
           "role": "Kierowniczka Galerii Apollo",
           "description": "Zestresowana, twierdzi że nic nie widziała i przyszła godzinę wcześniej.",
           "portrait": "Joanne"
         },
         {
-          "name": "Darmian Duchamp",
+          "name": "Darmian",
           "role": "Ochroniarz",
           "description": "Był po drugiej stronie muzeum, przybiegł jak tylko usłyszał alarm.",
           "portrait": "Darmian"
@@ -24,7 +24,7 @@
           "portrait": "Casper"
         },
         {
-          "name": "Serena Pulin",
+          "name": "Serena",
           "role": "Młoda detektyw",
           "description": "Pewna siebie, energiczna, zwraca uwagę na nielogiczne elementy sprawy.",
           "portrait": "Serena"
