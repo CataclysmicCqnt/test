@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game AI - Hybrid Tester</title>
+  <style>
+    :root {
+      --bg-dark: #121212;
+      --bg-panel: #1e1e1e;
+      --accent: #ff9800;
+      --text-main: #e0e0e0;
+      --border: #333;
+      --success: #4caf50;
+      --danger: #f44336;
+      --offline: #757575;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Header */
+    header {
+      background: #181818;
+      padding: 10px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 50px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: var(--accent);
+    }
+
+    /* Status Badge */
+    .status-badge {
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 0.8em;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .status-online {
+      background: rgba(76, 175, 80, 0.2);
+      color: var(--success);
+      border: 1px solid var(--success);
+    }
+
+    .status-offline {
+      background: rgba(117, 117, 117, 0.2);
+      color: var(--offline);
+      border: 1px solid var(--offline);
+    }
+
+    /* Layout */
+    .main-container {
+      display: flex;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    /* --- 1. LEFT PANEL (SETUP) --- */
+    .panel-setup {
+      width: 300px;
+      background: var(--bg-panel);
+      border-right: 1px solid var(--border);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    textarea#json-input {
+      flex: 1;
+      background: #111;
+      border: 1px solid var(--border);
+      color: #0f0;
+      font-family: monospace;
+      font-size: 11px;
+      padding: 10px;
+      resize: none;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    /* --- 2. CENTER PANEL (CHAT) --- */
+    .panel-game {
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      background: #151515;
+      position: relative;
+    }
+
+    .npc-selector-bar {
+      padding: 15px;
+      background: #252525;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chat-controls {
+      display: flex;
+      gap: 15px;
+      align-items: center;
+    }
+
+    #chat-history {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .msg {
+      padding: 10px 14px;
+      border-radius: 8px;
+      max-width: 80%;
+      line-height: 1.4;
+    }
+
+    .msg.user {
+      align-self: flex-end;
+      background-color: #0d47a1;
+      color: white;
+    }
+
+    .msg.npc {
+      align-self: flex-start;
+      background-color: #333;
+      border-left: 3px solid var(--accent);
+    }
+
+    .msg.sys {
+      align-self: center;
+      color: #666;
+      font-style: italic;
+      font-size: 0.85rem;
+    }
+
+    .meta-info {
+      font-size: 0.75em;
+      color: #888;
+      margin-top: 5px;
+      font-style: italic;
+      display: block;
+    }
+
+    .chat-input-area {
+      padding: 20px;
+      background: var(--bg-panel);
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 10px;
+    }
+
+    /* --- 3. RIGHT PANEL (VERDICT) --- */
+    .panel-verdict {
+      width: 250px;
+      background: var(--bg-panel);
+      border-left: 1px solid var(--border);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* UI Elements */
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button.primary {
+      background: var(--accent);
+      color: #000;
+    }
+
+    button.danger {
+      background: var(--danger);
+      color: #fff;
+    }
+
+    button:hover {
+      filter: brightness(1.1);
+    }
+
+    button:disabled {
+      background: #444;
+      color: #888;
+      cursor: not-allowed;
+    }
+
+    select,
+    input[type="text"] {
+      padding: 8px;
+      background: #333;
+      border: 1px solid var(--border);
+      color: white;
+      border-radius: 4px;
+    }
+
+    select {
+      width: 100%;
+    }
+
+    input[type="text"] {
+      flex: 1;
+    }
+
+    /* Overlay Lock */
+    .overlay-lock {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 10;
+      text-align: center;
+    }
+
+    /* Verdict Result Box */
+    .result-box {
+      padding: 15px;
+      border-radius: 6px;
+      text-align: center;
+      display: none;
+    }
+
+    .win {
+      background: rgba(76, 175, 80, 0.1);
+      border: 1px solid var(--success);
+    }
+
+    .loss {
+      background: rgba(244, 67, 54, 0.1);
+      border: 1px solid var(--danger);
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>🧪 AI Hybrid Tester</h1>
+    <div id="server-status" class="status-badge status-offline">OFFLINE</div>
+  </header>
+
+  <div class="main-container">
+
+    <div class="panel-setup">
+      <h3>1. Scenariusz (JSON)</h3>
+      <textarea id="json-input" spellcheck="false">
+{
+  "scenes": [
+    {
+      "name": "Scena 1 - Pogorzelisko",
+      "description": "Spalony hol pensjonatu. Ciało Stefana na piętrze.",
+      "npcs": [
+        { "name": "Teresa", "role": "Właścicielka", "description": "Chłodna." },
+        { "name": "Paweł", "role": "Strażak", "description": "Podejrzliwy." }
+      ],
+      "items": [
+        { "name": "Kanister", "description": "Pusty.", "hints": "Ślady benzyny." }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "accusedName": "Teresa",
+      "description": "Właścicielka podpaliła dom dla odszkodowania.",
+      "isMurderer": true
+    },
+    {
+      "accusedName": "Paweł",
+      "description": "Strażak jest niewinny. To był wypadek.",
+      "isMurderer": false
+    }
+  ]
+}</textarea>
+      <button id="btn-load" class="primary" onclick="loadScene()" disabled>ZAŁADUJ DO SERWERA</button>
+    </div>
+
+    <div class="panel-game">
+      <div id="game-lock" class="overlay-lock">
+        <h2 style="color:var(--accent)">System Zablokowany</h2>
+        <p id="lock-msg">Uruchom serwer i załaduj scenariusz.</p>
+      </div>
+
+      <div class="npc-selector-bar">
+        <div class="chat-controls">
+          <label>Rozmowa z:</label>
+          <select id="npc-select" style="width: 150px;"></select>
+        </div>
+
+        <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.9em;">
+          <input type="checkbox" id="stream-toggle" checked>
+          <span style="color:var(--accent)">Tryb Streaming (Tekst)</span>
+        </label>
+      </div>
+
+      <div id="chat-history"></div>
+
+      <div class="chat-input-area">
+        <input type="text" id="user-input" placeholder="Wiadomość..."
+          onkeypress="if(event.key==='Enter') sendMessage()">
+        <button class="primary" onclick="sendMessage()">WYŚLIJ</button>
+      </div>
+    </div>
+
+    <div class="panel-verdict">
+      <h3>3. Werdykt</h3>
+      <p style="font-size:0.8em; color:#aaa;">Wybierz oskarżonego.</p>
+
+      <select id="verdict-select" disabled>
+        <option value="">-- Czekam na dane --</option>
+      </select>
+
+      <button id="btn-verdict" class="danger" onclick="sendVerdict()" disabled>OSKARŻAM</button>
+
+      <div id="verdict-result" class="result-box">
+        <strong id="result-title" style="display:block; margin-bottom:10px;"></strong>
+        <span id="result-desc" style="font-size:0.9em;"></span>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const API_URL = "http://127.0.0.1:8000"; 
+    let SERVER_ONLINE = false;
+    let GLOBAL_ENDINGS = [];
+
+    // --- 0. HEALTH CHECK ---
+    async function checkHealth() {
+      try {
+        const response = await fetch(`${API_URL}/docs`); // Пингуем доку, так как она всегда есть
+        if (response.ok) {
+          if (!SERVER_ONLINE) setOnlineState(true);
+        } else {
+          setOnlineState(false);
+        }
+      } catch (e) {
+        setOnlineState(false);
+      }
+    }
+
+    function setOnlineState(isOnline) {
+      SERVER_ONLINE = isOnline;
+      const badge = document.getElementById('server-status');
+      const loadBtn = document.getElementById('btn-load');
+      const lockTitle = document.querySelector('#game-lock h2');
+      const lockMsg = document.getElementById('lock-msg');
+
+      if (isOnline) {
+        badge.className = "status-badge status-online";
+        badge.innerText = "ONLINE";
+        loadBtn.disabled = false;
+        lockTitle.innerText = "System gotowy";
+        lockTitle.style.color = "#4caf50";
+        lockMsg.innerText = "Załaduj scenariusz po lewej stronie.";
+      } else {
+        badge.className = "status-badge status-offline";
+        badge.innerText = "OFFLINE";
+        loadBtn.disabled = true;
+        document.getElementById('game-lock').style.display = 'flex';
+        lockTitle.innerText = "Brak połączenia";
+        lockTitle.style.color = "#f44336";
+        lockMsg.innerText = "Uruchom runServer.py";
+      }
+    }
+    setInterval(checkHealth, 2000);
+    checkHealth();
+
+    // --- 1. LOAD SCENE ---
+    async function loadScene() {
+      const jsonRaw = document.getElementById('json-input').value;
+      const btn = document.getElementById('btn-load');
+
+      try {
+        const data = JSON.parse(jsonRaw);
+        if (!data.scenes || !data.scenes[0]) throw new Error("Brak 'scenes'");
+        if (!data.endings) throw new Error("Brak 'endings'");
+
+        const scenePayload = {
+          name: data.scenes[0].name,
+          description: data.scenes[0].description,
+          npcs: data.scenes[0].npcs,
+          items: data.scenes[0].items
+        };
+
+        GLOBAL_ENDINGS = data.endings;
+
+        // Populate UI Lists
+        const npcSelect = document.getElementById('npc-select');
+        npcSelect.innerHTML = '';
+        data.scenes[0].npcs.forEach(npc => {
+          const opt = document.createElement('option');
+          opt.value = npc.name;
+          opt.innerText = npc.name;
+          npcSelect.appendChild(opt);
+        });
+
+        const verSelect = document.getElementById('verdict-select');
+        verSelect.innerHTML = '<option value="">-- Wybierz --</option>';
+        data.endings.forEach(end => {
+          const opt = document.createElement('option');
+          opt.value = end.accusedName;
+          opt.innerText = end.accusedName;
+          verSelect.appendChild(opt);
+        });
+
+        btn.innerText = "⏳ WYSYŁANIE...";
+        btn.disabled = true;
+
+        const response = await fetch(`${API_URL}/scene/load`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(scenePayload)
+        });
+
+        if (!response.ok) throw new Error("Błąd serwera");
+
+        document.getElementById('game-lock').style.display = 'none';
+        document.getElementById('chat-history').innerHTML = '';
+        document.getElementById('verdict-select').disabled = false;
+        document.getElementById('btn-verdict').disabled = false;
+
+        addMessage('sys', `Załadowano: ${scenePayload.name}`);
+
+      } catch (e) {
+        alert("Błąd: " + e.message);
+      } finally {
+        btn.innerText = "ZAŁADUJ DO SERWERA";
+        if (SERVER_ONLINE) btn.disabled = false;
+      }
+    }
+
+    // --- 2. CHAT LOGIC ---
+    async function sendMessage() {
+      const input = document.getElementById('user-input');
+      const npcName = document.getElementById('npc-select').value;
+      const useStream = document.getElementById('stream-toggle').checked;
+      const text = input.value.trim();
+
+      if (!text) return;
+      if (!npcName) { alert("Brak NPC w scenie!"); return; }
+
+      addMessage('user', text);
+      input.value = '';
+      input.disabled = true;
+
+      const payload = { npcName: npcName, userText: text };
+
+      if (useStream) {
+        await handleStreamingChat(npcName, payload);
+      } else {
+        await handleStandardChat(npcName, payload);
+      }
+
+      input.disabled = false;
+      input.focus();
+    }
+
+    // --- STANDARD CHAT ---
+    async function handleStandardChat(npcName, payload) {
+      const bubbleId = addMessage('npc', '<i>Myśli...</i>');
+      const bubble = document.getElementById(bubbleId);
+
+      try {
+        const response = await fetch(`${API_URL}/npc/chat`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await response.json();
+
+        let html = `<b>${npcName}:</b> ${data.speech}`;
+        if (data.action || data.intention) {
+          html += `<span class="meta-info">`;
+          if (data.action) html += `[Akcja: ${data.action}] `;
+          if (data.intention) html += `(Cel: ${data.intention})`;
+          html += `</span>`;
+        }
+        bubble.innerHTML = html;
+        scrollChat(); // Scroll after update
+
+      } catch (e) {
+        bubble.innerHTML = `<span style="color:red">Błąd: ${e.message}</span>`;
+      }
+    }
+
+    // --- STREAMING CHAT (FIXED) ---
+    async function handleStreamingChat(npcName, payload) {
+      // Создаем пузырь и сразу получаем его УНИКАЛЬНЫЙ ID
+      const bubbleId = addMessage('npc', '...');
+      const bubble = document.getElementById(bubbleId); // Теперь это точно пузырь NPC
+
+      let fullText = "";
+      bubble.innerHTML = `<b>${npcName}:</b> `;
+
+      try {
+        const response = await fetch(`${API_URL}/npc/chat/stream`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder("utf-8");
+        let buffer = ""; // Буфер для склейки разорванных строк
+
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+
+          // Декодируем и добавляем к буферу
+          const chunk = decoder.decode(value, { stream: true });
+          buffer += chunk;
+
+          // Разбиваем по двойному переносу (стандарт SSE)
+          const parts = buffer.split('\n\n');
+
+          // Последняя часть может быть неполной, оставляем её в буфере
+          buffer = parts.pop();
+
+          for (const part of parts) {
+            const line = part.trim();
+            if (line.startsWith("data: ")) {
+              try {
+                const jsonStr = line.replace("data: ", "");
+                const data = JSON.parse(jsonStr);
+
+                if (data.token) {
+                  fullText += data.token;
+                  // ВАЖНО: Обновляем именно тот элемент, который создали по ID
+                  bubble.innerHTML = `<b>${npcName}:</b> ${fullText}`;
+                  scrollChat();
+                }
+              } catch (e) {
+                console.warn("JSON Parse error:", e);
+              }
+            }
+          }
+        }
+      } catch (e) {
+        bubble.innerHTML += `<br><span style="color:red">[Błąd: ${e.message}]</span>`;
+      }
+    }
+
+   
+    function addMessage(role, text) {
+      const history = document.getElementById('chat-history');
+      const div = document.createElement('div');
+      div.className = `msg ${role}`;
+
+      // FIX: Добавляем случайное число к ID, чтобы избежать коллизий
+      const uniqueId = `msg-${Date.now()}-${Math.floor(Math.random() * 10000)}`;
+      div.id = uniqueId;
+
+      div.innerHTML = text;
+      history.appendChild(div);
+      scrollChat();
+
+      return uniqueId; // Возвращаем ID, чтобы потом найти ИМЕННО ЭТОТ div
+    }
+
+    function scrollChat() {
+      const history = document.getElementById('chat-history');
+      history.scrollTop = history.scrollHeight;
+    }
+
+    // --- 3. VERDICT LOGIC ---
+    async function sendVerdict() {
+      const accusedName = document.getElementById('verdict-select').value;
+      const resultBox = document.getElementById('verdict-result');
+      const title = document.getElementById('result-title');
+      const desc = document.getElementById('result-desc');
+
+      if (!accusedName) return;
+
+      const chosenEnding = GLOBAL_ENDINGS.find(e => e.accusedName === accusedName);
+      const isWin = chosenEnding ? chosenEnding.isMurderer : false;
+
+      resultBox.style.display = 'none';
+      resultBox.className = 'result-box';
+
+      try {
+        const payload = {
+          accusedName: accusedName,
+          endings: GLOBAL_ENDINGS
+        };
+
+        const response = await fetch(`${API_URL}/npc/verdict`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await response.json();
+
+        resultBox.style.display = 'block';
+        if (isWin) {
+          resultBox.classList.add('win');
+          title.innerText = "ZWYCIĘSTWO";
+          title.style.color = "#4caf50";
+        } else {
+          resultBox.classList.add('loss');
+          title.innerText = "PORAŻKA";
+          title.style.color = "#f44336";
+        }
+        desc.innerText = data.speech;
+
+      } catch (e) {
+        alert("Błąd werdyktu: " + e.message);
+      }
+    }
+  </script>
+
+</body>
+
+</html>

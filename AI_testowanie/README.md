@@ -14,96 +14,79 @@ Wymagana struktura:
 
 ```
 GameAI_Backend/
-├── GameAI_Server.exe       # Serwer API
+├── GameAI_Server.exe
 └── models/
     └── qwen2.5-3b-instruct-q4_k_m.gguf
 ```
 
----
-
-### 2. Uruchomienie (z poziomu gry)
+### 2. Uruchomienie
 
 - **Port:** `8000`
 - **Adres:** http://127.0.0.1:8000
+- **Dokumentacja:** http://127.0.0.1:8000/docs
 
+### 3. Endpointy
+
+| Endpoint         | Metoda | Opis                                                        |
+| -----------------| ------ | ----------------------------------------------------------- |
+| /scene/load      | POST   | Ładuje scenę, NPC i przedmioty. Czyści pamięć AI            |
+| /npc/chat        | POST   | Wysyła wiadomość gracza i zwraca odpowiedź NPC              |
+| /npc/summary     | POST   | Generuje krótki werdykt końcowy na podstawie historii sesji |
+| /npc/chat/stream | POST   | Wysyła wiadomość gracza i zwraca odpowiedź NPC w formacie text stream |
 ---
 
-### 3. API
+## 👨‍💻 STREFA DEVELOPERA
 
-Po uruchomieniu serwer nasłuchuje na porcie `8000`.
+### ✅ KROK 1: C++ Build Tools 2022
 
-Dokumentacja Swagger:  
-http://127.0.0.1:8000/docs
+1. Pobierz: https://visualstudio.microsoft.com/downloads/ → Visual Studio Build Tools 2022
+2. Zaznacz: **C++ build tools**
+3. Zainstaluj i zrestartuj
 
-#### Endpointy
+### ✅ KROK 2: Python 3.14
 
-| Endpoint    | Metoda | Opis                                                               |
-| ------------| ------ | -------------------------------------------------------------------|
-| /scene/load | POST   | Ładuje scenę, NPC i przedmioty. Czyści pamięć AI                   |
-| /npc/chat   | POST   | Wysyła wiadomość gracza i zwraca odpowiedź NPC                     |
-| /npc/summary| POST   | Generuje krótki werdykt końcowy na podstawie historii całej sesji  |
----
+1. Pobierz: https://www.python.org/downloads/
 
-## 👨‍💻 STREFA DEVELOPERA (Rozwój kodu Python)
+### ✅ KROK 3: Projekt
 
-Dla osób chcących modyfikować serwer lub budować własne wersje `.exe`.
+venv (opcjonalny)
 
-### 🔧 Wymagania
-
-- Python **3.14**
-- C++ Build Tools 2022 (wymagane przez `llama-cpp-python`)
-
----
-
-### 🚀 Instalacja środowiska
-
-##### 1. Zainstaluj zależności:
+### ✅ KROK 4: Zależności
 
 ```bash
 pip install -r requirements.txt
 ```
 
-##### 2. Instalacja modelu (Hugging Face)
+### ✅ KROK 5: Model
 
-Pobierz model z **https://huggingface.co** i umieść pliki w folderze `models/`.
+1. Pobierz z https://huggingface.co/:
+   - **3B:** `qwen2.5-3b-instruct-q3_k_m.gguf` (~2 GB)
+   - **7B:** `qwen2.5-7b-instruct-q4_k_m.gguf` (~6 GB, lepszy)
 
-**Rekomendowane warianty:**
+2. Umieść w: `models/`
 
-- **3B**  
-  `qwen2.5-3b-instruct-q3_k_m.gguf`
+### ✅ KROK 6: Konfiguracja
 
-- **7B (lepsza jakość odpowiedzi)**  
-    `qwen2.5-7b-instruct-q4_k_m-00001-of-00002.gguf`
-    `qwen2.5-7b-instruct-q4_k_m-00002-of-00002.gguf`
-    > `W przypadku modeli wieloczęściowych (*7B*) wszystkie pliki muszą znajdować się w tym samym folderze`.
+Otwórz `app/config.py` i zmień:
 
-- Jeśli użyjesz innego modelu lub nazwy pliku, zaktualizuj konfigurację:
-    `app/config.py → MODEL_PATH`
----
+```python
+MODEL_PATH = "..."
+```
 
-### ▶️ Uruchomienie lokalne (testy)
+na nazwę Twojego pobranego modelu.
 
-Uruchom serwer bez kompilacji:
+### ✅ KROK 7: Uruchomienie
 
 ```bash
 python runServer.py
 ```
 
----
+Test: http://127.0.0.1:8000/docs
 
-## 🔨 Budowanie wersji RELEASE (.EXE)
-
-Projekt zawiera automatyczny skrypt, który:
-
-- kompiluje serwer do jednego pliku `.exe`
-- dołącza plik modelu
-- tworzy gotowy folder `GameAI_Backend`
-
-### Budowanie:
+### ✅ KROK 8: Build .EXE
 
 ```bash
 python buildGame.py
 ```
 
 ---
-

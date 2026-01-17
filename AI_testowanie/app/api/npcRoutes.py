@@ -1,10 +1,11 @@
+import json
 from pathlib import Path
 from fastapi import APIRouter, HTTPException
+from fastapi.responses import StreamingResponse
 
 from app.services.gameState import gameState
-from app.schema import NPCChatRequest, NPCChatResponse
-from app.services.aiService import generateStructuredOutput
-from app.config import settings
+from app.schema import NPCChatRequest, NPCChatResponse, VerdictRequest, VerdictResponse
+from app.services.aiService import generateStream, generateStructuredOutput
 
 
 npcRouter = APIRouter(prefix="/npc")
@@ -21,47 +22,47 @@ def chatWithNpc(data: NPCChatRequest):
     transcript = gameState.getSceneTranscript()
     gameState.addMessage(speaker="Player", text=data.userText)
 
-    current_npc_desc = ""
-    other_people_list = ""
-    found_npc = False
+    currentNpcDesc = ""
+    otherPeopleList = ""
+    foundNpc = False
 
     for npc in gameState.currentNpcs:
         if npc.name == data.npcName:
-            current_npc_desc = f"Rola: {npc.role}. Opis: {npc.description}"
-            found_npc = True
+            currentNpcDesc = f"Rola: {npc.role}. Opis: {npc.description}"
+            foundNpc = True
         else:
-            other_people_list += f"- {npc.name} ({npc.role})\n"
+            otherPeopleList += f"- {npc.name} ({npc.role})\n"
 
-    if not found_npc:
+    if not foundNpc:
         print(f"[WARNING] NPC '{data.npcName}' nie znaleziono w scenie!")
-        current_npc_desc = "Rola: Nieznana. Opis: Brak danych."
+        currentNpcDesc = "Rola: Nieznana. Opis: Brak danych."
 
-    if not other_people_list:
-        other_people_list = "Nikogo innego tu nie ma."
+    if not otherPeopleList:
+        otherPeopleList = "Nikogo innego tu nie ma."
 
-    items_list = ""
+    itemsList = ""
     for item in gameState.currentItems:
-        items_list += f"- {item.name}: {item.description} (Wiedza/Wskazówka: {item.hints})\n"
+        itemsList += f"- {item.name}: {item.description} (Wiedza/Wskazówka: {item.hints})\n"
 
-    if not items_list:
-        items_list = "Brak przedmiotów."
+    if not itemsList:
+        itemsList = "Brak przedmiotów."
 
     systemPrompt = f"""
    Jesteś postacią w grze detektywistycznej.
     Twoje imię: {data.npcName}
-    Twoje dane: {current_npc_desc}
-    
+    Twoje dane: {currentNpcDesc}
+
     KIM JEST TWÓJ ROZMÓWCA:
     Rozmawiasz z Detektywem, który prowadzi śledztwo w sprawie zbrodni.
     Traktuj go odpowiednio do swojej roli (np. jeśli jesteś podejrzany - bądź ostrożny, jeśli świadek - pomocny).
-    
+
     Lokalizacja: {gameState.currentSceneDescription}
-    
+
     Kto jest obok:
-    {other_people_list}
-    
+    {otherPeopleList}
+
     Widoczne przedmioty (i twoje myśli o nich):
-    {items_list}
+    {itemsList}
 
     Historia rozmowy:
     {transcript}
@@ -89,28 +90,146 @@ def chatWithNpc(data: NPCChatRequest):
     return response
 
 
-@npcRouter.post("/summary", response_model=NPCChatResponse)
-def getGameSummary():
+@npcRouter.post("/chat/stream")
+def chatWithNpcStream(data: NPCChatRequest):
 
+    if not gameState.isSceneLoaded():
+        raise HTTPException(
+            status_code=400,
+            detail="Błąd: Scena nie została załadowana. Użyj /scene/load."
+        )
+
+    gameState.addMessage(speaker="Player", text=data.userText)
     transcript = gameState.getSceneTranscript()
 
-    if not transcript:
-        return {"speech": "Nie podjęto żadnych znaczących działań, które można by ocenić."}
+    currentNpcDesc = ""
+    otherPeopleList = ""
+    foundNpc = False
 
-    system_prompt = """
-    Jesteś sędzią i narratorem gry detektywistycznej. 
-    Przeanalizuj historię śledztwa i wydaj krótki, surowy, ale sprawiedliwy werdykt (maksymalnie 3 zdania).
-    Oceń logikę gracza, jego podejście do świadków i czy udało mu się odkryć prawdę.
-    Twoja odpowiedź musi być w formacie JSON: {"speech": "treść werdyktu"}.
-    Używaj języka polskiego.
+    for npc in gameState.currentNpcs:
+        if npc.name == data.npcName:
+            currentNpcDesc = f"Rola: {npc.role}. Opis: {npc.description}"
+            foundNpc = True
+        else:
+            otherPeopleList += f"- {npc.name} ({npc.role})\n"
+
+    if not foundNpc:
+        currentNpcDesc = "Rola: Nieznana. Opis: Brak danych."
+
+    if not otherPeopleList:
+        otherPeopleList = "Nikogo innego tu nie ma."
+
+    itemsList = ""
+    for item in gameState.currentItems:
+        itemsList += f"- {item.name}: {item.description} (Wiedza/Wskazówka: {item.hints})\n"
+
+    if not itemsList:
+        itemsList = "Brak przedmiotów."
+
+    systemPrompt = f"""
+    Jesteś postacią w grze detektywistycznej.
+    Twoje imię: {data.npcName}
+    Twoje dane: {currentNpcDesc}
+
+    KIM JEST TWÓJ ROZMÓWCA:
+    Rozmawiasz z Detektywem, który prowadzi śledztwo w sprawie zbrodni.
+    Traktuj go odpowiednio do swojej roli (np. jeśli jesteś podejrzany - bądź ostrożny, jeśli świadek - pomocny).
+
+    Lokalizacja: {gameState.currentSceneDescription}
+
+    Kto jest obok:
+    {otherPeopleList}
+
+    Widoczne przedmioty (i twoje myśli o nich):
+    {itemsList}
+
+    Historia rozmowy:
+    {transcript}
+
+    ZASADY (BARDZO WAŻNE):
+    1. Jesteś żywym człowiekiem, improwizuj.
+    2. NIGDY nie pisz, że jesteś AI.
+    3. Mów krótko, naturalnie i tylko po polsku.
+    4. WAŻNE: NIE UŻYWAJ FORMATU JSON. Odpowiadaj zwykłym tekstem, tak jakbyś mówił.
     """
 
-    user_prompt = f"Oto historia śledztwa:\n{transcript}\n\nWydaj ostateczny werdykt na temat działań Detektywa."
+    userPrompt = f"Gracz pyta: \"{data.userText}\". Odpowiedz jako {data.npcName}."
 
-    response = generateStructuredOutput(
-        system_prompt,
-        user_prompt,
-        NPCChatResponse
+    def response_generator():
+        fullResponseText = ""
+
+        streamIterator = generateStream(systemPrompt, userPrompt)
+
+        for chunk in streamIterator:
+            yield chunk
+
+            try:
+                if chunk.startswith("data: "):
+                    jsonStr = chunk.replace("data: ", "").strip()
+                    dataObj = json.loads(jsonStr)
+
+                    if "token" in dataObj:
+                        fullResponseText += dataObj["token"]
+            except Exception:
+                pass
+
+        if fullResponseText:
+            gameState.addMessage(speaker=data.npcName, text=fullResponseText)
+
+    return StreamingResponse(
+        response_generator(),
+        media_type="text/event-stream"
     )
 
-    return response
+
+@npcRouter.post("/verdict", response_model=NPCChatResponse)
+def getGameVerdict(request: VerdictRequest):
+
+    selectedEnding = None
+
+    for ending in request.endings:
+        if ending.accusedName.lower() in request.accusedName.lower() or \
+                request.accusedName.lower() in ending.accusedName.lower():
+            selectedEnding = ending
+            break
+
+    if not selectedEnding:
+        return {
+            "speech": f"Nie znaleziono zakończenia dla osoby: {request.accusedName}. Sprawdź dane.",
+            "isPlayerRight": False
+        }
+
+    systemPrompt = f"""
+    Jesteś sędzią i narratorem finału gry kryminalnej.
+    
+    DANE ZAKOŃCZENIA:
+    Oskarżony: {selectedEnding.accusedName}
+    Czy to poprawny sprawca? {'TAK (WYGRANA)' if selectedEnding.isMurderer else 'NIE (PRZEGRANA)'}
+    Opis sytuacji: {selectedEnding.description}
+    
+    ZADANIE:
+    Napisz krótkie podsumowanie dla gracza (maksymalnie 3 zdania).
+    Opisz konsekwencje wyboru na podstawie "Opisu sytuacji".
+    Bądź surowy i klimatyczny.
+    
+    Odpowiedz JSONem: {{"speech": "Twoje podsumowanie...", "isPlayerRight": {str(selectedEnding.isMurderer).lower()}}}
+    """
+
+    userPrompt = "Wydaj werdykt."
+
+    try:
+        response = generateStructuredOutput(
+            systemPrompt,
+            userPrompt,
+            VerdictResponse
+        )
+
+        response['isPlayerRight'] = selectedEnding.isMurderer
+        return response
+
+    except Exception:
+
+        return {
+            "speech": selectedEnding.description,
+            "isPlayerRight": selectedEnding.isMurderer
+        }

@@ -24,6 +24,7 @@ class GameStateManager:
         self.globalClues: List[str] = []  # мб ост
 
     def setScene(self, name: str, description: str, npcs: List[SceneNPC], items: List[SceneItem]):
+
         self.currentSceneName = name
         self.currentSceneDescription = description
         self.currentNpcs = npcs
