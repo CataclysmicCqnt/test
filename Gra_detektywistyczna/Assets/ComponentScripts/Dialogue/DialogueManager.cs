@@ -194,7 +194,7 @@ public class DialogueManager : MonoBehaviour
         if (currentNpcName != "Narrator") LoadNpcTexture(currentNpcName);
         nameText.text = "Ty";
         EnableUserInput();
-        isAwaitingUserInput = true;
+        isAwaitingUserInput = true; 
     }
 
     public async void SendNpcRequest(NPCRequestDTO npcRequestDTO)
