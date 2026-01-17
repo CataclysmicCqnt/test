@@ -5,7 +5,7 @@ from typing import List, Optional
 # Npc Schemas
 
 class NPCChatRequest(BaseModel):
-    npcName: str = Field()
+    npcName: str 
     userText: str
 
 

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Game AI - Tester API</title>
+  <title>Game AI - Hybrid Tester</title>
   <style>
     :root {
       --bg-dark: #121212;
@@ -39,23 +39,10 @@
       height: 50px;
     }
 
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
     h1 {
       margin: 0;
       font-size: 1.2rem;
       color: var(--accent);
-    }
-
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      font-size: 0.9em;
     }
 
     /* Status Badge */
@@ -66,7 +53,6 @@
       font-size: 0.8em;
       text-transform: uppercase;
       letter-spacing: 1px;
-      transition: 0.3s;
     }
 
     .status-online {
@@ -81,11 +67,6 @@
       border: 1px solid var(--offline);
     }
 
-    .model-info {
-      color: #888;
-      font-family: monospace;
-    }
-
     /* Layout */
     .main-container {
       display: flex;
@@ -93,9 +74,9 @@
       overflow: hidden;
     }
 
-    /* Panel Setup */
+    /* --- 1. LEFT PANEL (SETUP) --- */
     .panel-setup {
-      width: 350px;
+      width: 300px;
       background: var(--bg-panel);
       border-right: 1px solid var(--border);
       padding: 20px;
@@ -116,7 +97,7 @@
       margin-bottom: 10px;
     }
 
-    /* Panel Game */
+    /* --- 2. CENTER PANEL (CHAT) --- */
     .panel-game {
       flex: 2;
       display: flex;
@@ -129,6 +110,12 @@
       padding: 15px;
       background: #252525;
       border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chat-controls {
       display: flex;
       gap: 15px;
       align-items: center;
@@ -143,6 +130,40 @@
       gap: 12px;
     }
 
+    .msg {
+      padding: 10px 14px;
+      border-radius: 8px;
+      max-width: 80%;
+      line-height: 1.4;
+    }
+
+    .msg.user {
+      align-self: flex-end;
+      background-color: #0d47a1;
+      color: white;
+    }
+
+    .msg.npc {
+      align-self: flex-start;
+      background-color: #333;
+      border-left: 3px solid var(--accent);
+    }
+
+    .msg.sys {
+      align-self: center;
+      color: #666;
+      font-style: italic;
+      font-size: 0.85rem;
+    }
+
+    .meta-info {
+      font-size: 0.75em;
+      color: #888;
+      margin-top: 5px;
+      font-style: italic;
+      display: block;
+    }
+
     .chat-input-area {
       padding: 20px;
       background: var(--bg-panel);
@@ -151,9 +172,9 @@
       gap: 10px;
     }
 
-    /* Panel Verdict */
+    /* --- 3. RIGHT PANEL (VERDICT) --- */
     .panel-verdict {
-      width: 300px;
+      width: 250px;
       background: var(--bg-panel);
       border-left: 1px solid var(--border);
       padding: 20px;
@@ -162,7 +183,7 @@
       gap: 20px;
     }
 
-    /* UI Components */
+    /* UI Elements */
     button {
       padding: 10px 15px;
       border: none;
@@ -193,7 +214,7 @@
     }
 
     select,
-    input {
+    input[type="text"] {
       padding: 8px;
       background: #333;
       border: 1px solid var(--border);
@@ -205,38 +226,11 @@
       width: 100%;
     }
 
-    input {
+    input[type="text"] {
       flex: 1;
     }
 
-    /* Chat Bubbles */
-    .msg {
-      padding: 10px 14px;
-      border-radius: 8px;
-      max-width: 80%;
-      line-height: 1.4;
-    }
-
-    .msg.user {
-      align-self: flex-end;
-      background-color: #0d47a1;
-      color: white;
-    }
-
-    .msg.npc {
-      align-self: flex-start;
-      background-color: #333;
-      border-left: 3px solid var(--accent);
-    }
-
-    .msg.sys {
-      align-self: center;
-      color: #666;
-      font-style: italic;
-      font-size: 0.85rem;
-    }
-
-    /* Overlay */
+    /* Overlay Lock */
     .overlay-lock {
       position: absolute;
       top: 0;
@@ -249,9 +243,10 @@
       align-items: center;
       flex-direction: column;
       z-index: 10;
+      text-align: center;
     }
 
-    /* Verdict Result */
+    /* Verdict Result Box */
     .result-box {
       padding: 15px;
       border-radius: 6px;
@@ -275,20 +270,14 @@
 <body>
 
   <header>
-    <div class="header-left">
-      <h1>🧪 AI API Tester</h1>
-    </div>
-    <div class="header-right">
-      <span id="model-name" class="model-info">...</span>
-      <div id="server-status" class="status-badge status-offline">OFFLINE</div>
-    </div>
+    <h1>🧪 AI Hybrid Tester</h1>
+    <div id="server-status" class="status-badge status-offline">OFFLINE</div>
   </header>
 
   <div class="main-container">
 
     <div class="panel-setup">
-      <h3>1. Dane Scenariusza</h3>
-      <p style="font-size:0.8em; color:#aaa;">JSON Sceny + Zakończenia.</p>
+      <h3>1. Scenariusz (JSON)</h3>
       <textarea id="json-input" spellcheck="false">
 {
   "scenes": [
@@ -317,25 +306,33 @@
     }
   ]
 }</textarea>
-      <button id="btn-load" class="primary" onclick="loadScene()" disabled>ZAŁADUJ DO SERWERA (/scene/load)</button>
+      <button id="btn-load" class="primary" onclick="loadScene()" disabled>ZAŁADUJ DO SERWERA</button>
     </div>
 
     <div class="panel-game">
       <div id="game-lock" class="overlay-lock">
-        <h2 style="color:var(--accent)">Oczekiwanie na serwer...</h2>
-        <p id="lock-msg">Upewnij się, że runServer.py jest uruchomiony.</p>
+        <h2 style="color:var(--accent)">System Zablokowany</h2>
+        <p id="lock-msg">Uruchom serwer i załaduj scenariusz.</p>
       </div>
 
       <div class="npc-selector-bar">
-        <label>NPC:</label>
-        <select id="npc-select" style="width: 200px;"></select>
+        <div class="chat-controls">
+          <label>Rozmowa z:</label>
+          <select id="npc-select" style="width: 150px;"></select>
+        </div>
+
+        <label style="display:flex; align-items:center; gap:8px; cursor:pointer; font-size:0.9em;">
+          <input type="checkbox" id="stream-toggle" checked>
+          <span style="color:var(--accent)">Tryb Streaming (Tekst)</span>
+        </label>
       </div>
 
       <div id="chat-history"></div>
 
       <div class="chat-input-area">
-        <input type="text" id="user-input" placeholder="Wiadomość..." onkeypress="if(event.key==='Enter') sendChat()">
-        <button class="primary" onclick="sendChat()">WYŚLIJ</button>
+        <input type="text" id="user-input" placeholder="Wiadomość..."
+          onkeypress="if(event.key==='Enter') sendMessage()">
+        <button class="primary" onclick="sendMessage()">WYŚLIJ</button>
       </div>
     </div>
 
@@ -347,7 +344,7 @@
         <option value="">-- Czekam na dane --</option>
       </select>
 
-      <button id="btn-verdict" class="danger" onclick="sendVerdict()" disabled>WYDAJ WERDYKT</button>
+      <button id="btn-verdict" class="danger" onclick="sendVerdict()" disabled>OSKARŻAM</button>
 
       <div id="verdict-result" class="result-box">
         <strong id="result-title" style="display:block; margin-bottom:10px;"></strong>
@@ -358,27 +355,16 @@
   </div>
 
   <script>
-    const API_URL = "http://127.0.0.1:8000";
-    let GLOBAL_ENDINGS = [];
-    let CURRENT_SCENE = {};
+    const API_URL = "http://127.0.0.1:8000"; 
     let SERVER_ONLINE = false;
-    let SCENE_LOADED = false;
+    let GLOBAL_ENDINGS = [];
 
-
+    // --- 0. HEALTH CHECK ---
     async function checkHealth() {
       try {
-        const response = await fetch(`${API_URL}/health`);
-        const data = await response.json();
-
-        if (data.status === 'online') {
+        const response = await fetch(`${API_URL}/docs`); // Пингуем доку, так как она всегда есть
+        if (response.ok) {
           if (!SERVER_ONLINE) setOnlineState(true);
-
-        
-          if (data.model_path) {
-            const parts = data.model_path.split(/[\\/]/);
-            const fileName = parts[parts.length - 1];
-            document.getElementById('model-name').innerText = fileName;
-          }
         } else {
           setOnlineState(false);
         }
@@ -398,40 +384,29 @@
         badge.className = "status-badge status-online";
         badge.innerText = "ONLINE";
         loadBtn.disabled = false;
-
-        if (!SCENE_LOADED) {
-          lockTitle.innerText = "System gotowy";
-          lockTitle.style.color = "#4caf50";
-          lockMsg.innerText = "Załaduj scenariusz po lewej stronie.";
-        }
+        lockTitle.innerText = "System gotowy";
+        lockTitle.style.color = "#4caf50";
+        lockMsg.innerText = "Załaduj scenariusz po lewej stronie.";
       } else {
         badge.className = "status-badge status-offline";
         badge.innerText = "OFFLINE";
-        document.getElementById('model-name').innerText = "...";
         loadBtn.disabled = true;
-
-      
         document.getElementById('game-lock').style.display = 'flex';
         lockTitle.innerText = "Brak połączenia";
         lockTitle.style.color = "#f44336";
-        lockMsg.innerText = "Uruchom serwer, aby kontynuować.";
+        lockMsg.innerText = "Uruchom runServer.py";
       }
     }
+    setInterval(checkHealth, 2000);
+    checkHealth();
 
-  
-    setInterval(checkHealth, 6000);
-    checkHealth(); 
-
- 
+    // --- 1. LOAD SCENE ---
     async function loadScene() {
-      if (!SERVER_ONLINE) return;
-
       const jsonRaw = document.getElementById('json-input').value;
       const btn = document.getElementById('btn-load');
 
       try {
         const data = JSON.parse(jsonRaw);
-
         if (!data.scenes || !data.scenes[0]) throw new Error("Brak 'scenes'");
         if (!data.endings) throw new Error("Brak 'endings'");
 
@@ -443,7 +418,25 @@
         };
 
         GLOBAL_ENDINGS = data.endings;
-        CURRENT_SCENE = data.scenes[0];
+
+        // Populate UI Lists
+        const npcSelect = document.getElementById('npc-select');
+        npcSelect.innerHTML = '';
+        data.scenes[0].npcs.forEach(npc => {
+          const opt = document.createElement('option');
+          opt.value = npc.name;
+          opt.innerText = npc.name;
+          npcSelect.appendChild(opt);
+        });
+
+        const verSelect = document.getElementById('verdict-select');
+        verSelect.innerHTML = '<option value="">-- Wybierz --</option>';
+        data.endings.forEach(end => {
+          const opt = document.createElement('option');
+          opt.value = end.accusedName;
+          opt.innerText = end.accusedName;
+          verSelect.appendChild(opt);
+        });
 
         btn.innerText = "⏳ WYSYŁANIE...";
         btn.disabled = true;
@@ -454,70 +447,53 @@
           body: JSON.stringify(scenePayload)
         });
 
-        if (!response.ok) throw new Error("Server Error");
+        if (!response.ok) throw new Error("Błąd serwera");
 
-        btn.innerText = "ZAŁADUJ PONOWNIE";
-        btn.disabled = false;
+        document.getElementById('game-lock').style.display = 'none';
+        document.getElementById('chat-history').innerHTML = '';
+        document.getElementById('verdict-select').disabled = false;
+        document.getElementById('btn-verdict').disabled = false;
 
-        setupUI();
-        unlockGame();
-        addMessage('sys', `Załadowano scenę: ${scenePayload.name}`);
+        addMessage('sys', `Załadowano: ${scenePayload.name}`);
 
       } catch (e) {
         alert("Błąd: " + e.message);
+      } finally {
         btn.innerText = "ZAŁADUJ DO SERWERA";
-        btn.disabled = false;
+        if (SERVER_ONLINE) btn.disabled = false;
       }
     }
 
-    function setupUI() {
-      const npcSelect = document.getElementById('npc-select');
-      npcSelect.innerHTML = '';
-      CURRENT_SCENE.npcs.forEach(npc => {
-        const opt = document.createElement('option');
-        opt.value = npc.name;
-        opt.innerText = `${npc.name} (${npc.role})`;
-        npcSelect.appendChild(opt);
-      });
-
-      const verSelect = document.getElementById('verdict-select');
-      verSelect.innerHTML = '<option value="">-- Wybierz winnego --</option>';
-      GLOBAL_ENDINGS.forEach(end => {
-        const opt = document.createElement('option');
-        opt.value = end.accusedName;
-        opt.innerText = end.accusedName;
-        verSelect.appendChild(opt);
-      });
-
-      verSelect.disabled = false;
-      document.getElementById('btn-verdict').disabled = false;
-    }
-
-    function unlockGame() {
-      SCENE_LOADED = true;
-      document.getElementById('game-lock').style.display = 'none';
-      document.getElementById('chat-history').innerHTML = '';
-    }
-
-
-    async function sendChat() {
-      if (!SERVER_ONLINE) return;
-
+    // --- 2. CHAT LOGIC ---
+    async function sendMessage() {
       const input = document.getElementById('user-input');
-      const npcSelect = document.getElementById('npc-select');
+      const npcName = document.getElementById('npc-select').value;
+      const useStream = document.getElementById('stream-toggle').checked;
       const text = input.value.trim();
 
       if (!text) return;
-      if (!npcSelect.value) { alert("Wybierz NPC!"); return; }
+      if (!npcName) { alert("Brak NPC w scenie!"); return; }
 
       addMessage('user', text);
       input.value = '';
       input.disabled = true;
 
-      const payload = {
-        npcName: npcSelect.value,
-        userText: text
-      };
+      const payload = { npcName: npcName, userText: text };
+
+      if (useStream) {
+        await handleStreamingChat(npcName, payload);
+      } else {
+        await handleStandardChat(npcName, payload);
+      }
+
+      input.disabled = false;
+      input.focus();
+    }
+
+    // --- STANDARD CHAT ---
+    async function handleStandardChat(npcName, payload) {
+      const bubbleId = addMessage('npc', '<i>Myśli...</i>');
+      const bubble = document.getElementById(bubbleId);
 
       try {
         const response = await fetch(`${API_URL}/npc/chat`, {
@@ -525,62 +501,130 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
         });
-
-        if (!response.ok) throw new Error("Błąd sieci");
         const data = await response.json();
-        addMessage('npc', data.speech, npcSelect.value);
+
+        let html = `<b>${npcName}:</b> ${data.speech}`;
+        if (data.action || data.intention) {
+          html += `<span class="meta-info">`;
+          if (data.action) html += `[Akcja: ${data.action}] `;
+          if (data.intention) html += `(Cel: ${data.intention})`;
+          html += `</span>`;
+        }
+        bubble.innerHTML = html;
+        scrollChat(); // Scroll after update
 
       } catch (e) {
-        addMessage('sys', 'Błąd: ' + e.message);
-      } finally {
-        input.disabled = false;
-        input.focus();
+        bubble.innerHTML = `<span style="color:red">Błąd: ${e.message}</span>`;
       }
     }
 
-    function addMessage(role, text, author = "") {
+    // --- STREAMING CHAT (FIXED) ---
+    async function handleStreamingChat(npcName, payload) {
+      // Создаем пузырь и сразу получаем его УНИКАЛЬНЫЙ ID
+      const bubbleId = addMessage('npc', '...');
+      const bubble = document.getElementById(bubbleId); // Теперь это точно пузырь NPC
+
+      let fullText = "";
+      bubble.innerHTML = `<b>${npcName}:</b> `;
+
+      try {
+        const response = await fetch(`${API_URL}/npc/chat/stream`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder("utf-8");
+        let buffer = ""; // Буфер для склейки разорванных строк
+
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+
+          // Декодируем и добавляем к буферу
+          const chunk = decoder.decode(value, { stream: true });
+          buffer += chunk;
+
+          // Разбиваем по двойному переносу (стандарт SSE)
+          const parts = buffer.split('\n\n');
+
+          // Последняя часть может быть неполной, оставляем её в буфере
+          buffer = parts.pop();
+
+          for (const part of parts) {
+            const line = part.trim();
+            if (line.startsWith("data: ")) {
+              try {
+                const jsonStr = line.replace("data: ", "");
+                const data = JSON.parse(jsonStr);
+
+                if (data.token) {
+                  fullText += data.token;
+                  // ВАЖНО: Обновляем именно тот элемент, который создали по ID
+                  bubble.innerHTML = `<b>${npcName}:</b> ${fullText}`;
+                  scrollChat();
+                }
+              } catch (e) {
+                console.warn("JSON Parse error:", e);
+              }
+            }
+          }
+        }
+      } catch (e) {
+        bubble.innerHTML += `<br><span style="color:red">[Błąd: ${e.message}]</span>`;
+      }
+    }
+
+   
+    function addMessage(role, text) {
       const history = document.getElementById('chat-history');
       const div = document.createElement('div');
       div.className = `msg ${role}`;
-      if (author) text = `<b>${author}:</b> ${text}`;
+
+      // FIX: Добавляем случайное число к ID, чтобы избежать коллизий
+      const uniqueId = `msg-${Date.now()}-${Math.floor(Math.random() * 10000)}`;
+      div.id = uniqueId;
+
       div.innerHTML = text;
       history.appendChild(div);
+      scrollChat();
+
+      return uniqueId; // Возвращаем ID, чтобы потом найти ИМЕННО ЭТОТ div
+    }
+
+    function scrollChat() {
+      const history = document.getElementById('chat-history');
       history.scrollTop = history.scrollHeight;
     }
 
-
+    // --- 3. VERDICT LOGIC ---
     async function sendVerdict() {
-      if (!SERVER_ONLINE) return;
-
-      const select = document.getElementById('verdict-select');
-      const accusedName = select.value;
+      const accusedName = document.getElementById('verdict-select').value;
       const resultBox = document.getElementById('verdict-result');
       const title = document.getElementById('result-title');
       const desc = document.getElementById('result-desc');
 
       if (!accusedName) return;
 
-      const payload = {
-        accusedName: accusedName,
-        endings: GLOBAL_ENDINGS
-      };
+      const chosenEnding = GLOBAL_ENDINGS.find(e => e.accusedName === accusedName);
+      const isWin = chosenEnding ? chosenEnding.isMurderer : false;
 
       resultBox.style.display = 'none';
       resultBox.className = 'result-box';
 
       try {
+        const payload = {
+          accusedName: accusedName,
+          endings: GLOBAL_ENDINGS
+        };
+
         const response = await fetch(`${API_URL}/npc/verdict`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
         });
-
-        if (!response.ok) throw new Error("Błąd serwera");
-
         const data = await response.json();
-
-        const chosenEnding = GLOBAL_ENDINGS.find(e => e.accusedName === accusedName);
-        const isWin = chosenEnding ? chosenEnding.isMurderer : false;
 
         resultBox.style.display = 'block';
         if (isWin) {
@@ -592,14 +636,12 @@
           title.innerText = "PORAŻKA";
           title.style.color = "#f44336";
         }
-
         desc.innerText = data.speech;
 
       } catch (e) {
-        alert("Błąd: " + e.message);
+        alert("Błąd werdyktu: " + e.message);
       }
     }
-
   </script>
 
 </body>

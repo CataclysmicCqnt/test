@@ -6,7 +6,7 @@ from app.api.npcRoutes import npcRouter
 from app.api.sceneRoutes import sceneRouter
 from app.config import settings
 
-from app.services.aiService import get_llm
+from app.services.aiService import getLlm
 
 
 @asynccontextmanager
@@ -14,7 +14,7 @@ async def lifespan(app: FastAPI):
 
     try:
 
-        model_instance = get_llm()
+        model_instance = getLlm()
         if model_instance:
             print("AI Model loaded successfully")
         else:

@@ -1,7 +1,7 @@
 import json
 import multiprocessing
 import os
-from typing import Any, Dict, Type
+from typing import Any, Dict, Iterator, Type
 import requests
 from pydantic import BaseModel
 from app.config import settings
@@ -16,23 +16,23 @@ except ImportError:
 _llmInstance = None
 
 
-def get_llm():
+def getLlm():
 
     global _llmInstance
     if _llmInstance is None:
         if Llama is None:
             raise ImportError("llama-cpp-python missing")
 
-        model_path_str = str(settings.MODEL_PATH)
+        modelPathStr = str(settings.MODEL_PATH)
 
-        if not os.path.exists(model_path_str):
-            raise FileNotFoundError(f"AI Model not found at: {model_path_str}")
+        if not os.path.exists(modelPathStr):
+            raise FileNotFoundError(f"AI Model not found at: {modelPathStr}")
 
         print(f"Loading AI Model: {settings.MODEL_PATH} ...")
         threads = max(1, multiprocessing.cpu_count() - 2)
 
         _llmInstance = Llama(
-            model_path=model_path_str,
+            model_path=modelPathStr,
             n_ctx=settings.N_CTX,
             n_gpu_layers=settings.N_GPU_LAYERS,
             n_threads=threads,
@@ -50,7 +50,7 @@ def generateStructuredOutput(
     responseModel: Type[BaseModel]
 ) -> Dict[str, Any]:
 
-    llm = get_llm()
+    llm = getLlm()
 
     jsonSchema = json.dumps(
         responseModel.model_json_schema(), ensure_ascii=False)
@@ -71,8 +71,8 @@ def generateStructuredOutput(
         output = llm.create_chat_completion(
             messages=messages,
             response_format={"type": "json_object"},
-            temperature=0.2,
-            max_tokens=256
+            temperature=0.4,
+            max_tokens=512
         )
 
         content = output["choices"][0]["message"]["content"]
@@ -86,3 +86,28 @@ def generateStructuredOutput(
     except Exception as e:
         print(f"AI error: {e}")
         return {"speech": "...", "error": str(e)}
+
+
+def generateStream(systemPrompt: str, userPrompt: str) -> Iterator[str]:
+
+    llm = getLlm()
+
+    messages = [
+        {"role": "system", "content": systemPrompt},
+        {"role": "user", "content": userPrompt}
+    ]
+
+    stream = llm.create_chat_completion(
+        messages=messages,
+        temperature=0.6,  
+        max_tokens=512,
+        stream=True      
+    )
+
+    for chunk in stream:
+        delta = chunk['choices'][0]['delta']
+        content = delta.get('content', "")
+
+        if content:
+            jsonData = json.dumps({"token": content}, ensure_ascii=False)
+            yield f"data: {jsonData}\n\n"
