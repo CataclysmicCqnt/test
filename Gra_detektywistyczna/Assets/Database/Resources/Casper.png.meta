@@ -103,10 +103,10 @@ TextureImporter:
       name: Casper_0
       rect:
         serializedVersion: 2
-        x: 22
-        y: 4
-        width: 452
-        height: 501
+        x: 187
+        y: 14
+        width: 437
+        height: 1009
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

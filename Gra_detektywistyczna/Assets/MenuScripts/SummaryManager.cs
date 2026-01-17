@@ -39,11 +39,13 @@ public class SummaryManager : MonoBehaviour
             TextMeshProUGUI txt = newCard.GetComponentInChildren<TextMeshProUGUI>();
             if (txt != null)
             {
-                txt.text = entry.Key;
+                string fullName = entry.Key;
+                string firstName = fullName.Split(' ')[0];
+                txt.text = firstName;
                 txt.raycastTarget = false;
             }
 
-            Image img = newCard.GetComponent<Image>();
+                Image img = newCard.GetComponent<Image>();
             if (img != null)
             {
                 img.raycastTarget = false;
