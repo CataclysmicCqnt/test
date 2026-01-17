@@ -11,7 +11,7 @@ sceneRouter = APIRouter(prefix="/scene")
 
 
 @sceneRouter.post("/load", response_model=SceneLoadResponse)
-def load_scene(data: SceneLoadRequest):
+def loadScene(data: SceneLoadRequest):
 
     gameState.setScene(
         name=data.name,

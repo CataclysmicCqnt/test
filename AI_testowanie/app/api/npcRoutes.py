@@ -1,9 +1,11 @@
+import json
 from pathlib import Path
 from fastapi import APIRouter, HTTPException
+from fastapi.responses import StreamingResponse
 
 from app.services.gameState import gameState
 from app.schema import NPCChatRequest, NPCChatResponse, VerdictRequest, VerdictResponse
-from app.services.aiService import generateStructuredOutput
+from app.services.aiService import generateStream, generateStructuredOutput
 
 
 npcRouter = APIRouter(prefix="/npc")
@@ -86,6 +88,98 @@ def chatWithNpc(data: NPCChatRequest):
 
     gameState.addMessage(speaker=data.npcName, text=response['speech'])
     return response
+
+
+@npcRouter.post("/chat/stream")
+def chatWithNpcStream(data: NPCChatRequest):
+
+    if not gameState.isSceneLoaded():
+        raise HTTPException(
+            status_code=400,
+            detail="Błąd: Scena nie została załadowana. Użyj /scene/load."
+        )
+
+    gameState.addMessage(speaker="Player", text=data.userText)
+    transcript = gameState.getSceneTranscript()
+
+    currentNpcDesc = ""
+    otherPeopleList = ""
+    foundNpc = False
+
+    for npc in gameState.currentNpcs:
+        if npc.name == data.npcName:
+            currentNpcDesc = f"Rola: {npc.role}. Opis: {npc.description}"
+            foundNpc = True
+        else:
+            otherPeopleList += f"- {npc.name} ({npc.role})\n"
+
+    if not foundNpc:
+        currentNpcDesc = "Rola: Nieznana. Opis: Brak danych."
+
+    if not otherPeopleList:
+        otherPeopleList = "Nikogo innego tu nie ma."
+
+    itemsList = ""
+    for item in gameState.currentItems:
+        itemsList += f"- {item.name}: {item.description} (Wiedza/Wskazówka: {item.hints})\n"
+
+    if not itemsList:
+        itemsList = "Brak przedmiotów."
+
+    systemPrompt = f"""
+    Jesteś postacią w grze detektywistycznej.
+    Twoje imię: {data.npcName}
+    Twoje dane: {currentNpcDesc}
+
+    KIM JEST TWÓJ ROZMÓWCA:
+    Rozmawiasz z Detektywem, który prowadzi śledztwo w sprawie zbrodni.
+    Traktuj go odpowiednio do swojej roli (np. jeśli jesteś podejrzany - bądź ostrożny, jeśli świadek - pomocny).
+
+    Lokalizacja: {gameState.currentSceneDescription}
+
+    Kto jest obok:
+    {otherPeopleList}
+
+    Widoczne przedmioty (i twoje myśli o nich):
+    {itemsList}
+
+    Historia rozmowy:
+    {transcript}
+
+    ZASADY (BARDZO WAŻNE):
+    1. Jesteś żywym człowiekiem, improwizuj.
+    2. NIGDY nie pisz, że jesteś AI.
+    3. Mów krótko, naturalnie i tylko po polsku.
+    4. WAŻNE: NIE UŻYWAJ FORMATU JSON. Odpowiadaj zwykłym tekstem, tak jakbyś mówił.
+    """
+
+    userPrompt = f"Gracz pyta: \"{data.userText}\". Odpowiedz jako {data.npcName}."
+
+    def response_generator():
+        fullResponseText = ""
+
+        streamIterator = generateStream(systemPrompt, userPrompt)
+
+        for chunk in streamIterator:
+            yield chunk
+
+            try:
+                if chunk.startswith("data: "):
+                    jsonStr = chunk.replace("data: ", "").strip()
+                    dataObj = json.loads(jsonStr)
+
+                    if "token" in dataObj:
+                        fullResponseText += dataObj["token"]
+            except Exception:
+                pass
+
+        if fullResponseText:
+            gameState.addMessage(speaker=data.npcName, text=fullResponseText)
+
+    return StreamingResponse(
+        response_generator(),
+        media_type="text/event-stream"
+    )
 
 
 @npcRouter.post("/verdict", response_model=NPCChatResponse)
