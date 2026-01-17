@@ -16,9 +16,9 @@ async def lifespan(app: FastAPI):
 
         model_instance = get_llm()
         if model_instance:
-            print(" AI Model loaded successfully")
+            print("AI Model loaded successfully")
         else:
-            print("Model instance is None.")
+            print("Model instance is None")
 
     except Exception as e:
         print(f"Failed to load AI Model: {e}")
