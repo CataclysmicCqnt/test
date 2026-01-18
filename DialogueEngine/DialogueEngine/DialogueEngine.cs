@@ -94,6 +94,15 @@ namespace DialogueEngine
             return await _aICommunication.GenerateNewSceneAsync(sceneDTO);
         }
 
+        public async Task<string> GetNpcVerdict(string[] parameters)
+        {
+            if(parameters.Length == 0) return string.Empty;
+
+            string npcName = parameters[0];
+            return await _aICommunication.GenerateNpcVerdictAsync(npcName);
+
+        }
+
         /// <summary>
         /// Pobiera konkretną scenę z zapisanych plików scenariusza.
         /// </summary>

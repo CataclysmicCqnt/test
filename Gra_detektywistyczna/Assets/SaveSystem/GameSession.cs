@@ -7,6 +7,10 @@ public static class GameSession
 	public static int CurrentSceneNumber { get; set; }
 	public static int MaxSceneNumber { get; private set; }
 
+    public static string PendingVerdictText;
+
+    public static string PendingVerdictNpcName;
+
     public static void StartSession(string scenarioName, int currentScene, int maxScene)
     {
         CurrentScenarioName = scenarioName;

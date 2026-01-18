@@ -29,6 +29,22 @@ public class DialogueManager : MonoBehaviour
 
     async void Start()
     {
+        if(!string.IsNullOrEmpty(GameSession.PendingVerdictText))
+        {
+            ShowDialogue();
+            StopAllCoroutines();
+
+            EnqueueDialogue(new Dialogue(string.IsNullOrEmpty(GameSession.PendingVerdictNpcName) ? "AI" : GameSession.PendingVerdictNpcName, GameSession.PendingVerdictText));
+
+            GameSession.PendingVerdictText = null;
+
+            GameSession.PendingVerdictNpcName = null; ;
+
+            PlayDialogue();
+
+            return;
+        }
+
         string history = DialogueContextManager.GetFormattedContext();
         Debug.Log($"kontekst: {!string.IsNullOrEmpty(history)}");
 

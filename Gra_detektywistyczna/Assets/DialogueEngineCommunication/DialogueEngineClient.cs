@@ -186,6 +186,21 @@ public class DialogueEngineClient : IDisposable
         return response;
     }
 
+    public async Task<string> GetNpcVerdictAsync(string npcName)
+    {
+        MethodDTO methodDTO = new MethodDTO()
+        {
+            MethodName = "GetNpcVerdict",
+            ParameterValues = new[] { npcName }
+        };
+
+        string serializedMethodDTO = JsonUtility.ToJson(methodDTO);
+
+        string response = await SendCommandAsync(serializedMethodDTO);
+        return response;
+
+    }
+
     public void Dispose()
     {
         try
