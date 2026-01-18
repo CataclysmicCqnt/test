@@ -75,7 +75,7 @@ namespace Assets.MenuScripts
             if (scene != null) 
             {
                 DialogueContextManager.SetContext(game.GameHistory);
-                GameSession.StartSession(scenario, sceneCurrent);
+                GameSession.StartSession(scenario, sceneCurrent, scene);
                 SceneManager.LoadScene("NewGame");
 
                 Debug.Log($"Game Loaded. Scene {GameSession.CurrentSceneNumber}");

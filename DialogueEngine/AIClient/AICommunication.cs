@@ -113,9 +113,10 @@ namespace AIClient
             return await StandardPostAsync(json, "/scene/load");
         }
 
-        public async Task<string?> GenerateNpcVerdictAsync(string npcName)
+        public async Task<string?> GenerateNpcVerdictAsync(VerdictRequestDTO verdictRequest)
         {
-            string json = JsonConvert.SerializeObject(npcName);
+
+            string json = JsonConvert.SerializeObject(verdictRequest);
             return await StandardPostAsync(json, "/npc/verdict");
         }
 

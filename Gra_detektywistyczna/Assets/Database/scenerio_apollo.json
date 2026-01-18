@@ -4,30 +4,26 @@
       "name": "Scena 1 - Galeria Apollo",
       "background": "background1",
       "description": "Rozbita gablota w Galerii Apollo. Wokół stoją Joanne, Darmian, Casper i Serena. Chaos po kradzieży.",
-      "npcs": [ 
+      "npcs": [
         {
-          "name": "Joanne",
+          "name": "Joanne Galtier",
           "role": "Kierowniczka Galerii Apollo",
-          "description": "Zestresowana, twierdzi że nic nie widziała i przyszła godzinę wcześniej.",
-          "portrait": "Joanne"
+          "description": "Zestresowana, twierdzi że nic nie widziała i przyszła godzinę wcześniej."
         },
         {
-          "name": "Darmian",
+          "name": "Darmian Duchamp",
           "role": "Ochroniarz",
-          "description": "Był po drugiej stronie muzeum, przybiegł jak tylko usłyszał alarm.",
-          "portrait": "Darmian"
+          "description": "Był po drugiej stronie muzeum, przybiegł jak tylko usłyszał alarm."
         },
         {
           "name": "Casper",
           "role": "Pracownik galerii",
-          "description": "Cichy, blady. Na widok detektywa natychmiast opuszcza salę.",
-          "portrait": "Casper"
+          "description": "Cichy, blady. Na widok detektywa natychmiast opuszcza salę."
         },
         {
-          "name": "Serena",
+          "name": "Serena Pulin",
           "role": "Młoda detektyw",
-          "description": "Pewna siebie, energiczna, zwraca uwagę na nielogiczne elementy sprawy.",
-          "portrait": "Serena"
+          "description": "Pewna siebie, energiczna, zwraca uwagę na nielogiczne elementy sprawy."
         }
       ],
       "items": [
@@ -46,14 +42,12 @@
         {
           "name": "Francois Galtier",
           "role": "Dyrektor muzeum",
-          "description": "Zrzuca winę na pracowników. Twierdzi, że system był testowany tydzień temu.",
-          "portrait": "Francois"
+          "description": "Zrzuca winę na pracowników. Twierdzi, że system był testowany tydzień temu."
         },
         {
           "name": "Serena Pulin",
           "role": "Detektyw",
-          "description": "Sugeruje sabotaż od środka, prowokuje Francoisa do reakcji.",
-          "portrait": "Serena"
+          "description": "Sugeruje sabotaż od środka, prowokuje Francoisa do reakcji."
         }
       ],
       "items": [
@@ -72,20 +66,17 @@
         {
           "name": "Mathieu",
           "role": "Dozorca",
-          "description": "Twierdzi, że widział 'dwa cienie' znające muzeum jak własną kieszeń.",
-          "portrait": "przesluchiwany1"
+          "description": "Twierdzi, że widział 'dwa cienie' znające muzeum jak własną kieszeń."
         },
         {
           "name": "Darmian Duchamp",
           "role": "Ochroniarz",
-          "description": "Broni Mathieu, reaguje nerwowo na sugestie Sereny.",
-          "portrait": "Darmian"
+          "description": "Broni Mathieu, reaguje nerwowo na sugestie Sereny."
         },
         {
           "name": "Serena Pulin",
           "role": "Detektyw",
-          "description": "Naciska, insynuuje współudział kogoś z personelu.",
-          "portrait": "Serena"
+          "description": "Naciska, insynuuje współudział kogoś z personelu."
         }
       ],
       "items": [
@@ -104,14 +95,12 @@
         {
           "name": "Casper",
           "role": "Pracownik galerii",
-          "description": "Utrzymuje, że nic nie słyszał przez hałas odkurzacza.",
-          "portrait": "Casper"
+          "description": "Utrzymuje, że nic nie słyszał przez hałas odkurzacza."
         },
         {
           "name": "Serena Pulin",
           "role": "Detektyw",
-          "description": "Sceptyczna wobec wyjaśnień Caspera.",
-          "portrait": "Serena"
+          "description": "Sceptyczna wobec wyjaśnień Caspera."
         }
       ],
       "items": [
@@ -130,14 +119,12 @@
         {
           "name": "Laura Papilon",
           "role": "Dziennikarka",
-          "description": "Twierdzi, że wiedziała o kradzieży przed alarmem.",
-          "portrait": "Laura"
+          "description": "Twierdzi, że wiedziała o kradzieży przed alarmem."
         },
         {
           "name": "Guy Plume",
           "role": "Kamerzysta",
-          "description": "Sugeruje, że kradzież była 'show'.",
-          "portrait": "Guy"
+          "description": "Sugeruje, że kradzież była 'show'."
         }
       ],
       "items": [
@@ -156,14 +143,12 @@
         {
           "name": "Prof. Terry Tarrau",
           "role": "Ekspert historyczny",
-          "description": "Nadmiernie emocjonalny, obsesyjnie kocha artefakty.",
-          "portrait": "Guy"
+          "description": "Nadmiernie emocjonalny, obsesyjnie kocha artefakty."
         },
         {
           "name": "Serena Pulin",
           "role": "Detektyw",
-          "description": "Sugeruje, że wiedza profesora mogła pomóc złodziejom.",
-          "portrait": "Serena"
+          "description": "Sugeruje, że wiedza profesora mogła pomóc złodziejom."
         }
       ],
       "items": [
@@ -182,8 +167,7 @@
         {
           "name": "Darmian Duchamp",
           "role": "Ochroniarz",
-          "description": "Twierdzi, że alarm wyłączono ręcznie — kody zna tylko ochrona i dyrekcja.",
-          "portrait": "Darmian"
+          "description": "Twierdzi, że alarm wyłączono ręcznie — kody zna tylko ochrona i dyrekcja."
         }
       ],
       "items": [
@@ -202,8 +186,7 @@
         {
           "name": "Serena Pulin",
           "role": "Detektyw",
-          "description": "Zauważa, że testy systemów podpisał Galtier.",
-          "portrait": "Serena"
+          "description": "Zauważa, że testy systemów podpisał Galtier."
         }
       ],
       "items": [
@@ -222,8 +205,7 @@
         {
           "name": "Mathieu",
           "role": "Dozorca",
-          "description": "Twierdzi, że widział Serenę wychodzącą przed alarmem.",
-          "portrait": "Mathieu"
+          "description": "Twierdzi, że widział Serenę wychodzącą przed alarmem."
         }
       ],
       "items": [
@@ -242,14 +224,12 @@
         {
           "name": "Joanne Galtier",
           "role": "Kierowniczka galerii",
-          "description": "Twierdzi, że widziała samochód Francoisa za muzeum.",
-          "portrait": "Joanne"
+          "description": "Twierdzi, że widziała samochód Francoisa za muzeum."
         },
         {
           "name": "Serena Pulin",
           "role": "Detektyw",
-          "description": "Zbyt szybko broni Joanne.",
-          "portrait": "Serena"
+          "description": "Zbyt szybko broni Joanne."
         }
       ],
       "items": [
@@ -268,14 +248,12 @@
         {
           "name": "Laura Papilon",
           "role": "Dziennikarka",
-          "description": "Zaprzecza udziałowi, ale ma nagrania, których nie powinna posiadać.",
-          "portrait": "Laura"
+          "description": "Zaprzecza udziałowi, ale ma nagrania, których nie powinna posiadać."
         },
         {
           "name": "Guy Plume",
           "role": "Kamerzysta",
-          "description": "Zdenerwowany, emocjonalnie zależny od Laury.",
-          "portrait": "Guy"
+          "description": "Zdenerwowany, emocjonalnie zależny od Laury."
         }
       ],
       "items": [
@@ -294,8 +272,7 @@
         {
           "name": "Prof. Terry Tarrau",
           "role": "Ekspert",
-          "description": "Broni się emocjonalnie, fascynacja biżuterią wydaje się obsesyjna.",
-          "portrait": "Ekspert"
+          "description": "Broni się emocjonalnie, fascynacja biżuterią wydaje się obsesyjna."
         }
       ],
       "items": [
@@ -309,57 +286,24 @@
   ],
   "endings": [
     {
-      "name": "Zakończenie 1 - Francois Galtier",
-      "description": "Dyrektor zdradza, że współpracował ze złodziejami z powodu długów i groźby bankructwa.",
-      "npcs": [
-        {
-          "name": "Francois Galtier",
-          "role": "Dyrektor",
-          "description": "Motyw: długi i utrata reputacji."
-        }
-      ],
-      "items": []
+      "accusedName": "Francois Galtier",
+      "description": "Motyw: długi i utrata reputacji.",
+      "isMurderer": false
     },
     {
-      "name": "Zakończenie 2 - Profesor Tarrau",
-      "description": "Profesor ukradł klejnoty, wierząc, że 'ratuje' je dla sztuki.",
-      "npcs": [
-        {
-          "name": "Prof. Terry Tarrau",
-          "role": "Ekspert",
-          "description": "Motyw: obsesyjna miłość do artefaktów."
-        }
-      ],
-      "items": []
+      "accusedName": "Profesor Tarrau",
+      "description": "Motyw: obsesyjna miłość do artefaktów.",
+      "isMurderer": false
     },
     {
-      "name": "Zakończenie 3 - Laura i Guy",
-      "description": "Organizatorzy kradzieży w celu zdobycia sławy i sensacji medialnej.",
-      "npcs": [
-        {
-          "name": "Laura Papilon",
-          "role": "Dziennikarka",
-          "description": "Motyw: pragnienie sławy."
-        },
-        {
-          "name": "Guy Plume",
-          "role": "Kamerzysta",
-          "description": "Działał z miłości i lojalności do Laury."
-        }
-      ],
-      "items": []
+      "accusedName": "Laura i Guy",
+      "description": "Motyw: pragnienie sławy.",
+      "isMurderer": false
     },
     {
-      "name": "Zakończenie 4 - Serena Pulin",
-      "description": "Serena ukradła biżuterię, aby opłacić operację chorej matki.",
-      "npcs": [
-        {
-          "name": "Serena Pulin",
-          "role": "Detektyw",
-          "description": "Motyw: desperacja i nienawiść do elit."
-        }
-      ],
-      "items": []
+      "accusedName": "Serena Pulin",
+      "description": "Motyw: desperacja i nienawiść do elit.",
+      "isMurderer": true
     }
   ]
 }

@@ -118,12 +118,11 @@ public class DialogueEngineManager
         return await _client.GetRandomScenarioAsync();
     }
 
-    public async Task<string> GetNpcVerdictAsync(string npcName)
+    public async Task<VerdictResponseDTO> GetNpcVerdictAsync(string name)
     {
         if (IsInitialized == false) throw new System.Exception("Nie zainicjalizowano DialogueEngine!");
 
-        return await _client.GetNpcVerdictAsync(npcName);
-      
+        return await _client.GetNpcVerdictAsync(name);
     }
    
   

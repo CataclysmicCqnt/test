@@ -53,15 +53,18 @@ public class MenuControl : MonoBehaviour
         Debug.Log($"Używam scenariusza: {scenarioName}");
 
         string[] parameters = { scenarioName, "1" };
-        CurrentScenarioName = scenarioName;
-        CurrentSceneNumber = 1;
-
-        GameSession.StartSession(parameters[0], int.Parse(parameters[1]));
-
         SceneScriptDTO scene = await DialogueEngineManager.Instance.GetSceneAsync(parameters);
+
 
         if (scene != null)
         {
+            GameSession.StartSession(parameters[0], int.Parse(parameters[1]), scene);
+            SceneDTO context = new SceneDTO
+            {
+                LocationName = GameSession.CurrentScenarioName,
+                ScenePrompt = GameSession.CurrentScene.Description
+            };
+            Debug.Log(await DialogueEngineManager.Instance.GenerateNewSceneAsync(context));
             MenuControl.CollectedCharacters.Clear();
             foreach (var character in scene.Npcs)
             {
@@ -108,6 +111,7 @@ public class MenuControl : MonoBehaviour
     {
         string[] parameters = { GameSession.CurrentScenarioName, (GameSession.CurrentSceneNumber + 1).ToString() };
         SceneScriptDTO scene = await DialogueEngineManager.Instance.GetSceneAsync(parameters);
+        
 
 
         if (scene != null)
@@ -118,8 +122,20 @@ public class MenuControl : MonoBehaviour
 
             SetBackground(scene.Background);
 
-            GameSession.CurrentSceneNumber++;
-            CurrentSceneNumber = GameSession.CurrentSceneNumber;
+            GameSession.StartSession(GameSession.CurrentScenarioName, GameSession.CurrentSceneNumber+1, scene);
+            SceneDTO context = new SceneDTO
+            {
+                LocationName = GameSession.CurrentScenarioName,
+                ScenePrompt = GameSession.CurrentScene.Description
+            };
+            Debug.Log(await DialogueEngineManager.Instance.GenerateNewSceneAsync(context));
+            foreach (var character in scene.Npcs)
+            {
+                if (!MenuControl.CollectedCharacters.ContainsKey(character.name))
+                {
+                    MenuControl.CollectedCharacters.Add(character.name, character.protrait);
+                }
+            }
             Debug.Log("Next scene: " + GameSession.CurrentSceneNumber);
         }
         else

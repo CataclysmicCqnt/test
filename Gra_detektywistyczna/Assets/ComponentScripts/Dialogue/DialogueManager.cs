@@ -13,7 +13,6 @@ public class DialogueManager : MonoBehaviour
     [Header("UI References")]
     [SerializeField] private Image NpcImage;
 
-    public string sceneContext;
     public string currentNpcName;
     public bool isFreeDiscussionEnabled;
 
@@ -51,8 +50,6 @@ public class DialogueManager : MonoBehaviour
         string history = DialogueContextManager.GetFormattedContext();
         Debug.Log($"kontekst: {!string.IsNullOrEmpty(history)}");
 
-        sceneContext = "Scenariusz: " + GameSession.CurrentScenarioName;
-
         if (!string.IsNullOrEmpty(history))
         {
             if (DialogueEngineManager.Instance == null || !DialogueEngineManager.IsInitialized)
@@ -64,29 +61,25 @@ public class DialogueManager : MonoBehaviour
             SceneDTO context = new SceneDTO
             {
                 LocationName = GameSession.CurrentScenarioName,
-                ScenePrompt = "To jest kontynuacja śledztwa. Historia do tej pory: " + history
+                ScenePrompt = GameSession.CurrentScene.Description + "To jest kontynuacja śledztwa. Historia do tej pory: " + history
             };
             Debug.Log(await DialogueEngineManager.Instance.GenerateNewSceneAsync(context));
         }
         else
         {
             Clear();
-            var characters = MenuControl.CollectedCharacters;
-            var scene = MenuControl.CurrentScenarioName;
-
-            sceneContext = scene;
-            foreach (var character in characters)
+            foreach (var character in GameSession.CurrentScene.Npcs)
             {
                 EnqueueDialogue(
                     new Dialogue(
                         "Narrator",
-                        "Pochodzisz do " + character.Key + ", możesz zadać mu 3 pytania."
+                        "Pochodzisz do " + character.name + ", możesz zadać mu 3 pytania."
                     )
                 );
 
-                AskQuestion(character.Key);
-                AskQuestion(character.Key);
-                AskQuestion(character.Key);
+                AskQuestion(character.name);
+                AskQuestion(character.name);
+                AskQuestion(character.name);
             }
 
             PlayDialogue();
@@ -112,7 +105,7 @@ public class DialogueManager : MonoBehaviour
 
                 NPCRequestDTO npcRequestDTO = new NPCRequestDTO()
                 {
-                    SceneDescription = sceneContext,
+                    SceneDescription = GameSession.CurrentScene.Description,
                     UserText = userText,
                     NPCName = currentNpcName,
                 };
@@ -136,22 +129,18 @@ public class DialogueManager : MonoBehaviour
     {
         await MenuControl.Instance.NextScene();
         Clear();
-        var characters = MenuControl.CollectedCharacters;
-        var scene = MenuControl.CurrentScenarioName;
-
-        sceneContext = scene;
-        foreach (var character in characters)
+        foreach (var character in GameSession.CurrentScene.Npcs)
         {
             EnqueueDialogue(
                 new Dialogue(
                     "Narrator",
-                    "Pochodzisz do " + character.Key + ", możesz zadać mu 3 pytania."
+                    "Pochodzisz do " + character.name + ", możesz zadać mu 3 pytania."
                 )
             );
 
-            AskQuestion(character.Key);
-            AskQuestion(character.Key);
-            AskQuestion(character.Key);
+            AskQuestion(character.name);
+            AskQuestion(character.name);
+            AskQuestion(character.name);
         }
 
         PlayDialogue();
@@ -169,7 +158,7 @@ public class DialogueManager : MonoBehaviour
     }
     public void AskQuestion(string name)
     {
-        Dialogue dialogue = new Dialogue("Ty", sceneContext);
+        Dialogue dialogue = new Dialogue("Ty", "");
         dialogue.isPlayerPrompt = true;
         EnqueueDialogue(dialogue);
         EnqueueDialogue(new Dialogue(name, ""));
@@ -373,6 +362,8 @@ public class DialogueManager : MonoBehaviour
     }
     public void Clear()
     {
+        isAwaitingNPCResponse = false;
+        isAwaitingUserInput = false;
         dialoguesHistory.Clear();
         dialoguesQueue.Clear();
         HideDialogue();
