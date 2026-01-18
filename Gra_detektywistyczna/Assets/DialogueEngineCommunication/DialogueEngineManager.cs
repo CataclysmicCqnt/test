@@ -117,7 +117,17 @@ public class DialogueEngineManager
             throw new System.Exception("Jeszcze nie zainicjalizowano DialogueEngine!");
         return await _client.GetRandomScenarioAsync();
     }
-    public async Task<bool> DeleteGameAsync(CreatedGameDTO gameToDelete)
+
+    public async Task<string> GetNpcVerdictAsync(string npcName)
+    {
+        if (IsInitialized == false) throw new System.Exception("Nie zainicjalizowano DialogueEngine!");
+
+        return await _client.GetNpcVerdictAsync(npcName);
+      
+    }
+   
+  
+  public async Task<bool> DeleteGameAsync(CreatedGameDTO gameToDelete)
     {
         string filePath = Path.Combine(Application.dataPath, "Database", "SavedGames.json");
 

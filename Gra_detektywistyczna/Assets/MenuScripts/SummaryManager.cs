@@ -1,7 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 public class SummaryManager : MonoBehaviour
 {
@@ -76,9 +78,22 @@ public class SummaryManager : MonoBehaviour
         cardTemplate.SetActive(false);
     }
 
-    public void OnCardClicked(string name)
+    public async Task OnCardClicked(string name)
     {
         Debug.Log("Klikniêta postaæ: " + name);
+
+        string verdict = await DialogueEngineManager.Instance.GetNpcVerdictAsync(name);
+
+        if (string.IsNullOrEmpty(verdict))
+        {
+            Debug.LogError("Nie uda³o siê pobraæ podsumowania z AI!");
+            return;
+        }
+
+        GameSession.PendingVerdictNpcName = name;
+        GameSession.PendingVerdictText = verdict;
+
+        SceneManager.LoadScene("EmptyScene");
     }
 
 }

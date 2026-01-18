@@ -103,6 +103,16 @@ namespace AIClient
             return await StandardPostAsync(json, "/npc/load");
         }
 
+        public async Task<string> GenerateNpcVerdictAsync(string npcName)
+        {
+            accusedName = npcName;
+
+            string json = JsonConvert.SerializeObject(accusedName);
+            return await StandardPostAsync(json, "/npc/verdict");
+
+        }
+
+
         /// <summary>
         /// Metoda wywoływana przy zwalnianiu zasobów.
         /// Ma zakończyć serwer Pythona i posprzątać zasoby.
