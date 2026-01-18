@@ -11,8 +11,6 @@ Desktop.ini
 *.user
 *.userprefs
 *.suo
-*.sln
-*.csproj
 *.pidb
 *.pdb
 
