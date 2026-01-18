@@ -1,7 +1,6 @@
 ﻿using DTOModel;
 using Newtonsoft.Json;
 using System.Text;
-using System.Text.Json;
 
 namespace AIClient
 {
@@ -59,7 +58,7 @@ namespace AIClient
         /// <param name="json">Dane w formacie JSON do wysłania.</param>
         /// <param name="endpoint">Endpoint serwera (relatywny do BaseAddress).</param>
         /// <returns>Odpowiedź serwera w formacie string lub null, jeśli serwer nie działa lub wystąpił błąd.</returns>
-        private async Task<string> StandardPostAsync(string json, string endpoint)
+        private async Task<string?> StandardPostAsync(string json, string endpoint)
         {
             if (await IsServerRunningAsync() == false) return null;
 
@@ -73,7 +72,7 @@ namespace AIClient
                 string responseBody = await response.Content.ReadAsStringAsync();
                 return responseBody;
             }
-            catch (HttpRequestException e)
+            catch (HttpRequestException)
             {
                 return null;
             }
@@ -84,10 +83,12 @@ namespace AIClient
         /// </summary>
         /// <param name="requestDTO">Obiekt DTO z danymi zapytania do NPC.</param>
         /// <returns>Odpowiedź NPC w formacie JSON lub null jeśli serwer nie działa.</returns>
-        public async Task<string> GenerateNPCResponseAsync(NPCRequestDTO requestDTO)
+        public async Task<string?> GenerateNPCResponseAsync(NPCRequestDTO requestDTO)
         {
             string json = JsonConvert.SerializeObject(requestDTO);
             var response = await StandardPostAsync(json, "/npc/chat");
+            if (string.IsNullOrEmpty(response)) return null;
+
             var npcResponse = JsonConvert.DeserializeObject<NPCResponseDTO>(response);
             return JsonConvert.SerializeObject(npcResponse);
         }
@@ -97,21 +98,26 @@ namespace AIClient
         /// </summary>
         /// <param name="sceneDTO">Obiekt DTO z danymi sceny.</param>
         /// <returns>Odpowiedź serwera w formacie JSON lub null jeśli serwer nie działa.</returns>
-        public async Task<string> GenerateNewSceneAsync(SceneDTO sceneDTO)
+        public async Task<string?> GenerateNewSceneAsync(SceneDTO sceneDTO)
         {
-            string json = JsonConvert.SerializeObject(sceneDTO);
-            return await StandardPostAsync(json, "/npc/load");
+            // Python oczekuje: { name, description, npcs: [], items: [] } na endpoint /scene/load
+            var payload = new
+            {
+                name = sceneDTO.LocationName,
+                description = sceneDTO.ScenePrompt,
+                npcs = Array.Empty<object>(),
+                items = Array.Empty<object>()
+            };
+
+            string json = JsonConvert.SerializeObject(payload);
+            return await StandardPostAsync(json, "/scene/load");
         }
 
-        public async Task<string> GenerateNpcVerdictAsync(string npcName)
+        public async Task<string?> GenerateNpcVerdictAsync(string npcName)
         {
-            accusedName = npcName;
-
-            string json = JsonConvert.SerializeObject(accusedName);
+            string json = JsonConvert.SerializeObject(npcName);
             return await StandardPostAsync(json, "/npc/verdict");
-
         }
-
 
         /// <summary>
         /// Metoda wywoływana przy zwalnianiu zasobów.

@@ -22,7 +22,7 @@ public static class GameSession
 
     public static string PendingVerdictNpcName;
 
-    public static void StartSession(string scenarioName, int currentScene, int maxScene)
+    public static void StartSession(string scenarioName, int currentScene)
     {
         CurrentScenarioName = scenarioName;
         CurrentSceneNumber = currentScene;

@@ -27,6 +27,9 @@ public class DialogueManager : MonoBehaviour
     private bool isAwaitingUserInput = false;
     private bool isAwaitingNPCResponse = false;
 
+    private bool _sceneLoadedOnServer = false;
+    private Task _sceneLoadTask;
+
     async void Start()
     {
         if(!string.IsNullOrEmpty(GameSession.PendingVerdictText))
@@ -246,6 +249,7 @@ public class DialogueManager : MonoBehaviour
 
         try
         {
+            await EnsureSceneLoadedOnServerAsync();
             response = await DialogueEngineManager.Instance.AskNPCAsync(npcRequestDTO);
         }
         catch (System.Exception ex)
@@ -377,5 +381,27 @@ public class DialogueManager : MonoBehaviour
         NpcImage.sprite = null;
         NpcImage.color = new Color(NpcImage.color.r, NpcImage.color.g, NpcImage.color.b, 0f);
 
+    }
+
+    private async Task EnsureSceneLoadedOnServerAsync()
+    {
+        if (_sceneLoadedOnServer) return;
+
+        if (_sceneLoadTask != null)
+        {
+            await _sceneLoadTask;
+            return;
+        }
+
+        SceneDTO sceneDTO = new SceneDTO
+        {
+            LocationName = GameSession.CurrentScenarioName,
+            ScenePrompt = "Scenariusz: " + GameSession.CurrentScenarioName
+        };
+
+        _sceneLoadTask = DialogueEngineManager.Instance.GenerateNewSceneAsync(sceneDTO);
+        await _sceneLoadTask;
+
+        _sceneLoadedOnServer = true;
     }
 }
