@@ -211,7 +211,7 @@ public class DialogueManager : MonoBehaviour
         Debug.Log(currentNpcName);
         nameText.text = "Ty";
         EnableUserInput();
-        isAwaitingUserInput = true;
+        isAwaitingUserInput = true; 
     }
 
     public async void SendNpcRequest(NPCRequestDTO npcRequestDTO)

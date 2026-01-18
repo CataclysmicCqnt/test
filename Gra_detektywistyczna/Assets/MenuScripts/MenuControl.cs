@@ -13,8 +13,8 @@ public class MenuControl : MonoBehaviour
     public static Dictionary<string, string> CollectedCharacters = new Dictionary<string, string>();
 
     public static MenuControl Instance;
-    public static int CurrentSceneNumber { get; private set; }
-    public static string CurrentScenarioName { get; private set; }
+    public static int CurrentSceneNumber { get; private set; }  //uzywac GameSession.CurrentSceneNumber
+    public static string CurrentScenarioName { get; private set; }  //uzywac GameSession.CurrentScenarioName
 
     [Header("UI References")]
     [SerializeField] private Image backgroundImage;
@@ -45,7 +45,9 @@ public class MenuControl : MonoBehaviour
     }
 
     public async void NewGameScene()
-    {
+    { 
+        DialogueContextManager.ClearContext();
+    
         string scenarioName = GetRandomScenarioFromFolder();
 
         Debug.Log($"Używam scenariusza: {scenarioName}");
@@ -53,6 +55,8 @@ public class MenuControl : MonoBehaviour
         string[] parameters = { scenarioName, "1" };
         CurrentScenarioName = scenarioName;
         CurrentSceneNumber = 1;
+
+        GameSession.StartSession(parameters[0], int.Parse(parameters[1]));
 
         SceneScriptDTO scene = await DialogueEngineManager.Instance.GetSceneAsync(parameters);
 
@@ -102,7 +106,7 @@ public class MenuControl : MonoBehaviour
 
     public async Task NextScene()
     {
-        string[] parameters = { CurrentScenarioName, (++CurrentSceneNumber).ToString() };
+        string[] parameters = { GameSession.CurrentScenarioName, (GameSession.CurrentSceneNumber + 1).ToString() };
         SceneScriptDTO scene = await DialogueEngineManager.Instance.GetSceneAsync(parameters);
 
 
@@ -114,7 +118,9 @@ public class MenuControl : MonoBehaviour
 
             SetBackground(scene.Background);
 
-            Debug.Log("Next scene: " + CurrentSceneNumber);
+            GameSession.CurrentSceneNumber++;
+            CurrentSceneNumber = GameSession.CurrentSceneNumber;
+            Debug.Log("Next scene: " + GameSession.CurrentSceneNumber);
         }
         else
         {

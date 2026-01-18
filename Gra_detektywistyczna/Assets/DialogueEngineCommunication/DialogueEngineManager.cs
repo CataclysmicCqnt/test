@@ -1,9 +1,11 @@
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
+using DTOModel;
 using DTOModel;
 using NUnit.Framework;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using UnityEngine;
-
+using System.Linq;
 public class DialogueEngineManager
 {
     private static string exeRelativePath = "DialogueEngine/DialogueEngine/bin/Debug/net8.0/DialogueEngine.exe";
@@ -121,5 +123,57 @@ public class DialogueEngineManager
         if (IsInitialized == false) throw new System.Exception("Nie zainicjalizowano DialogueEngine!");
 
         return await _client.GetNpcVerdictAsync(npcName);
+      
+    }
+   
+  
+  public async Task<bool> DeleteGameAsync(CreatedGameDTO gameToDelete)
+    {
+        string filePath = Path.Combine(Application.dataPath, "Database", "SavedGames.json");
+
+        return await Task.Run(() =>
+        {
+            try
+            {
+                if (!File.Exists(filePath)) return false;
+
+                string jsonContent = File.ReadAllText(filePath);
+                GamesToContinueDTO db = JsonUtility.FromJson<GamesToContinueDTO>(jsonContent);
+
+                if (db == null || db.GamesToContinue == null) return false;
+
+                // --- POPRAWKA TUTAJ ---
+                // 1. Zamieniamy tablicę na Listę (dzięki System.Linq)
+                List<CreatedGameDTO> gamesList = db.GamesToContinue.ToList();
+
+                // 2. Usuwamy element z Listy
+                int removedCount = gamesList.RemoveAll(g =>
+                    g.Title == gameToDelete.Title &&
+                    g.LastSaveDate == gameToDelete.LastSaveDate
+                );
+
+                if (removedCount > 0)
+                {
+                    // 3. Zamieniamy Listę z powrotem na tablicę (wymagane przez Twoje DTO)
+                    db.GamesToContinue = gamesList.ToArray();
+
+                    // 4. Zapisujemy zmiany
+                    string newJson = JsonUtility.ToJson(db, true);
+                    File.WriteAllText(filePath, newJson);
+
+                    Debug.Log($"Usunięto grę: {gameToDelete.Title}");
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError($"Błąd: {e.Message}");
+                return false;
+            }
+        });
     }
 }
