@@ -52,7 +52,7 @@ public class SummaryManager : MonoBehaviour
             {
                 img.raycastTarget = false;
 
-                string path = !string.IsNullOrEmpty(entry.Value) ? entry.Value : entry.Key.Split(' ')[0];
+                string path = !string.IsNullOrEmpty(entry.Value) ? entry.Value : entry.Key;
                 Sprite s = Resources.Load<Sprite>(path);
                 if (s != null) img.sprite = s;
                 else Debug.LogError($"[SummaryManager] Brak pliku '{path}' w Resources!");
