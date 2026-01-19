@@ -19,6 +19,11 @@ _llmInstance = None
 def getLlm():
 
     global _llmInstance
+    
+    if settings.USE_MOCK:
+        print(" [INFO] Mock Mode enabled. Skipping LLM load.")
+        return None
+
     if _llmInstance is None:
         if Llama is None:
             raise ImportError("llama-cpp-python missing")
@@ -49,6 +54,31 @@ def generateStructuredOutput(
     userPrompt: str,
     responseModel: Type[BaseModel]
 ) -> Dict[str, Any]:
+
+    if settings.USE_MOCK:
+        print(f" [MOCK] Generating output for {responseModel.__name__}")
+        
+        # Mock logic based on field names
+        mock_data = {}
+        fields = responseModel.model_fields.keys()
+        
+        if "speech" in fields:
+            mock_data["speech"] = f"[MOCK] To jest przykładowa wypowiedź dla {responseModel.__name__}."
+        
+        if "isPlayerRight" in fields:
+            mock_data["isPlayerRight"] = True
+            
+        # Try to validate to ensure we return correct structure, 
+        # populating defaults if possible via pydantic (if defaults exist)
+        try:
+            # If the model has required fields not covered above, this might fail.
+            # For this specific app, we know the models are simple.
+            # If validation fails, we might need a more robust mock factory, 
+            # but for now let's try to construct it.
+            return mock_data
+        except Exception as e:
+            print(f"[MOCK] Error constructing mock data: {e}")
+            return {"error": "Mock data construction failed"}
 
     llm = getLlm()
 
@@ -89,6 +119,16 @@ def generateStructuredOutput(
 
 
 def generateStream(systemPrompt: str, userPrompt: str) -> Iterator[str]:
+
+    if settings.USE_MOCK:
+        print(" [MOCK] Streaming response...")
+        words = ["To", "jest", "symulowana", "odpowiedź", "z", "serwisu", "MOCK.", "Model", "AI", "nie", "został", "załadowany."]
+        for word in words:
+            import time
+            time.sleep(0.05) # simulate latency
+            jsonData = json.dumps({"token": word + " "}, ensure_ascii=False)
+            yield f"data: {jsonData}\n\n"
+        return
 
     llm = getLlm()
 

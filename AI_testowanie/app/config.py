@@ -19,7 +19,8 @@ class Settings:
         # self.MODEL_PATH = self.BASE_DIR / "models" / "qwen2.5-3b-instruct-q4_k_m.gguf"
         self.N_CTX = 4096
         self.N_GPU_LAYERS = -1
-        self.USE_MOCK = False
+        # Set to True to use Mock AI service (no GPU/model required)
+        self.USE_MOCK = os.getenv("USE_MOCK", "True").lower() in ("true", "1", "yes")
 
 
 settings = Settings()
