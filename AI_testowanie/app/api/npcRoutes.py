@@ -182,7 +182,7 @@ def chatWithNpcStream(data: NPCChatRequest):
     )
 
 
-@npcRouter.post("/verdict", response_model=NPCChatResponse)
+@npcRouter.post("/verdict", response_model=VerdictResponse)
 def getGameVerdict(request: VerdictRequest):
 
     selectedEnding = None
