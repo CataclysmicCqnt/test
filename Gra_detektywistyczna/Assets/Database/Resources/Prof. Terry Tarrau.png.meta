@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 48e27fc81ac23254b9401d673bdac6e0
+guid: 039e23b08ce8ae046b9423e4bc183e97
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1324089678864826058
-    second: Serena_0
-  - first:
-      213: 8780298926116349079
-    second: Serena_1
+      213: 6303372392258824471
+    second: Prof. Terry Tarrau_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Serena_0
+      name: Prof. Terry Tarrau_0
       rect:
         serializedVersion: 2
-        x: 209
-        y: 18
-        width: 335
-        height: 1038
+        x: 165
+        y: 23
+        width: 521
+        height: 1003
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: acebf7f2c8c106210800000000000000
-      internalID: 1324089678864826058
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Serena_1
-      rect:
-        serializedVersion: 2
-        x: 597
-        y: 874
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 794a8e07a53e9d970800000000000000
-      internalID: 8780298926116349079
+      spriteID: 71967974bc31a7750800000000000000
+      internalID: 6303372392258824471
       vertices: []
       indices: 
       edges: []
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Serena_0: 1324089678864826058
-      Serena_1: 8780298926116349079
+      Prof. Terry Tarrau_0: 6303372392258824471
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

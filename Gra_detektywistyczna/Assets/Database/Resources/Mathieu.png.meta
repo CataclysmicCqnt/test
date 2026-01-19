@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 52240b2ea6328c046a43cdc2d6e5ec03
+guid: 13f99bd19cde5c34c8f306e0468b23be
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5944983752569227784
-    second: Dozorca Mathieu_0
+      213: -2004790297737366315
+    second: Mathieu_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dozorca Mathieu_0
+      name: Mathieu_0
       rect:
         serializedVersion: 2
         x: 122
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8f574a066cc2f7da0800000000000000
-      internalID: -5944983752569227784
+      spriteID: 5d4f63698dd8d24e0800000000000000
+      internalID: -2004790297737366315
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Dozorca Mathieu_0: -5944983752569227784
+      Mathieu_0: -2004790297737366315
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
