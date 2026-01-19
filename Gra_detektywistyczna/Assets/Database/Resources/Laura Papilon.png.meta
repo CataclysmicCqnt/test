@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cb6b54d6d39687b478f9d0449b30ec16
+guid: 9da1ed5e8520a9346bca14dcfead40da
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3736226613730010435
-    second: Laura_0
+      213: 6689941027242594260
+    second: Laura Papilon_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Laura_0
+      name: Laura Papilon_0
       rect:
         serializedVersion: 2
         x: 147
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dba1340b0b1462cc0800000000000000
-      internalID: -3736226613730010435
+      spriteID: 4df4b116be177dc50800000000000000
+      internalID: 6689941027242594260
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Laura_0: -3736226613730010435
+      Laura Papilon_0: 6689941027242594260
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
