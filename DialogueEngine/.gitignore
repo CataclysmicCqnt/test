@@ -21,6 +21,7 @@ Desktop.ini
 [Tt]emp/
 [Oo]bj/
 [Bb]in/
+!DialogueEngine/DialogueEngine/bin/Debug/net8.0/DialogueEngine.exe
 [Bb]uild/
 [Bb]uilds/
 [Ll]ogs/
@@ -30,7 +31,3 @@ MemoryCaptures/
 # --- Ważne dla modułów ---
 # Ignoruj pliki tymczasowe testów
 test_results.xml
-
-# --- PLIKI META (NIGDY NIE IGNORUJ) ---
-# To najważniejsza zasada. Pliki .meta muszą być w repozytorium!
-# !*.meta
