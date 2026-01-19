@@ -147,13 +147,10 @@ public class DialogueManager : MonoBehaviour
     }
     public void LoadNpcTexture(string npcName)
     {
-        var formattedName = npcName.Split(' ')[0];
+        NpcImage.sprite = Resources.Load<Sprite>(npcName);
+        if (NpcImage.color.a == 0f)
         {
-            NpcImage.sprite = Resources.Load<Sprite>(formattedName);
-            if (NpcImage.color.a == 0f)
-            {
-                NpcImage.color = Color.white;
-            }
+            NpcImage.color = Color.white;
         }
     }
     public void AskQuestion(string name)

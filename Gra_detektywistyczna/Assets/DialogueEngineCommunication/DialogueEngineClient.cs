@@ -188,6 +188,14 @@ public class DialogueEngineClient : IDisposable
 
     public async Task<VerdictResponseDTO> GetNpcVerdictAsync(string name)
     {
+        if (string.IsNullOrEmpty(name))
+        {
+            return new VerdictResponseDTO()
+            {
+                IsPlayerRight = false,
+                Speech = "Przegra³eœ"
+            };
+        }
         string[] parameters = new string[2];
         parameters[0] = name;
         parameters[1] = GameSession.CurrentScenarioName;
