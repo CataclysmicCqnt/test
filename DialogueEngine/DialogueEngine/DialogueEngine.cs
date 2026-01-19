@@ -96,11 +96,14 @@ namespace DialogueEngine
 
         public async Task<string> GetNpcVerdict(string[] parameters)
         {
-            if(parameters.Length == 0) return string.Empty;
+            string scenes = File.ReadAllText(_databasePath + "/" + parameters[1] + ".json");
+            if (scenes == null || scenes == "") return null;
+            ScenesScriptDTO scenesDTO = JsonConvert.DeserializeObject<ScenesScriptDTO>(scenes);
 
-            string npcName = parameters[0];
-            return await _aICommunication.GenerateNpcVerdictAsync(npcName);
-
+            if (parameters.Length == 0) return string.Empty;
+            VerdictRequestDTO verdictRequest = new() { AccusedName = parameters[0], Ending = scenesDTO.Endings };
+            var json = JsonConvert.SerializeObject(await _aICommunication.GenerateNpcVerdictAsync(verdictRequest));
+            return json;
         }
 
         /// <summary>

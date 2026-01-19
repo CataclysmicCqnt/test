@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,23 +12,23 @@ namespace DTOModel
     public class EndingDTO
     {
         /// <summary>
-        /// Nazwa zakończenia.
+        /// Nazwa oskarżonego.
         /// </summary>
-        public string Name;
+        [JsonProperty("accusedName")]
+        public string AccusedName;
 
         /// <summary>
         /// Opis zakończenia.
         /// </summary>
+        [JsonProperty("description")]
         public string Description;
 
         /// <summary>
-        /// Tablica obiektów <see cref="NPCDTO"/> powiązanych z zakończeniem.
+        /// Czy oskarżony jest winny morderstwa
         /// </summary>
-        public NPCDTO[] Npcs;
+        [JsonProperty("isMurderer")]
+        public bool IsMurderer;
 
-        /// <summary>
-        /// Tablica obiektów <see cref="ItemDTO"/> powiązanych z zakończeniem.
-        /// </summary>
-        public ItemDTO[] Items;
+
     }
 }

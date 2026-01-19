@@ -52,7 +52,7 @@ public class SummaryManager : MonoBehaviour
             {
                 img.raycastTarget = false;
 
-                string path = !string.IsNullOrEmpty(entry.Value) ? entry.Value : entry.Key;
+                string path = !string.IsNullOrEmpty(entry.Value) ? entry.Value : entry.Key.Split(' ')[0];
                 Sprite s = Resources.Load<Sprite>(path);
                 if (s != null) img.sprite = s;
                 else Debug.LogError($"[SummaryManager] Brak pliku '{path}' w Resources!");
@@ -78,20 +78,21 @@ public class SummaryManager : MonoBehaviour
         cardTemplate.SetActive(false);
     }
 
-    public async Task OnCardClicked(string name)
+    public async void OnCardClicked(string name)
     {
         Debug.Log("Klikniêta postaæ: " + name);
 
-        string verdict = await DialogueEngineManager.Instance.GetNpcVerdictAsync(name);
+        var verdict = await DialogueEngineManager.Instance.GetNpcVerdictAsync(name);
+        Debug.LogError(verdict);
 
-        if (string.IsNullOrEmpty(verdict))
+        if (verdict is null)
         {
             Debug.LogError("Nie uda³o siê pobraæ podsumowania z AI!");
             return;
         }
 
         GameSession.PendingVerdictNpcName = name;
-        GameSession.PendingVerdictText = verdict;
+        GameSession.PendingVerdictText = verdict.Speech;
 
         SceneManager.LoadScene("EmptyScene");
     }

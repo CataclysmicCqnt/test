@@ -186,19 +186,22 @@ public class DialogueEngineClient : IDisposable
         return response;
     }
 
-    public async Task<string> GetNpcVerdictAsync(string npcName)
+    public async Task<VerdictResponseDTO> GetNpcVerdictAsync(string name)
     {
+        string[] parameters = new string[2];
+        parameters[0] = name;
+        parameters[1] = GameSession.CurrentScenarioName;
         MethodDTO methodDTO = new MethodDTO()
         {
             MethodName = "GetNpcVerdict",
-            ParameterValues = new[] { npcName }
+            ParameterValues = parameters
         };
 
         string serializedMethodDTO = JsonUtility.ToJson(methodDTO);
 
         string response = await SendCommandAsync(serializedMethodDTO);
-        return response;
-
+        var verdict = JsonUtility.FromJson(response, typeof(VerdictResponseDTO));
+        return verdict as VerdictResponseDTO;
     }
 
     public void Dispose()
