@@ -2,7 +2,7 @@
   "scenes": [
     {
       "name": "Scena 1 - Galeria Apollo",
-      "background": "background1",
+      "background": "1",
       "description": "Rozbita gablota w Galerii Apollo. Wokół stoją Joanne, Darmian, Casper i Serena. Chaos po kradzieży.",
       "npcs": [
         {
@@ -36,7 +36,7 @@
     },
     {
       "name": "Scena 2 - Biuro Dyrektora",
-      "background": "background2",
+      "background": "2",
       "description": "Eleganckie biuro Francoisa, pachnące cygarami. Dyrektor nerwowy i defensywny.",
       "npcs": [
         {
@@ -60,7 +60,7 @@
     },
     {
       "name": "Scena 3 - Pokój socjalny",
-      "background": "background1",
+      "background": "3",
       "description": "Zapach starej kawy, automat, stosy gazet. Mathieu i Darmian rozmawiają półszeptem.",
       "npcs": [
         {
@@ -89,7 +89,7 @@
     },
     {
       "name": "Scena 4 - Galeria Apollo (Rekonstrukcja)",
-      "background": "background2",
+      "background": "4",
       "description": "Technicy zabezpieczają miejsce zbrodni, Casper odpowiada wymijająco.",
       "npcs": [
         {
@@ -113,7 +113,7 @@
     },
     {
       "name": "Scena 5 - Dziedziniec muzeum",
-      "background": "background1",
+      "background": "5",
       "description": "Tłum turystów, prasa czeka za barierkami. Laura i Guy przepychają się.",
       "npcs": [
         {
@@ -137,7 +137,7 @@
     },
     {
       "name": "Scena 6 - Sala wykładowa",
-      "background": "background2",
+      "background": "6",
       "description": "Profesor Tarrau bada zdjęcia skradzionej biżuterii.",
       "npcs": [
         {
@@ -161,7 +161,7 @@
     },
     {
       "name": "Scena 7 - Pokój ochrony",
-      "background": "background1",
+      "background": "7",
       "description": "Monitory wyświetlają nagrania kradzieży. Darmian tłumaczy się.",
       "npcs": [
         {
@@ -180,7 +180,7 @@
     },
     {
       "name": "Scena 8 - Archiwum",
-      "background": "background1",
+      "background": "8",
       "description": "Stare segregatory, ciemne piwnice muzeum.",
       "npcs": [
         {
@@ -199,7 +199,7 @@
     },
     {
       "name": "Scena 9 - Dziedziniec nocą",
-      "background": "background1",
+      "background": "9",
       "description": "Mathieu pali papierosa, wygląda na skruszonego.",
       "npcs": [
         {
@@ -218,7 +218,7 @@
     },
     {
       "name": "Scena 10 - Kawiarnia",
-      "background": "background1",
+      "background": "10",
       "description": "Joanne pije wino i pali papierosa, roztrzęsiona.",
       "npcs": [
         {
@@ -242,7 +242,7 @@
     },
     {
       "name": "Scena 11 - Redakcja gazety",
-      "background": "background1",
+      "background": "11",
       "description": "Zagracone biura, tablice ze zdjęciami z Luwru.",
       "npcs": [
         {
@@ -266,7 +266,7 @@
     },
     {
       "name": "Scena 12 - Gabinet profesora",
-      "background": "background1",
+      "background": "12",
       "description": "Pełen książek i rekwizytów. Jedno pudełko z repliką zniknęło.",
       "npcs": [
         {
