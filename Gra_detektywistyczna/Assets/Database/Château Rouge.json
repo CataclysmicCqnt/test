@@ -1,0 +1,122 @@
+{
+  "scenes": [
+    {
+      "name": "Scena 1 - Piwnica Fermentacyjna",
+	  "background": "ms-2-1",
+      "description": "Chłodna, kamienna piwnica winnicy 'Château Rouge'. W wielkiej kadzi z młodym winem unosi się ciało seniora rodu, hrabiego Leona.",
+      "npcs": [
+        {
+          "name": "Sommelier Gustaw",
+          "role": "Zaufany pracownik",
+          "description": "Zrozpaczony, twierdzi, że wino zostało zrujnowane. Bardziej martwi go rocznik niż śmierć szefa."
+        },
+        {
+          "name": "Córka Julia",
+          "role": "Spadkobierczyni",
+          "description": "Zimna i opanowana. Od razu pyta o klucze do sejfu."
+        }
+      ],
+      "items": [
+        {
+          "name": "Drabina",
+          "description": "Przewrócona drabina przy kadzi.",
+          "hints": "Jeden ze szczebli jest nadpiłowany, to nie był wypadek."
+        },
+        {
+          "name": "Czerwony szal",
+          "description": "Pływa w winie obok ofiary.",
+          "hints": "Należy do Julii, ale ona twierdzi, że zgubiła go wczoraj."
+        }
+      ]
+    },
+    {
+      "name": "Scena 2 - Gabinet Hrabiego",
+	  "background": "ms-2-2",
+      "description": "Stylowe biuro z widokiem na winorośle. Na biurku panuje bałagan.",
+      "npcs": [
+        {
+          "name": "Notariusz Piekarski",
+          "role": "Prawnik rodziny",
+          "description": "Właśnie przybył na odczytanie zmian w testamencie."
+        },
+        {
+          "name": "Ogrodnik Benek",
+          "role": "Pracownik fizyczny",
+          "description": "Stoi pod oknem, podsłuchuje. Ma błoto na butach o czerwonawym odcieniu."
+        }
+      ],
+      "items": [
+        {
+          "name": "List z ofertą kupna",
+          "description": "Oferta od wielkiego koncernu 'Global Wines'.",
+          "hints": "Hrabia kategorycznie odmówił sprzedaży, co zaznaczył czerwoną kredką."
+        },
+        {
+          "name": "Projekt nowej etykiety",
+          "description": "Szkic z napisem 'Julia & Wspólnicy'.",
+          "hints": "Julia planowała przejęcie marki jeszcze za życia ojca."
+        }
+      ]
+    },
+    {
+      "name": "Scena 3 - Laboratorium Chemiczne",
+	  "background": "ms-2-3",
+      "description": "Małe pomieszczenie na zapleczu, pełne menzurek i aparatury.",
+      "npcs": [
+        {
+          "name": "Enolog Marta",
+          "role": "Ekspert od wina",
+          "description": "Nerwowo chowa jakieś próbki do lodówki."
+        }
+      ],
+      "items": [
+        {
+          "name": "Raport jakości",
+          "description": "Analiza chemiczna tegorocznych zbiorów.",
+          "hints": "Winogrona są zarażone pleśnią. Wino jest bezwartościowe, ale Hrabia to ukrywał."
+        },
+        {
+          "name": "Piła do drewna",
+          "description": "Mała piła ręczna schowana za odczynnikami.",
+          "hints": "Pasuje do śladów na drabinie w piwnicy."
+        }
+      ]
+    },
+    {
+      "name": "Scena 4 - Konfrontacja (Taras)",
+	  "background": "ms-2-4",
+      "description": "Słoneczny taras, gdzie zebrali się wszyscy podejrzani.",
+      "npcs": [
+        {
+          "name": "Wszyscy Podejrzani",
+          "role": "Zbiorowa scena",
+          "description": "Atmosfera jest napięta, każdy patrzy na każdego wilkiem."
+        }
+      ],
+      "items": [
+        {
+          "name": "Buty Ogrodnika",
+          "description": "Ślady unikalnej glinki z piwnicy.",
+          "hints": "Benek był w piwnicy, choć twierdził, że pracował w polu."
+        }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "accusedName": "Enolog Marta",
+      "description": "Morderczyni. Zabiła Hrabiego, ponieważ zmuszał ją do fałszowania certyfikatów jakości wina, co zniszczyłoby jej reputację zawodową. Do sabotowania szczebla drabiny w piwnicy użyła piły ręcznej ukrytej w swoim laboratorium.",
+      "isMurderer": true
+    },
+    {
+      "accusedName": "Córka Julia",
+      "description": "Niesłusznie oskarżona o morderstwo z chciwości. Julia planowała przejąć firmę ojca drogą prawną. Jej czerwony szal został celowo podłożony w piwnicy, aby skierować na nią podejrzenia.",
+      "isMurderer": false
+    },
+    {
+      "accusedName": "Ogrodnik Benek",
+      "description": "Niesłusznie oskarżony o morderstwo. Benek przyznał się jedynie do kradzieży kilku butelek wina, co tłumaczyło jego obecność w piwnicy i ślady glinki na butach. Znalazł się w niewłaściwym miejscu o niewłaściwym czasie.",
+      "isMurderer": false
+    }
+  ]
+}
