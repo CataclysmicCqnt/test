@@ -1,0 +1,220 @@
+{
+  "scenes": [
+    {
+      "name": "Scena 1 - Strefa Spa / Krio-komora",
+	  "background": "ms-1-1",
+      "description": "Miejsce zbrodni: zamarznięte ciało Frosta w krio-saunie, sterylnie białe wnętrze spa.",
+      "npcs": [
+        {
+          "name": "Eliza Kruk",
+          "role": "Menedżerka hotelu",
+          "description": "Opanowana, działa szybko, chce zamknąć wszystkie wyjścia."
+        },
+        {
+          "name": "Dr Emil Zięba",
+          "role": "Lekarz i szef Wellness & Spa",
+          "description": "Blady, twierdzi że awaria jest niemożliwa. Sprawia wrażenie zdenerwowanego."
+        }
+      ],
+      "items": [
+        {
+          "name": "Panel kontrolny",
+          "description": "Sterownik krio-sauny.",
+          "hints": "Ślady manipulacji śrubami, blokada awaryjna ustawiona od zewnątrz."
+        }
+      ]
+    },
+    {
+      "name": "Scena 2 – Bar Panorama",
+	  "background": "ms-1-2",
+      "description": "Bar na ostatnim piętrze z widokiem na zamieć. Goście omawiają śmierć Frosta.",
+      "npcs": [
+        {
+          "name": "Beata Frost",
+          "role": "Żona ofiary",
+          "description": "Roztrzęsiona, twierdzi że Frost chciał ją zniszczyć finansowo."
+        },
+        {
+          "name": "Julian Cichy",
+          "role": "Rywal biznesowy Frosta",
+          "description": "Sugeruje winę Beaty, próbuje manipulować rozmową."
+        }
+      ],
+      "items": [
+        {
+          "name": "Stolik barowy",
+          "description": "Miejsce rozmowy z Julianem i Beatą.",
+          "hints": "Julian aktywnie próbuje kierować podejrzenia w stronę Beaty."
+        }
+      ]
+    },
+    {
+      "name": "Scena 3 – Warsztat Techniczny",
+	  "background": "ms-1-3",
+      "description": "Piwniczny warsztat pełen narzędzi, zimny i betonowy.",
+      "npcs": [
+        {
+          "name": "Bartłomiej 'Bartek' Luty",
+          "role": "Konserwator techniczny",
+          "description": "Były wojskowy, nie lubi bogaczy. Twierdzi, że kalibracja sauny była idealna."
+        }
+      ],
+      "items": [
+        {
+          "name": "Schemat elektryczny krio-sauny",
+          "description": "Dokument ze świeżymi notatkami.",
+          "hints": "Opisane obejście czujników awaryjnych — Bartek ma możliwości techniczne."
+        }
+      ]
+    },
+    {
+      "name": "Scena 4 – Pokój Innej",
+	  "background": "ms-1-4",
+      "description": "Skromny pokój z profesjonalnym sprzętem dziennikarskim i fałszywymi dokumentami.",
+      "npcs": [
+        {
+          "name": "Inna",
+          "role": "Dziennikarka śledcza / szpieg",
+          "description": "Śledziła Frosta z powodu prania pieniędzy. Twierdzi, że Eliza coś ukrywa."
+        }
+      ],
+      "items": [
+        {
+          "name": "Laptop i sprzęt nagrywający",
+          "description": "Profesjonalny zestaw śledczy.",
+          "hints": "Dowód na prowadzone dochodzenie w sprawie Frosta i hotelu."
+        }
+      ]
+    },
+    {
+      "name": "Scena 5 – Biuro Menedżerki",
+	  "background": "ms-1-5",
+      "description": "Eleganckie biuro z widokiem na góry. Konfrontacja z Elizą.",
+      "npcs": [
+        {
+          "name": "Eliza Kruk",
+          "role": "Menedżerka hotelu",
+          "description": "Przyznaje, że wiedziała o praniu pieniędzy. Broni hotelu jako dorobku rodziny."
+        }
+      ],
+      "items": [
+        {
+          "name": "Biurko menedżerskie",
+          "description": "Miejsce rozmowy z Elizą.",
+          "hints": "Eliza potwierdza motyw: Frost chciał przejąć hotel."
+        }
+      ]
+    },
+    {
+      "name": "Scena 6 – Apartament Frosta",
+	  "background": "ms-1-6",
+      "description": "Luksusowy apartament ofiary. Brakuje laptopa i telefonu.",
+      "npcs": [
+        {
+          "name": "Beata Frost",
+          "role": "Żona ofiary",
+          "description": "Informuje, że Frost miał ważne dokumenty na laptopie i telefonie."
+        }
+      ],
+      "items": [
+        {
+          "name": "Brakujące urządzenia",
+          "description": "Zniknięte: laptop i telefon Frosta.",
+          "hints": "laptop miał dowody finansowe przeciw ELizie, dowody rozwodowe z Beatą, oraz tajemnice biznesowe, które Julian chętnie byz zobaczył."
+        }
+      ]
+    },
+    {
+      "name": "Scena 7 – Kotłownia",
+	  "background": "ms-1-7",
+      "description": "Głośna kotłownia, nagła awaria prądu. Przechodzisz na zasilanie awaryjne.",
+      "npcs": [
+        {
+          "name": "Bartłomiej 'Bartek' Luty",
+          "role": "Konserwator",
+          "description": "Zaskoczony i zdenerwowany, twierdzi że ktoś przeciął kabel zasilający."
+        }
+      ],
+      "items": [
+        {
+          "name": "Panel sterowania kotłowni",
+          "description": "Elektryczny panel kontrolny.",
+          "hints": "Sabotaż miał wyłączyć monitoring i zamki."
+        }
+      ]
+    },
+    {
+      "name": "Scena 8 – Gabinet Lekarski",
+	  "background": "ms-1-8",
+      "description": "Gracz włamuje się po ciemku do gabinetu Dr Zięby.",
+      "npcs": [],
+      "items": [
+        {
+          "name": "Szuflada biurka",
+          "description": "Zamknięta szuflada skrywająca dowody.",
+          "hints": "Wezwania od lichwiarzy, puste fiolki po środkach uspokajających, wydrukowany e-mail z groźbami od Frosta."
+        }
+      ]
+    },
+    {
+      "name": "Scena 9 – Serwerownia",
+	  "background": "ms-1-9",
+      "description": "Lodowate pomieszczenie serwerowe, pracujące na zasilaniu awaryjnym.",
+      "npcs": [
+        {
+          "name": "Inna",
+          "role": "Dziennikarka/śledcza",
+          "description": "Przygotowuje kopię zapasową nagrań monitoringu."
+        }
+      ],
+      "items": [
+        {
+          "name": "Nagranie z monitoringu",
+          "description": "Zaszumione nagranie korytarza Spa.",
+          "hints": "Postać w fartuchu technicznym — może Bartek lub Zięba."
+        }
+      ]
+    },
+    {
+      "name": "Scena 10 – Korytarz",
+	  "background": "ms-1-10",
+      "description": "Czerwone światło awaryjne, burza na zewnątrz. Ostatnia rozmowa przed finałem.",
+      "npcs": [
+        {
+          "name": "Julian Cichy",
+          "role": "Rywal biznesowy",
+          "description": "Twierdzi, że znalazł laptop Frosta w pokoju Beaty — sugeruje celowe podrzucenie."
+        }
+      ],
+      "items": [
+        {
+          "name": "Laptop Frosta",
+          "description": "Odnaleziony w nieoczekiwanym miejscu.",
+          "hints": "Ktoś próbuje wrabiać Beatę."
+        }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "accusedName": "Beata Frost",
+      "description": "Beata przyznaje się do morderstwa z zemsty za próbę odebrania jej dziecka i środków finansowych przez męża. Wykorzystując długi dr. Zięby, nakłoniła go do sabotażu krio-sauny w zamian za obietnicę spłaty jego zobowiązań u lichwiarzy.",
+      "isMurderer": true
+    },
+    {
+      "accusedName": "Dr Emil Zięba",
+      "description": "Zięba przyznaje, że osobiście sabotował krio-saunę, gdy Frost znajdował się w środku. Działał w panice, będąc szantażowanym przez ofiarę ujawnieniem błędów medycznych oraz przytłoczonym długami finansowymi.",
+      "isMurderer": true
+    },
+    {
+      "accusedName": "Julian Cichy",
+      "description": "Julian zaplanował morderstwo, by przejąć firmę Frosta. Przekupił konserwatora Bartka, by uzyskać dostęp do panelu i fartuch techniczny, a następnie osobiście dokonał sabotażu blokady awaryjnej, próbując jednocześnie wrobić Beatę.",
+      "isMurderer": true
+    },
+    {
+      "accusedName": "Eliza Kruk",
+      "description": "Eliza zabiła Frosta, aby bronić rodzinnego hotelu przed wrogim przejęciem i praniem pieniędzy. Z pomocą lojalnego konserwatora stworzyła pozorną awarię systemu, skutecznie zacierając ślady swojej ingerencji w elektronikę spa.",
+      "isMurderer": true
+    }
+  ]
+}

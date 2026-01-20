@@ -1,0 +1,117 @@
+{
+  "scenes": [
+    {
+      "name": "Scena 1 - Przedział VIP",
+	  "background": "ms-3-1",
+      "description": "Luksusowy przedział w pociągu 'Srebrna Strzała'. Za oknem szaleje zamieć. Na podłodze leży ciało magnata kolejowego, Henryka Vane'a. W powietrzu unosi się zapach gorzkich migdałów.",
+      "npcs": [
+        {
+          "name": "Konduktor Stanisław",
+          "role": "Obsługa pociągu",
+          "description": "Blady i drżący. Twierdzi, że drzwi były zamknięte od środka."
+        },
+        {
+          "name": "Wdowa Eleonora",
+          "role": "Żona ofiary",
+          "description": "Płacze, ale jej makijaż jest nienaruszony. Krzyczy o 'klątwie rodowej'."
+        }
+      ],
+      "items": [
+        {
+          "name": "Pusta fiolka",
+          "description": "Mała szklana fiolka potoczyła się pod fotel.",
+          "hints": "Resztki cyjanku. Korek jest lekko nadgryziony, co sugeruje nerwowość sprawcy."
+        },
+        {
+          "name": "Niedopita herbata",
+          "description": "Filiżanka na stoliku, wciąż ciepła.",
+          "hints": "Vane pił herbatę tuż przed śmiercią. Ktoś musiał mu ją podać."
+        }
+      ]
+    },
+    {
+      "name": "Scena 2 - Wagon Restauracyjny",
+	  "background": "ms-3-2",
+      "description": "Elegancki wagon z barem. Pasażerowie szeptem dyskutują o tragedii. Atmosfera gęsta od dymu cygar.",
+      "npcs": [
+        {
+          "name": "Doktor Morski",
+          "role": "Lekarz / Pasażer",
+          "description": "Ogląda swoje dłonie. Twierdzi, że słyszał kłótnię w przedziale Vane'a godzinę temu."
+        },
+        {
+          "name": "Inwestor Wiktor",
+          "role": "Wspólnik ofiary",
+          "description": "Nerwowo pije whisky. Vane planował go wyrzucić z zarządu firmy."
+        }
+      ],
+      "items": [
+        {
+          "name": "Lista pasażerów",
+          "description": "Leży na barze.",
+          "hints": "W pociągu jest tylko 5 osób personelu i 4 pasażerów w klasie VIP."
+        }
+      ]
+    },
+    {
+      "name": "Scena 3 - Wagon Bagażowy",
+	  "background": "ms-3-3",
+      "description": "Zimne, nieogrzewane pomieszczenie pełne kufrów. Słychać huk kół na torach.",
+      "npcs": [
+        {
+          "name": "Młody Bagażowy",
+          "role": "Pracownik",
+          "description": "Przyłapany na przeszukiwaniu walizki Inwestora Wiktora."
+        }
+      ],
+      "items": [
+        {
+          "name": "Spalone dokumenty",
+          "description": "W metalowym koszu tli się jeszcze papier.",
+          "hints": "Fragmenty wskazują na sfałszowane raporty finansowe spółki kolejowej."
+        },
+        {
+          "name": "Rękawiczka lekarska",
+          "description": "Lateksowa rękawiczka ubrudzona smarem.",
+          "hints": "Ktoś próbował majstrować przy zamku elektronicznym w drzwiach Vane'a."
+        }
+      ]
+    },
+    {
+      "name": "Scena 4 - Lokomotywa",
+	  "background": "ms-3-4",
+      "description": "Huk silnika zagłusza myśli. Maszynista patrzy tępo w tory.",
+      "npcs": [
+        {
+          "name": "Maszynista",
+          "role": "Świadek",
+          "description": "Twierdzi, że system hamowania awaryjnego został odłączony."
+        }
+      ],
+      "items": [
+        {
+          "name": "Logi systemowe",
+          "description": "Komputer pokładowy.",
+          "hints": "Kamery na korytarzu zostały wyłączone na 10 minut dokładnie w czasie zgonu."
+        }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "accusedName": "Inwestor Wiktor",
+      "description": "Morderca. Motyw: strach przed więzieniem i bankructwem. Otruł Vane'a cyjankiem, by ukryć malwersacje finansowe, wykorzystując wiedzę techniczną do wyłączenia monitoringu.",
+      "isMurderer": true
+    },
+    {
+      "accusedName": "Wdowa Eleonora",
+      "description": "Niesłusznie oskarżona o morderstwo dla spadku. Choć aresztowana, okazuje się niewinna – wiedziała o zmianie testamentu na cele charytatywne, a jej stan wynikał z szoku i leków.",
+      "isMurderer": false
+    },
+    {
+      "accusedName": "Doktor Morski",
+      "description": "Niesłusznie oskarżony z powodu łatwego dostępu do trucizn. W rzeczywistości Doktor był w pociągu, by leczyć Vane'a na śmiertelną chorobę, o której nikt inny nie wiedział.",
+      "isMurderer": false
+    }
+  ]
+}
