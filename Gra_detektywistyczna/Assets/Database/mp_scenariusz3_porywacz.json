@@ -1,0 +1,103 @@
+{
+  "scenes": [
+    {
+      "name": "Scena 1 - Sala Konferencyjna",
+      "background": "mpi-3-scena1",
+      "description": "Sala konferencyjna urzędu miasta. Wszyscy mieszkańcy siedzą przy okrągłym stole, atmosfera napięta po serii zniknięć.",
+      "npcs": [
+        {
+          "name": "Rzeźnik Bartek",
+          "role": "Właściciel sklepu mięsnego",
+          "description": "Oskarża burmistrza o szemrane interesy i manipulacje."
+        },
+        {
+          "name": "Sprzedawczyni Agata",
+          "role": "Właścicielka sklepu",
+          "description": "Stara się uspokoić emocje, wierzy w racjonalne wyjaśnienie."
+        },
+        {
+          "name": "Zegarmistrzyni Franciszka",
+          "role": "Matka zaginionego dziecka",
+          "description": "Zrozpaczona, przekonana że miasto coś ukrywa."
+        },
+        {
+          "name": "Burmistrz Krystian",
+          "role": "Burmistrz miasta",
+          "description": "Zapewnia, że sytuacja jest pod kontrolą."
+        }
+      ],
+      "items": [
+        {
+          "name": "Lista zaginionych",
+          "description": "Spis osób, które zniknęły w ostatnich tygodniach.",
+          "hints": "Ostatnia ofiara ma powiązanie z nową inwestycją budowlaną."
+        }
+      ]
+    },
+    {
+      "name": "Scena 2 - Obrzeża miasta",
+      "background": "mpi-2-scena2",
+      "description": "Opuszczony teren budowy przy lesie. Noc, słychać odgłosy maszyn.",
+      "npcs": [
+        {
+          "name": "Lichwiarz Wiktor",
+          "role": "Zbieracz złomu",
+          "description": "Twierdzi, że widział ludzi wywożonych nocą ciężarówką."
+        },
+        {
+          "name": "Lucjan",
+          "role": "Sierota",
+          "description": "Przyznaje, że dorabiał jako obserwator na budowie."
+        }
+      ],
+      "items": [
+        {
+          "name": "Ślady opon",
+          "description": "Ciężkie ślady prowadzące do lasu.",
+          "hints": "Regularne kursy – nie wygląda na przypadkowe porwania."
+        }
+      ]
+    },
+    {
+      "name": "Scena 3 - Sklep mięsny Bartka",
+      "background": "mpi-2-scena3",
+      "description": "Zaplecze sklepu rzeźniczego. Chłodnia, metalowe drzwi, cisza.",
+      "npcs": [
+        {
+          "name": "Rzeźnik Bartek",
+          "role": "Mieszkaniec miasta",
+          "description": "Nerwowy, ale zaprzecza jakimkolwiek powiązaniom."
+        },
+        {
+          "name": "Sprzedawczyni Agata",
+          "role": "Świadek",
+          "description": "Widział Bartka nocą przy magazynach burmistrza."
+        }
+      ],
+      "items": [
+        {
+          "name": "Klucz do chłodni",
+          "description": "Ciężki, przemysłowy klucz.",
+          "hints": "Pasuje również do magazynów miejskich."
+        }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "accusedName": "Burmistrz Krystian",
+      "description": "Motyw: władza i pieniądze.",
+      "isMurderer": false
+    },
+    {
+      "accusedName": "Rzeźnik Bartek",
+      "description": "Motyw: fanatyczna wizja porządku.",
+      "isMurderer": false
+    },
+    {
+      "accusedName": "Lichwiarz Wiktor",
+      "description": "Motyw: przetrwanie i zysk.",
+      "isMurderer": true
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "scenes": [
+    {
+      "name": "Scena 1 - Biuro Policyjne",
+      "background": "mpi-4-scena1",
+      "description": "Biuro policyjne pełne listów, zdjęć ofiar i notatek szyfrów.",
+      "npcs": [
+        {
+          "name": "Sierżant Justyna",
+          "role": "Dowódca policji",
+          "description": "Zniecierpliwiona, przytłoczona skalą sprawy."
+        },
+        {
+          "name": "Śledczy Teodor",
+          "role": "Doświadczony śledczy",
+          "description": "Analizuje szyfry z wyższością."
+        },
+        {
+          "name": "Postać Gracza",
+          "role": "Detektyw",
+          "description": "Proponuje konsultację z uniwersytetem."
+        }
+      ],
+      "items": [
+        {
+          "name": "Zaszyfrowane listy",
+          "description": "Listy wysyłane przez mordercę.",
+          "hints": "Szyfry oparte na topografii miasta."
+        }
+      ]
+    },
+    {
+      "name": "Scena 2 - Kampus Uniwersytecki",
+      "background": "mpi-4-scena2",
+      "description": "Wieczorny kampus, miejsce jednej ze zbrodni.",
+      "npcs": [
+        {
+          "name": "Dominika Kamińska",
+          "role": "Studentka dziennikarstwa",
+          "description": "Posiada list, którego policja nie miała."
+        },
+        {
+          "name": "Śledczy Teodor",
+          "role": "Śledczy",
+          "description": "Twierdzi, że morderca zna miasto od podszewki."
+        }
+      ],
+      "items": [
+        {
+          "name": "Notatki Dominiki",
+          "description": "Próby odszyfrowania listu.",
+          "hints": "Morderca obserwuje media."
+        }
+      ]
+    },
+    {
+      "name": "Scena 3 - Obrzeża miasta",
+      "background": "mpi-4-scena3",
+      "description": "Zrujnowany dom Szymona S., pełen listów.",
+      "npcs": [
+        {
+          "name": "Szymon S.",
+          "role": "Pustelnik",
+          "description": "Unika kontaktu, ale zbiera cudzą pocztę."
+        },
+        {
+          "name": "Listonosz Maciej",
+          "role": "Listonosz",
+          "description": "Przyznaje, że czasem ktoś go zastępuje."
+        }
+      ],
+      "items": [
+        {
+          "name": "Skrzynka pocztowa",
+          "description": "Pełna nierozdanych listów.",
+          "hints": "System działa bez jednego ogniwa."
+        }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "accusedName": "Listonosz Maciej",
+      "description": "Motyw: poczucie kontroli i inteligencji.",
+      "isMurderer": true
+    },
+    {
+      "accusedName": "Szymon S.",
+      "description": "Motyw: samotność i potrzeba bycia zauważonym.",
+      "isMurderer": false
+    },
+    {
+      "accusedName": "Śledczy Teodor",
+      "description": "Motyw: obsesja na punkcie własnej genialności.",
+      "isMurderer": false
+    }
+  ]
+}
