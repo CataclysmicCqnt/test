@@ -1,11 +1,14 @@
-﻿using System.Threading.Tasks;
+﻿using DTOModel;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using DTOModel;
-using System.Collections.Generic;
-using System;
-using System.Linq;
+using static UnityEngine.Rendering.DebugUI;
 
 
 public class MenuControl : MonoBehaviour
@@ -23,6 +26,7 @@ public class MenuControl : MonoBehaviour
     {
         await DialogueEngineManager.InitializeManagerAsync(gameObject);
         Instance = this;
+        BackgroundService.View = this;
         DontDestroyOnLoad(gameObject);
     }
 
@@ -39,8 +43,20 @@ public class MenuControl : MonoBehaviour
         Debug.Log("Start programu!");
     }
 
+    private void Clean()
+    {
+        Debug.Log("Clean sesji i menuControl");
+        CollectedCharacters = new Dictionary<string, string>();
+        CurrentSceneNumber = 0;
+        CurrentScenarioName = string.Empty;
+
+        GameSession.CleanSession();
+    }
+
     public void BackToMenu()
     {
+        Clean();
+
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -120,7 +136,7 @@ public class MenuControl : MonoBehaviour
             Debug.Log("Nazwa tla to: " + scene.Background);
 
 
-            SetBackground(scene.Background);
+            BackgroundService.SetBackground(scene.Background);
 
             GameSession.StartSession(GameSession.CurrentScenarioName, GameSession.CurrentSceneNumber+1, scene);
             SceneDTO context = new SceneDTO
@@ -146,24 +162,53 @@ public class MenuControl : MonoBehaviour
         }
     }
 
-    private void SetBackground(string backgroundName)
+    public static async Task CurrentScene()
     {
+        string[] parameters = { GameSession.CurrentScenarioName, GameSession.CurrentSceneNumber.ToString() };
+        SceneScriptDTO scene = await DialogueEngineManager.Instance.GetSceneAsync(parameters);
 
-        Sprite newSprite = Resources.Load<Sprite>(backgroundName);
-        if (backgroundImage == null)
+        if (scene != null)
         {
-            return;
-        }
 
-        if (newSprite != null)
-        {
-            backgroundImage.sprite = newSprite;
+            Debug.Log("Nazwa tla to: " + scene.Background);
+
+
+            BackgroundService.SetBackground(scene.Background);
+
+            GameSession.StartSession(GameSession.CurrentScenarioName, GameSession.CurrentSceneNumber + 1, scene);
+            SceneDTO context = new SceneDTO
+            {
+                LocationName = GameSession.CurrentScenarioName,
+                ScenePrompt = GameSession.CurrentScene.Description
+            };
+            Debug.Log(await DialogueEngineManager.Instance.GenerateNewSceneAsync(context));
+            foreach (var character in scene.Npcs)
+            {
+                if (!MenuControl.CollectedCharacters.ContainsKey(character.name))
+                {
+                    MenuControl.CollectedCharacters.Add(character.name, character.protrait);
+                }
+            }
+            Debug.Log("Next scene: " + GameSession.CurrentSceneNumber);
         }
         else
         {
-            Debug.LogError($"Nie znaleziono grafiki o nazwie: {backgroundName} w Resources");
+            Debug.Log("Wykryto koniec scenariusza (null). Zmieniam scenę na podsumowanie.");
+
+            UnityEngine.SceneManagement.SceneManager.LoadScene("EndGameSummary");
+            return;
         }
     }
+
+    public void SetBackground(Sprite sprite)
+    {
+        if (!backgroundImage || !sprite)
+            return;
+
+        backgroundImage.sprite = sprite;
+    }
+
+
     public void ContinueGameScene()
     {
         SceneManager.LoadScene("ContinueGame");
@@ -188,5 +233,4 @@ public class MenuControl : MonoBehaviour
 #endif
 
     }
-
 }

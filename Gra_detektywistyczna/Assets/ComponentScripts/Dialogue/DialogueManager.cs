@@ -1,11 +1,12 @@
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.InputSystem;
-using System.Collections;
 using DTOModel;
+using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using System.Threading.Tasks;
+using TMPro;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -31,7 +32,9 @@ public class DialogueManager : MonoBehaviour
 
     async void Start()
     {
-        if(!string.IsNullOrEmpty(GameSession.PendingVerdictText))
+        NewSceneService.View = this;
+
+        if (!string.IsNullOrEmpty(GameSession.PendingVerdictText))
         {
             ShowDialogue();
             StopAllCoroutines();
@@ -144,7 +147,46 @@ public class DialogueManager : MonoBehaviour
         }
 
         PlayDialogue();
+
+        await Task.Yield(); // UI ma szansę się odbudować
+
+        if (!inputField)
+            return;
+
+        EventSystem.current.SetSelectedGameObject(inputField.gameObject);
+        inputField.ActivateInputField();
+        inputField.Select();
     }
+
+    public async void LoadCurrentScene()
+    {
+        Clear();
+        foreach (var character in GameSession.CurrentScene.Npcs)
+        {
+            EnqueueDialogue(
+                new Dialogue(
+                    "Narrator",
+                    "Pochodzisz do " + character.name + ", możesz zadać mu 3 pytania."
+                )
+            );
+
+            AskQuestion(character.name);
+            AskQuestion(character.name);
+            AskQuestion(character.name);
+        }
+
+        PlayDialogue();
+
+        await Task.Yield(); // UI ma szansę się odbudować
+
+        if (!inputField)
+            return;
+
+        EventSystem.current.SetSelectedGameObject(inputField.gameObject);
+        inputField.ActivateInputField();
+        inputField.Select();
+    }
+
     public void LoadNpcTexture(string npcName)
     {
         NpcImage.sprite = Resources.Load<Sprite>(npcName);

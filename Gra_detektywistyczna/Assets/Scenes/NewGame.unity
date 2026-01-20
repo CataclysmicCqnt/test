@@ -2447,7 +2447,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
   NpcImage: {fileID: 2069392442}
-  sceneContext: 
   currentNpcName: 
   isFreeDiscussionEnabled: 0
   nameText: {fileID: 41663495}

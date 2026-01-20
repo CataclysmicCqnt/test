@@ -23,6 +23,7 @@ public static class GameSession
     public static string PendingVerdictText;
 
     public static string PendingVerdictNpcName;
+    public static bool IsWin;
 
     public static void StartSession(string scenarioName, int currentSceneNumber, SceneScriptDTO currentScene)
     {
@@ -49,5 +50,16 @@ public static class GameSession
             }
         }
         return 0;
+    }
+
+    public static void CleanSession()
+    {
+        CurrentScenarioName = string.Empty;
+        CurrentSceneNumber = 0;
+        MaxSceneNumber = 0;
+        CurrentScene = null;
+        PendingVerdictText = string.Empty;
+        PendingVerdictNpcName = string.Empty;
+        IsWin = false;
     }
 }

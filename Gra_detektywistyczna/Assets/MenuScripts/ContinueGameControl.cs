@@ -78,6 +78,12 @@ namespace Assets.MenuScripts
                 GameSession.StartSession(scenario, sceneCurrent, scene);
                 SceneManager.LoadScene("NewGame");
 
+                if (CurrentSaveManager.isNewGame == false)
+                {
+                    await MenuControl.CurrentScene();
+                    NewSceneService.LoadCurrentScene();
+                }
+
                 Debug.Log($"Game Loaded. Scene {GameSession.CurrentSceneNumber}");
             }
             else Debug.Log("Error loading game");
