@@ -208,6 +208,7 @@ public class DialogueEngineClient : IDisposable
         string serializedMethodDTO = JsonUtility.ToJson(methodDTO);
 
         string response = await SendCommandAsync(serializedMethodDTO);
+
         var verdict = JsonUtility.FromJson(response, typeof(VerdictResponseDTO));
         return verdict as VerdictResponseDTO;
     }

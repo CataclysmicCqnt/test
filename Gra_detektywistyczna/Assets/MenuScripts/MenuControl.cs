@@ -1,11 +1,12 @@
-﻿using System.Threading.Tasks;
+﻿using DTOModel;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using DTOModel;
-using System.Collections.Generic;
-using System;
-using System.Linq;
 
 
 public class MenuControl : MonoBehaviour
@@ -188,5 +189,4 @@ public class MenuControl : MonoBehaviour
 #endif
 
     }
-
 }

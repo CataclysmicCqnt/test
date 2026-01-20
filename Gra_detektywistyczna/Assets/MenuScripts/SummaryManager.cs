@@ -1,15 +1,20 @@
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using TMPro;
+using DTOModel;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SummaryManager : MonoBehaviour
 {
+    [SerializeField] private TMP_Text verdictText;
+
     [Header("Konfiguracja UI")]
     public RectTransform canvasRect;
     public GameObject cardTemplate;
+
+    private static bool _isButtonAlreadyClicked = false;
 
     void Start()
     {
@@ -80,18 +85,32 @@ public class SummaryManager : MonoBehaviour
 
     public async void OnCardClicked(string name)
     {
-        Debug.Log("Klikniêta postaæ: " + name);
+        if (_isButtonAlreadyClicked == true)
+        {
+            Debug.LogWarning("Nie klikaj! CZEKAJ! Widzisz, ¿e mieli!");
+        }
 
-        var verdict = await DialogueEngineManager.Instance.GetNpcVerdictAsync(name);
-        Debug.LogError(verdict);
+        if (string.IsNullOrEmpty(name)) return;
+        Debug.Log("Klikniêta postaæ: " + name);
+        _isButtonAlreadyClicked = true;
+
+        VerdictResponseDTO verdict = await DialogueEngineManager.Instance.GetNpcVerdictAsync(name);
 
         if (verdict is null)
         {
-            Debug.LogError("Nie uda³o siê pobraæ podsumowania z AI!");
+            Debug.LogError("Nie uda³o siê pobraæ podsumowania z JSON!");
             return;
         }
 
+        if (string.IsNullOrWhiteSpace(verdict.Speech))
+        {
+            verdict.Speech = "Nie ma wiadomoœci!";
+        }
+
+        Debug.Log($"IsPlayerRight: {verdict.IsPlayerRight}; Speech: {verdict.Speech}");
+
         GameSession.PendingVerdictNpcName = name;
+        GameSession.IsWin = verdict.IsPlayerRight;
         GameSession.PendingVerdictText = verdict.Speech;
 
         SceneManager.LoadScene("EmptyScene");

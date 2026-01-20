@@ -102,8 +102,7 @@ namespace DialogueEngine
 
             if (parameters.Length == 0) return string.Empty;
             VerdictRequestDTO verdictRequest = new() { AccusedName = parameters[0], Ending = scenesDTO.Endings };
-            var json = JsonConvert.SerializeObject(await _aICommunication.GenerateNpcVerdictAsync(verdictRequest));
-            return json;
+            return await _aICommunication.GenerateNpcVerdictAsync(verdictRequest);
         }
 
         /// <summary>
