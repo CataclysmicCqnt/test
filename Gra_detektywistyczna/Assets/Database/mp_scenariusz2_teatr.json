@@ -1,0 +1,260 @@
+{
+  "scenes": [
+    {
+      "name": "Scena 1 - Sala teatralna",
+      "background": "mpi-2-scena1",
+      "description": "Zapalone światła, przerwany spektakl. Ciało polityka leży na scenie.",
+      "npcs": [
+        {
+          "name": "Anna Osobliwa",
+          "role": "Córka ofiary",
+          "description": "Roztrzęsiona, trzyma ciało ojca."
+        },
+        {
+          "name": "Felek Przyjazny",
+          "role": "Polityk, oponent ofiary",
+          "description": "Udaje wsparcie, ale jest podejrzany o motyw polityczny."
+        },
+        {
+          "name": "Karolina Szumowska",
+          "role": "Dyrektorka teatru",
+          "description": "Zimna, skoncentrowana na organizacji."
+        }
+      ],
+      "items": [
+        {
+          "name": "Kielich z trucizną",
+          "description": "Rekwizyt wykorzystany w spektaklu.",
+          "hints": "Zawierał prawdziwą truciznę."
+        }
+      ]
+    },
+    {
+      "name": "Scena 2 - Za kulisami",
+      "background": "mpi-2-scena2",
+      "description": "Mroczny korytarz, stoły z rekwizytami, zamieszanie po tragedii.",
+      "npcs": [
+        {
+          "name": "Marek Natacki",
+          "role": "Aktor grający Króla Maciusia",
+          "description": "Ambitny i arogancki. Był najbliżej kielicha."
+        },
+        {
+          "name": "Izydor Strzelec",
+          "role": "Aktor grający Łotra",
+          "description": "Rywal Marka, zazdrosny i nerwowy."
+        },
+        {
+          "name": "Kuba Ukośnik",
+          "role": "Pracownik techniczny",
+          "description": "Opryskliwy, zna wszystkie zakamarki teatru."
+        },
+        {
+          "name": "Karolina Szumowska",
+          "role": "Dyrektorka",
+          "description": "Myśli o PR, nie o tragedii."
+        },
+        {
+          "name": "Błazen Kazio",
+          "role": "Duch błazna",
+          "description": "Widziany tylko przez gracza; komentuje i ostrzega."
+        }
+      ],
+      "items": [
+        {
+          "name": "Stół z rekwizytami",
+          "description": "Maski, kielichy, farba sceniczna.",
+          "hints": "Kielichy mogły być podmienione."
+        }
+      ]
+    },
+    {
+      "name": "Scena 3 - Loża VIP",
+      "background": "mpi-2-scena3",
+      "description": "Dwa kieliszki, rozrzucone papiery, polityczne rozmowy.",
+      "npcs": [
+        {
+          "name": "Felek Przyjazny",
+          "role": "Polityk",
+          "description": "Panikuje, sugeruje polityczny zamach."
+        },
+        {
+          "name": "Hubert Huba",
+          "role": "Lobbysta",
+          "description": "Działa agresywnie, próbuje wyciszyć Felka."
+        },
+        {
+          "name": "Ludwik Słyszalski",
+          "role": "Dziennikarz",
+          "description": "Szczwany, prowokuje i notuje wszystko."
+        },
+        {
+          "name": "Lucy",
+          "role": "Międzynarodowa krytyczka",
+          "description": "Dociekliwa, niezależna, prowadzi własne śledztwo."
+        },
+        {
+          "name": "Błazen Kazio",
+          "role": "Duch błazna",
+          "description": "Wyłapuje ukryte emocje w loży."
+        }
+      ],
+      "items": [
+        {
+          "name": "Dwa kieliszki",
+          "description": "Jeden z odciskami Felka, drugi czysty.",
+          "hints": "Ktoś trzeci pił wino."
+        }
+      ]
+    },
+    {
+      "name": "Scena 4 - Garderoba",
+      "background": "mpi-2-scena4",
+      "description": "Kostiumy, makijaż, na lustrze napis „KRÓL NIE ŻYJE”.",
+      "npcs": [
+        {
+          "name": "Izydor Strzelec",
+          "role": "Aktor",
+          "description": "Zaprzecza, że stworzył napis."
+        },
+        {
+          "name": "Marek Natacki",
+          "role": "Aktor",
+          "description": "Bagatelizuje wydarzenia."
+        },
+        {
+          "name": "Anna Osobliwa",
+          "role": "Córka",
+          "description": "Coraz bardziej zrozpaczona i podejrzliwa."
+        },
+        {
+          "name": "Błazen Kazio",
+          "role": "Duch",
+          "description": "Sugeruje, że ktoś pisał w pośpiechu."
+        }
+      ],
+      "items": [
+        {
+          "name": "Szminka",
+          "description": "Kolor używany przez aktorkę grającą Królową.",
+          "hints": "Należała do aktorki, która zniknęła po spektaklu."
+        }
+      ]
+    },
+    {
+      "name": "Scena 5 - Piwnica teatru",
+      "background": "mpi-2-scena5",
+      "description": "Wilgotna, ciemna piwnica z zakrwawioną tkaniną.",
+      "npcs": [
+        {
+          "name": "Kuba Ukośnik",
+          "role": "Pracownik",
+          "description": "Twierdzi, że nikogo tu nie było."
+        },
+        {
+          "name": "Karolina Szumowska",
+          "role": "Dyrektorka",
+          "description": "Zarzuca Kubie, że widziała go tu z kobietą."
+        },
+        {
+          "name": "Lucy",
+          "role": "Krytyczka",
+          "description": "Zagadkowe komentarze — jakby wiedziała więcej."
+        },
+        {
+          "name": "Błazen Kazio",
+          "role": "Duch",
+          "description": "Wyłapuje „dziwny zapach” — coś paranormalnego."
+        }
+      ],
+      "items": [
+        {
+          "name": "Zakrwawiona tkanina",
+          "description": "Fragment kostiumu Króla Maciusia.",
+          "hints": "Dowód na walkę lub próbę zatuszowania zbrodni."
+        }
+      ]
+    },
+    {
+      "name": "Scena 6 - Konfrontacja końcowa",
+      "background": "mpi-2-scena6",
+      "description": "Wszyscy podejrzani zgromadzeni w ciemnej sali teatralnej.",
+      "npcs": [
+        {
+          "name": "Ludwik Słyszalski",
+          "role": "Dziennikarz",
+          "description": "Zaczyna odkrywać swoje motywy."
+        },
+        {
+          "name": "Hubert Huba",
+          "role": "Lobbysta",
+          "description": "Zaczyna odkrywać swoje motywy."
+        },
+        {
+          "name": "Felek Przyjazny",
+          "role": "Polityk",
+          "description": "Zaczyna odkrywać swoje motywy."
+        },
+        {
+          "name": "Anna Osobliwa",
+          "role": "Córka ofiary",
+          "description": "Zaczyna odkrywać swoje motywy."
+        },
+        {
+          "name": "Marek Natacki",
+          "role": "Aktor",
+          "description": "Zaczyna odkrywać swoje motywy."
+        },
+        {
+          "name": "Izydor Strzelec",
+          "role": "Aktor",
+          "description": "Zaczyna odkrywać swoje motywy."
+        },
+        {
+          "name": "Błazen Kazio",
+          "role": "Duch przewodnik",
+          "description": "Pomaga graczowi zrozumieć ostatni trop."
+        }
+      ],
+      "items": [
+        {
+          "name": "Otwarty scenariusz spektaklu",
+          "description": "Scenariusz „Kto zabił Króla Maciusia?”.",
+          "hints": "Zagadkowo odpowiada realnemu morderstwu."
+        }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "accusedName": "Felek Przyjazny",
+      "description": "Motyw: ambicja i korupcja.",
+      "isMurderer": false
+    },
+    {
+      "accusedName": "Marek Natacki",
+      "description": "Motyw: obsesyjny narcyzm.",
+      "isMurderer": false
+    },
+    {
+      "accusedName": "Karolina Szumowska",
+      "description": "Motyw: obrona teatru.",
+      "isMurderer": true
+    },
+    {
+      "accusedName": "Anna Osobliwa",
+      "description": "Motyw: skrajna presja i trauma.",
+      "isMurderer": false
+    },
+    {
+      "accusedName": "Lucy",
+      "description": "Motyw: nieznany cel, iluzja i manipulacja.",
+      "isMurderer": false
+    },
+    {
+      "accusedName": "Błazen Kazio",
+      "description": "Motyw: sztuka jako wyższa wartość.",
+      "isMurderer": false
+    }
+  ]
+}
