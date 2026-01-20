@@ -7,7 +7,7 @@ public class CurrentSaveManager : MonoBehaviour
 
 
     private CreatedGameDTO currentSave;
-    private bool isNewGame = true;
+    public static bool isNewGame = true;
 
     void Awake()
     {

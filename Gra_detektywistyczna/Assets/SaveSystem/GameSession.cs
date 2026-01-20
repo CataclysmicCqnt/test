@@ -51,4 +51,15 @@ public static class GameSession
         }
         return 0;
     }
+
+    public static void CleanSession()
+    {
+        CurrentScenarioName = string.Empty;
+        CurrentSceneNumber = 0;
+        MaxSceneNumber = 0;
+        CurrentScene = null;
+        PendingVerdictText = string.Empty;
+        PendingVerdictNpcName = string.Empty;
+        IsWin = false;
+    }
 }
