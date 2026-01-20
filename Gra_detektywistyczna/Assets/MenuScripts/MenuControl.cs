@@ -91,6 +91,7 @@ public class MenuControl : MonoBehaviour
             }
 
             SceneManager.LoadScene("NewGame");
+            await MenuControl.CurrentScene();
         }
         else
         {
@@ -175,7 +176,7 @@ public class MenuControl : MonoBehaviour
 
             BackgroundService.SetBackground(scene.Background);
 
-            GameSession.StartSession(GameSession.CurrentScenarioName, GameSession.CurrentSceneNumber + 1, scene);
+            GameSession.StartSession(GameSession.CurrentScenarioName, GameSession.CurrentSceneNumber, scene);
             SceneDTO context = new SceneDTO
             {
                 LocationName = GameSession.CurrentScenarioName,
