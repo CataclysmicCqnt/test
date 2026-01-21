@@ -1,6 +1,7 @@
 import json
 import multiprocessing
 import os
+import re
 from typing import Any, Dict, Iterator, Type
 import requests
 from pydantic import BaseModel
@@ -42,7 +43,7 @@ def getLlm():
             n_gpu_layers=settings.N_GPU_LAYERS,
             n_threads=threads,
             n_batch=512,
-            verbose=False
+            verbose=True
         )
         print("loaded successfully!")
 
@@ -87,10 +88,12 @@ def generateStructuredOutput(
 
     strict_system_prompt = f"""{systemPrompt}
 
-    WYMAGANY FORMAT ODPOWIEDZI (JSON SCHEMA):
-    {jsonSchema}
+    WYMAGANY FORMAT ODPOWIEDZI (JSON):
+    Musisz zwrócić pojedynczy obiekt JSON pasujący do poniższej schemy.
+    UWAGA: Zwróć wypełnioną instancję obiektu JSON, a NIE definicję schemy!
     
-    Odpowiadaj TYLKO czystym JSON zgodnym z tą schemą.
+    SCHEMA:
+    {jsonSchema}
     """
     messages = [
         {"role": "system", "content": strict_system_prompt},
@@ -106,6 +109,12 @@ def generateStructuredOutput(
         )
 
         content = output["choices"][0]["message"]["content"]
+
+        # Attempt to clean Markdown wrapping if present
+        if "```" in content:
+            match = re.search(r"```(?:json)?\s*(.*?)\s*```", content, re.DOTALL)
+            if match:
+                content = match.group(1).strip()
 
         parsedJson = json.loads(content)
 
