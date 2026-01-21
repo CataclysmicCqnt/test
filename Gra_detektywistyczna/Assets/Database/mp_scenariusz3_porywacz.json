@@ -36,7 +36,7 @@
     },
     {
       "name": "Scena 2 - Obrzeża miasta",
-      "background": "mpi-2-scena2",
+      "background": "mpi-3-scena2",
       "description": "Opuszczony teren budowy przy lesie. Noc, słychać odgłosy maszyn.",
       "npcs": [
         {
@@ -60,7 +60,7 @@
     },
     {
       "name": "Scena 3 - Sklep mięsny Bartka",
-      "background": "mpi-2-scena3",
+      "background": "mpi-3-scena3",
       "description": "Zaplecze sklepu rzeźniczego. Chłodnia, metalowe drzwi, cisza.",
       "npcs": [
         {
