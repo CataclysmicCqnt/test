@@ -192,8 +192,8 @@ public class DialogueEngineClient : IDisposable
         {
             return new VerdictResponseDTO()
             {
-                IsPlayerRight = false,
-                Speech = "Przegra³eœ"
+                isPlayerRight = false,
+                speech = "Przegra³eœ"
             };
         }
         string[] parameters = new string[2];
@@ -209,7 +209,7 @@ public class DialogueEngineClient : IDisposable
 
         string response = await SendCommandAsync(serializedMethodDTO);
 
-        var verdict = JsonUtility.FromJson(response, typeof(VerdictResponseDTO));
+        object verdict = JsonUtility.FromJson(response, typeof(VerdictResponseDTO));
         return verdict as VerdictResponseDTO;
     }
 

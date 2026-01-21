@@ -88,6 +88,7 @@ public class SummaryManager : MonoBehaviour
         if (_isButtonAlreadyClicked == true)
         {
             Debug.LogWarning("Nie klikaj! CZEKAJ! Widzisz, ¿e mieli!");
+            return;
         }
 
         if (string.IsNullOrEmpty(name)) return;
@@ -102,16 +103,16 @@ public class SummaryManager : MonoBehaviour
             return;
         }
 
-        if (string.IsNullOrWhiteSpace(verdict.Speech))
+        if (string.IsNullOrWhiteSpace(verdict.speech))
         {
-            verdict.Speech = "Nie ma wiadomoœci!";
+            verdict.speech = "Nie ma wiadomoœci!";
         }
 
-        Debug.Log($"IsPlayerRight: {verdict.IsPlayerRight}; Speech: {verdict.Speech}");
+        Debug.Log($"IsPlayerRight: {verdict.isPlayerRight}; Speech: {verdict.speech}");
 
         GameSession.PendingVerdictNpcName = name;
-        GameSession.IsWin = verdict.IsPlayerRight;
-        GameSession.PendingVerdictText = verdict.Speech;
+        GameSession.IsWin = verdict.isPlayerRight;
+        GameSession.PendingVerdictText = verdict.speech;
 
         SceneManager.LoadScene("EmptyScene");
     }

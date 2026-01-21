@@ -117,7 +117,12 @@ namespace AIClient
         {
 
             string json = JsonConvert.SerializeObject(verdictRequest);
-            return await StandardPostAsync(json, "/npc/verdict");
+            var response = await StandardPostAsync(json, "/npc/verdict");
+
+            if (string.IsNullOrEmpty(response)) return null;
+
+            var npcResponse = JsonConvert.DeserializeObject<VerdictResponseDTO>(response);
+            return JsonConvert.SerializeObject(npcResponse);
         }
 
         /// <summary>
