@@ -76,7 +76,7 @@ public class DialogueManager : MonoBehaviour
                 EnqueueDialogue(
                     new Dialogue(
                         "Narrator",
-                        "Pochodzisz do " + character.name + ", możesz zadać mu 3 pytania."
+                        "Podchodzisz do " + character.name + ", możesz zadać 3 pytania."
                     )
                 );
 
@@ -137,7 +137,7 @@ public class DialogueManager : MonoBehaviour
             EnqueueDialogue(
                 new Dialogue(
                     "Narrator",
-                    "Pochodzisz do " + character.name + ", możesz zadać mu 3 pytania."
+                    "Podchodzisz do " + character.name + ", możesz zadać 3 pytania."
                 )
             );
 
@@ -166,7 +166,7 @@ public class DialogueManager : MonoBehaviour
             EnqueueDialogue(
                 new Dialogue(
                     "Narrator",
-                    "Pochodzisz do " + character.name + ", możesz zadać mu 3 pytania."
+                    "Podchodzisz do " + character.name + ", możesz zadać 3 pytania."
                 )
             );
 
