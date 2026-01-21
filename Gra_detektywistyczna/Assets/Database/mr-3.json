@@ -1,0 +1,101 @@
+{
+  "scenes": [
+    {
+      "name": "Scena 1 – Scena Główna (Miejsce zbrodni)",
+      "background": "mr-3-1",
+      "description": "Mroczna scena starego teatru 'Maskon'. W świetle pojedynczego reflektora leży ciało dyrektora Maksymiliana Vossa, przygniecione ciężką kotarą.",
+      "npcs": [
+        {
+          "name": "Lena Maretti",
+          "role": "Główna aktorka",
+          "description": "Zrozpaczona Diva. Twierdzi, że Voss był geniuszem, mimo trudnego charakteru."
+        }
+      ],
+      "items": [
+        {
+          "name": "Przecięta lina",
+          "description": "Gruba lina podtrzymująca kotarę, wyraźnie nacięta ostrym narzędziem.",
+          "hints": "Zbrodnia nie była wypadkiem, lecz zaplanowanym działaniem."
+        },
+        {
+          "name": "Zegarek ofiary",
+          "description": "Zatrzymał się na godzinie 19:15 pod wpływem uderzenia.",
+          "hints": "Precyzyjny czas zgonu, kluczowy do weryfikacji alibi."
+        }
+      ]
+    },
+    {
+      "name": "Scena 2 – Garderoba (Skrywane urazy)",
+      "background": "mr-3-2",
+      "description": "Pomieszczenie pełne luster i kostiumów. Panuje tu zapach pudru i starych materiałów.",
+      "npcs": [
+        {
+          "name": "Piotr Kłos",
+          "role": "Scenograf / Rezerwowy",
+          "description": "Człowiek od wszystkiego. Wyraźnie unika wzroku detektywa."
+        }
+      ],
+      "items": [
+        {
+          "name": "Wypowiedzenie z pracy",
+          "description": "Dokument znaleziony w koszu, datowany na dzień dzisiejszy.",
+          "hints": "Voss zwolnił Piotra tuż przed śmiercią. Motyw zemsty."
+        }
+      ]
+    },
+    {
+      "name": "Scena 3 – Nadscenie (Mechanizmy)",
+      "background": "mr-3-3",
+      "description": "Wąskie kładki wysoko nad sceną, gdzie znajdują się mechanizmy sterujące dekoracjami.",
+      "npcs": [],
+      "items": [
+        {
+          "name": "Nóż do charakteryzacji",
+          "description": "Specyficzne narzędzie z wygrawerowanymi inicjałami 'L.M.', leżące obok uciętego fragmentu liny.",
+          "hints": "Nóż należy do Leny, ale czy to ona go tu zostawiła, by obciążyć siebie, czy ktoś ją wrabia?"
+        },
+        {
+          "name": "Pojemnik po oleju",
+          "description": "Puste opakowanie po smarze do maszyn.",
+          "hints": "Mechanizm kotary został celowo naoliwiony, by spadła szybciej i ciszej."
+        }
+      ]
+    },
+    {
+      "name": "Scena 4 – Finałowa Konfrontacja (Foyer)",
+      "background": "mr-3-4",
+      "description": "Eleganckie wejście do teatru. Wszyscy podejrzani są zebrani pod kryształowym żyrandolem.",
+      "npcs": [
+        {
+          "name": "Artur Szklany",
+          "role": "Producent",
+          "description": "Finansuje spektakl. Martwi się o straty finansowe bardziej niż o śmierć dyrektora."
+        }
+      ],
+      "items": [
+        {
+          "name": "Rejestr wejść",
+          "description": "Zapisy z portierni pokazujące, kto był w budynku o 19:15.",
+          "hints": "Lena była wtedy na scenie (próba monologu), Artur w biurze, a Piotra nikt nie widział."
+        }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "accusedName": "Lena Maretti",
+      "description": "Niesłusznie oskarżona o zbrodnię w afekcie z powodu rzekomej zazdrości o nową aktorkę. Chociaż jej nóż do charakteryzacji znaleziono przy przeciętej linie, rejestr wejść i świadkowie potwierdzają, że w czasie zgonu o 19:15 Lena brała udział w próbie monologu na scenie. Jej kariera zostaje zniszczona, a morderca pozostaje na wolności.",
+      "isMurderer": false
+    },
+    {
+      "accusedName": "Artur Szklany",
+      "description": "Niesłusznie oskarżony o morderstwo dla zysku z ubezpieczenia spektaklu. Artur unika oskarżenia dzięki twardemu alibi – operator telefoniczny potwierdza, że dokładnie w czasie uderzenia kotary (19:15) prowadził on rozmowę w biurze. Śledztwo zostaje zamknięte z powodu braku dowodów.",
+      "isMurderer": false
+    },
+    {
+      "accusedName": "Piotr Kłos",
+      "description": "Morderca. Wykorzystał znajomość mechanizmów nadscenia i naoliwił mechanizm kotary, by spadła szybciej i ciszej po otrzymaniu wypowiedzenia z pracy. Aby odsunąć od siebie podejrzenia, użył noża Leny do przecięcia liny. Przyznaje się do winy, twierdząc, że dyrektor Voss od lat niszczył ludzi.",
+      "isMurderer": true
+    }
+  ]
+}

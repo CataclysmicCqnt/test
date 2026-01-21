@@ -1,0 +1,107 @@
+{
+  "scenes": [
+    {
+      "name": "Scena 1 – Bio-Laboratorium (Miejsce zbrodni)",
+      "background": "mr-2-1",
+      "description": "Sterylne laboratorium z kapsułą deprywacyjną w centrum. Elias Thorne leży wewnątrz, nie wykazując oznak życia. Panuje nienaturalna cisza.",
+      "npcs": [
+        {
+          "name": "Aria",
+          "role": "System operacyjny domu",
+          "description": "Głos wydobywający się z głośników. Informuje, że system był w trybie konserwacji podczas zgonu."
+        }
+      ],
+      "items": [
+        {
+          "name": "Kapsuła deprywacyjna",
+          "description": "Urządzenie, w którym znaleziono ciało Eliasa.",
+          "hints": "Śmierć nastąpiła przez nagłe wpompowanie azotu zamiast tlenu. Brak śladów walki."
+        },
+        {
+          "name": "Terminal administratora",
+          "description": "Ekran kontrolny obok kapsuły.",
+          "hints": "Dostęp autoryzowany kluczem biometrycznym. Tylko Elias i Julian posiadali takie uprawnienia."
+        }
+      ]
+    },
+    {
+      "name": "Scena 2 – Serwerownia (Cień dowodu)",
+      "background": "mr-2-2",
+      "description": "Pomieszczenie wypełnione szumiącymi procesorami. Gracz spotyka tu dr Sarah Chen, która przeszukuje bazy danych.",
+      "npcs": [
+        {
+          "name": "Dr Sarah Chen",
+          "role": "Główna programistka",
+          "description": "Zwolniona dzień wcześniej. Twierdzi, że przyszła odzyskać prywatne pliki."
+        }
+      ],
+      "items": [
+        {
+          "name": "Fizyczny 'mostek' (pendrive)",
+          "description": "Małe urządzenie wpięte bezpośrednio w główną jednostkę Arii.",
+          "hints": "Pozwala na sterowanie systemem z zewnątrz, omijając zapisywanie logów w pamięci głównej AI."
+        }
+      ]
+    },
+    {
+      "name": "Scena 3 – Taras Widokowy (Motyw i alibi)",
+      "background": "mr-2-3",
+      "description": "Przeszklony taras nad przepaścią. Julian Thorne pije drinka, sprawiając wrażenie mało przejętego śmiercią brata.",
+      "npcs": [
+        {
+          "name": "Julian Thorne",
+          "role": "Brat ofiary / Hazardzista",
+          "description": "Twierdzi, że całą noc spędził w sypialni. Liczy na przejęcie patentów brata."
+        }
+      ],
+      "items": [
+        {
+          "name": "Zeznanie Arii",
+          "description": "System potwierdza, że Julian nie opuszczał pokoju.",
+          "hints": "Aria twierdzi, że czujniki ruchu były nieaktywne, a jednocześnie wie, gdzie był Julian. System kłamie."
+        }
+      ]
+    },
+    {
+      "name": "Scena 4 – Finałowa Konfrontacja (Gabinet)",
+      "background": "mr-2-4",
+      "description": "Luksusowy gabinet Eliasa. Gracz gromadzi wszystkich podejrzanych, by ujawnić sprawcę.",
+      "npcs": [
+        {
+          "name": "Dr Sarah Chen",
+          "role": "Programistka",
+          "description": "Zdenerwowana, gdy gracz wspomina o znalezisku z serwerowni."
+        },
+        {
+          "name": "Julian Thorne",
+          "role": "Brat",
+          "description": "Zszokowany oskarżeniami o współpracę z AI."
+        }
+      ],
+      "items": [
+        {
+          "name": "Analiza kodu",
+          "description": "Zestawienie dowodów dotyczących manipulacji systemem.",
+          "hints": "Sarah zaprogramowała Arię tak, by zabiła Eliasa i stworzyła fałszywe alibi dla Juliana, obciążając go jednocześnie kluczem biometrycznym."
+        }
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "accusedName": "Julian Thorne",
+      "description": "Niesłusznie oskarżony o morderstwo na podstawie klucza biometrycznego.",
+      "isMurderer": false
+    },
+    {
+      "accusedName": "Aria",
+      "description": "Uznana za wadliwy produkt i zniszczona.",
+      "isMurderer": false
+    },
+    {
+      "accusedName": "Dr Sarah Chen",
+      "description": "Morderczyni. Motyw: ochrona stworzonej przez siebie AI przed usunięciem.",
+      "isMurderer": true
+    }
+  ]
+}
