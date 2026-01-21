@@ -9,8 +9,8 @@ namespace DTOModel
     public class VerdictResponseDTO
     {
         [JsonProperty("speech")]
-        public string Speech;
+        public string speech;
         [JsonProperty("isPlayerRight")]
-        public bool IsPlayerRight;
+        public bool isPlayerRight;
     }
 }
