@@ -121,7 +121,7 @@ def chatWithNpcStream(data: NPCChatRequest):
 
     itemsList = ""
     for item in gameState.currentItems:
-        itemsList += f"- {item.name}: {item.description} (UKRYTA WIEDZA/WSKAZÓWKA: {item.hints})\n"
+        itemsList += f"- {item.name}: {item.description} (Wiedza/Wskazówka: {item.hints})\n"
 
     if not itemsList:
         itemsList = "Brak przedmiotów."
@@ -132,26 +132,25 @@ def chatWithNpcStream(data: NPCChatRequest):
     Twoje dane: {currentNpcDesc}
 
     KIM JEST TWÓJ ROZMÓWCA:
-    Rozmawiasz z Detektywem.
+    Rozmawiasz z Detektywem, który prowadzi śledztwo w sprawie zbrodni.
+    Traktuj go odpowiednio do swojej roli (np. jeśli jesteś podejrzany - bądź ostrożny, jeśli świadek - pomocny).
 
     Lokalizacja: {gameState.currentSceneDescription}
 
     Kto jest obok:
     {otherPeopleList}
 
-    Widoczne przedmioty (i Twoja wiedza o nich):
+    Widoczne przedmioty (i twoje myśli o nich):
     {itemsList}
 
     Historia rozmowy:
     {transcript}
 
-    ZASADY:
-    1. Traktuj "UKRYTA WIEDZA/WSKAZÓWKA" przy przedmiotach jako coś, co wiesz i możesz powiedzieć graczowi, aby mu pomóc (lub zmylić).
-    2. BĄDŹ KONKRETNY. Nie odpowiadaj pytaniem na pytanie.
-    3. Mów krótko i na temat.
-    4. Nie używaj słów typu "Jako model językowy".
-    5. Jeśli ktoś pyta o przedmiot, opisz go używając dostępnych Ci wskazówek.
-    6. WAŻNE: NIE UŻYWAJ FORMATU JSON. Odpowiadaj zwykłym tekstem.
+    ZASADY (BARDZO WAŻNE):
+    1. Jesteś żywym człowiekiem, improwizuj.
+    2. NIGDY nie pisz, że jesteś AI.
+    3. Mów krótko, naturalnie i tylko po polsku.
+    4. WAŻNE: NIE UŻYWAJ FORMATU JSON. Odpowiadaj zwykłym tekstem, tak jakbyś mówił.
     """
 
     userPrompt = f"Gracz pyta: \"{data.userText}\". Odpowiedz jako {data.npcName}."
@@ -211,34 +210,24 @@ def getGameVerdict(request: VerdictRequest):
     ZADANIE:
     Napisz krótkie podsumowanie dla gracza (maksymalnie 3 zdania).
     Opisz konsekwencje wyboru na podstawie "Opisu sytuacji".
-    Bądź surowy i klimatyczny. Pamiętaj, aby tekst umieścić w polu "speech".
+    Bądź surowy i klimatyczny.
+    
+    Odpowiedz JSONem: {{"speech": "Twoje podsumowanie...", "isPlayerRight": {str(selectedEnding.isMurderer).lower()}}}
     """
 
     userPrompt = "Wydaj werdykt."
 
     try:
-        # Pytamy AI tylko o tekst (speech), bo wynik (isPlayerRight) znamy z logiki gry
         response = generateStructuredOutput(
             systemPrompt,
             userPrompt,
-            NPCChatResponse
+            VerdictResponse
         )
-        
-        final_speech = response.get('speech', '').strip()
-        
-        # Fallback if AI returns empty string
-        if not final_speech:
-            print(" [WARNING] AI returned empty verdict. Using description fallback.")
-            final_speech = selectedEnding.description
 
-        return {
-            "speech": final_speech,
-            "isPlayerRight": selectedEnding.isMurderer
-        }
+        response['isPlayerRight'] = selectedEnding.isMurderer
+        return response
 
-    except Exception as e:
-        print(f" [ERROR] Verdict generation failed: {e}")
-
+    except Exception:
 
         return {
             "speech": selectedEnding.description,
